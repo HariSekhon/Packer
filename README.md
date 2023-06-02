@@ -50,7 +50,10 @@ The primary templates are for the main Linux operating systems:
 
 - Ubuntu
 - Debian
-- Redhat Enterprise Linux (RHEL) / CentOS / Fedora (RHEL requires licensing and CentOS is end of life, so the build uses Fedora)
+- Redhat
+  - Redhat Enterprise Linux (RHEL)
+  - CentOS (end-of-life)
+  - Fedora
 
 Builds can be done in any number of different virtualization systems, the following are provided depending on your preferences:
 
