@@ -88,7 +88,7 @@ packer_debian_*_sha512.checksum
 You can then just import the `debian.ova` file on any virtualization platform such as VMware vSphere or your local VirtualBox.
 
 
-## Easily Customization
+## Easy Customization
 
 Once you're happy with how easy it is to build any distro's VM, you can then tweak the corresponding text files for that distro eg.
 
