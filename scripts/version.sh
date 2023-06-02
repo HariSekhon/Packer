@@ -23,4 +23,8 @@ if [ "$EUID" -ne 0 ]; then
     sudo=sudo
 fi
 
+echo "Environment:"
+echo
+env
+echo
 echo "Built using Packer version '${packer_version}'" | $sudo tee /etc/packer-version
