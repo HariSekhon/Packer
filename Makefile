@@ -33,6 +33,7 @@ build: init
 	@echo ================
 	@#$(MAKE) git-summary
 	@echo
+	$(MAKE) packer
 
 .PHONY: init
 init:
@@ -40,9 +41,49 @@ init:
 	git submodule update --init --recursive
 	@echo
 
-.PHONY: install
-install: build
-	@:
+.PHONY: packer
+packer:
+	$(MAKE) debian
+	@echo
+	$(MAKE) ubuntu
+	@echo
+	$(MAKE) fedora
+
+.PHONY: debian
+debian:
+	VBoxManage unregistervm debian --delete 2>/dev/null || :
+	packer build --force debian-vbox.pkr.hcl
+
+.PHONY: fedora
+fedora:
+	VBoxManage unregistervm fedora --delete 2>/dev/null || :
+	packer build --force fedora.pkr.hcl
+
+.PHONY: ubuntu
+ubuntu:
+	VBoxManage unregistervm ubuntu --delete 2>/dev/null || :
+	packer build --force ubuntu.pkr.hcl
+
+# if you really want to check it locally before pushing - otherwise just let the CI/CD workflows run and check the README badge statuses
+.PHONY: lint
+lint:
+	$(MAKE) autoinstall-lint
+	@echo
+	$(MAKE) kickstart-lint
+	@echo
+	$(MAKE) preseed-lint
+
+.PHONY: autoinstall-lint
+autoinstall-lint:
+	docker run -ti -v "$$PWD:/pwd" -w /pwd -e DEBIAN_FRONTEND=noninteractive ubuntu:latest bash -c 'apt-get update && apt-get install cloud-init -y && echo && cloud-init schema --config-file installers/autoinstall-user-data'
+
+.PHONY: kickstart-lint
+kickstart-lint:
+	docker run -ti -v "$$PWD:/pwd" -w /pwd fedora:latest bash -c 'dnf install pykickstart -y && ksvalidator installers/anaconda-ks.cfg'
+
+.PHONY: preseed-lint
+preseed-lint:
+	docker run -ti -v "$$PWD:/pwd" -w /pwd -e DEBIAN_FRONTEND=noninteractive debian:latest bash -c 'apt-get update && apt-get install debconf -y && echo && debconf-set-selections -c installers/preseed.cfg'
 
 .PHONY: test
 test:
