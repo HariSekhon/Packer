@@ -18,7 +18,7 @@
 # 'packer' command must be run from the same directory as this file so the anaconda-ks.cfg provided is auto-served via HTTP
 
 # ============================================================================ #
-#                        H a s h i C o r p   P a c k e r
+#            P a c k e r   -   F e d o r a   -   V i r t u a l B o x
 # ============================================================================ #
 
 packer {
