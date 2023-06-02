@@ -41,25 +41,12 @@ on:
 permissions:
   contents: read
 
-concurrency:
-  group: ${{ github.ref }}-${{ github.workflow }}
-  cancel-in-progress: true
-
-defaults:
-  run:
-    shell: bash -euxo pipefail {0}
-
 jobs:
   packer:
     name: Packer
-    timeout-minutes: 10
-    runs-on: ubuntu-latest
-    container: hashicorp/packer:light
-    steps:
-      - uses: actions/checkout@v3
-        #name: Git Checkout  # better to show the action@version
-
-      - name: Validate template.pkr.hcl
-        run: |
-          packer init     template.pkr.hcl
-          packer validate template.pkr.hcl
+    uses: HariSekhon/GitHub-Actions/.github/workflows/packer.yaml@master
+    with:
+      files: |
+        debian-vbox.pkr.hcl
+        fedora-vbox.pkr.hcl
+        ubuntu-vbox.pkr.hcl
