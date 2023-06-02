@@ -1,17 +1,17 @@
 # Hari Sekhon - Template Repo
 
-[![GitHub stars](https://img.shields.io/github/stars/HariSekhon/Template-Repo?logo=github)](https://github.com/HariSekhon/Template-Repo/stargazers)
-[![GitHub forks](https://img.shields.io/github/forks/HariSekhon/Template-Repo?logo=github)](https://github.com/HariSekhon/Template-Repo/network)
-[![Lines of Code](https://img.shields.io/badge/lines%20of%20code-1k-lightgrey?logo=codecademy)](https://github.com/HariSekhon/Template-Repo#Hari-Sekhon---Template-Repo)
-[![License](https://img.shields.io/badge/license-MIT-green)](https://github.com/HariSekhon/Template-Repo/blob/master/LICENSE)
-[![GitHub Last Commit](https://img.shields.io/github/last-commit/HariSekhon/Template-Repo?logo=github)](https://github.com/HariSekhon/Template-Repo/commits/master)
+[![GitHub stars](https://img.shields.io/github/stars/HariSekhon/Packer-templates?logo=github)](https://github.com/HariSekhon/Packer-templates/stargazers)
+[![GitHub forks](https://img.shields.io/github/forks/HariSekhon/Packer-templates?logo=github)](https://github.com/HariSekhon/Packer-templates/network)
+[![Lines of Code](https://img.shields.io/badge/lines%20of%20code-1k-lightgrey?logo=codecademy)](https://github.com/HariSekhon/Packer-templates#Hari-Sekhon---Packer-templates)
+[![License](https://img.shields.io/badge/license-MIT-green)](https://github.com/HariSekhon/Packer-templates/blob/master/LICENSE)
+[![GitHub Last Commit](https://img.shields.io/github/last-commit/HariSekhon/Packer-templates?logo=github)](https://github.com/HariSekhon/Packer-templates/commits/master)
 
-[![Codacy](https://app.codacy.com/project/badge/Grade/dffc1bfd13404c95b5a0ab97fd47974e)](https://www.codacy.com/gh/HariSekhon/Template-Repo/dashboard)
-[![CodeFactor](https://www.codefactor.io/repository/github/harisekhon/Template-Repo/badge)](https://www.codefactor.io/repository/github/harisekhon/Template-Repo)
-[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=HariSekhon_Template-Repo&metric=alert_status)](https://sonarcloud.io/dashboard?id=HariSekhon_Template-Repo)
-[![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=HariSekhon_Template-Repo&metric=sqale_rating)](https://sonarcloud.io/dashboard?id=HariSekhon_Template-Repo)
-[![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=HariSekhon_Template-Repo&metric=reliability_rating)](https://sonarcloud.io/dashboard?id=HariSekhon_Template-Repo)
-[![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=HariSekhon_Template-Repo&metric=security_rating)](https://sonarcloud.io/dashboard?id=HariSekhon_Template-Repo)
+[![Codacy](https://app.codacy.com/project/badge/Grade/dffc1bfd13404c95b5a0ab97fd47974e)](https://www.codacy.com/gh/HariSekhon/Packer-templates/dashboard)
+[![CodeFactor](https://www.codefactor.io/repository/github/harisekhon/Packer-templates/badge)](https://www.codefactor.io/repository/github/harisekhon/Packer-templates)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=HariSekhon_Packer-templates&metric=alert_status)](https://sonarcloud.io/dashboard?id=HariSekhon_Packer-templates)
+[![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=HariSekhon_Packer-templates&metric=sqale_rating)](https://sonarcloud.io/dashboard?id=HariSekhon_Packer-templates)
+[![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=HariSekhon_Packer-templates&metric=reliability_rating)](https://sonarcloud.io/dashboard?id=HariSekhon_Packer-templates)
+[![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=HariSekhon_Packer-templates&metric=security_rating)](https://sonarcloud.io/dashboard?id=HariSekhon_Packer-templates)
 
 ![Python](https://img.shields.io/badge/Python-3-blue)
 [![Linux](https://img.shields.io/badge/OS-Linux-blue?logo=linux)](https://github.com/HariSekhon/DevOps-Bash-tools#hari-sekhon---devops-bash-tools)
@@ -26,21 +26,21 @@
 
 [![CI Builds Overview](https://img.shields.io/badge/CI%20Builds-Overview%20Page-blue?logo=circleci)](https://harisekhon.github.io/CI-CD/)
 TODO: Replace Azure DevOps Pipeline ID here
-[![Azure DevOps Pipeline](https://dev.azure.com/harisekhon/GitHub/_apis/build/status%2FTemplate-Repo?branchName=master)](https://dev.azure.com/harisekhon/GitHub/_build/latest?definitionId=15&branchName=master)
-[![GitLab Pipeline](https://img.shields.io/badge/GitLab%20CI-legacy-lightgrey?logo=gitlab)](https://gitlab.com/HariSekhon/Template-Repo/pipelines)
-[![BitBucket Pipeline](https://img.shields.io/badge/Bitbucket%20CI-legacy-lightgrey?logo=bitbucket)](https://bitbucket.org/HariSekhon/Template-Repo/addon/pipelines/home#!/)
+[![Azure DevOps Pipeline](https://dev.azure.com/harisekhon/GitHub/_apis/build/status%2FPacker-templates?branchName=master)](https://dev.azure.com/harisekhon/GitHub/_build/latest?definitionId=15&branchName=master)
+[![GitLab Pipeline](https://img.shields.io/badge/GitLab%20CI-legacy-lightgrey?logo=gitlab)](https://gitlab.com/HariSekhon/Packer-templates/pipelines)
+[![BitBucket Pipeline](https://img.shields.io/badge/Bitbucket%20CI-legacy-lightgrey?logo=bitbucket)](https://bitbucket.org/HariSekhon/Packer-templates/addon/pipelines/home#!/)
 
-[![Repo on Azure DevOps](https://img.shields.io/badge/repo-Azure%20DevOps-0078D7?logo=azure%20devops)](https://dev.azure.com/HariSekhon/GitHub/_git/Template-Repo)
-[![Repo on GitHub](https://img.shields.io/badge/repo-GitHub-2088FF?logo=github)](https://github.com/HariSekhon/Template-Repo)
-[![Repo on GitLab](https://img.shields.io/badge/repo-GitLab-FCA121?logo=gitlab)](https://gitlab.com/HariSekhon/Template-Repo)
-[![Repo on BitBucket](https://img.shields.io/badge/repo-BitBucket-0052CC?logo=bitbucket)](https://bitbucket.org/HariSekhon/Template-Repo)
+[![Repo on Azure DevOps](https://img.shields.io/badge/repo-Azure%20DevOps-0078D7?logo=azure%20devops)](https://dev.azure.com/HariSekhon/GitHub/_git/Packer-templates)
+[![Repo on GitHub](https://img.shields.io/badge/repo-GitHub-2088FF?logo=github)](https://github.com/HariSekhon/Packer-templates)
+[![Repo on GitLab](https://img.shields.io/badge/repo-GitLab-FCA121?logo=gitlab)](https://gitlab.com/HariSekhon/Packer-templates)
+[![Repo on BitBucket](https://img.shields.io/badge/repo-BitBucket-0052CC?logo=bitbucket)](https://bitbucket.org/HariSekhon/Packer-templates)
 
-[![Validation](https://github.com/HariSekhon/Template-Repo/actions/workflows/validate.yaml/badge.svg)](https://github.com/HariSekhon/Template-Repo/actions/workflows/validate.yaml)
-[![Kics](https://github.com/HariSekhon/Template-Repo/actions/workflows/kics.yaml/badge.svg)](https://github.com/HariSekhon/Template-Repo/actions/workflows/kics.yaml)
-[![Grype](https://github.com/HariSekhon/Template-Repo/actions/workflows/grype.yaml/badge.svg)](https://github.com/HariSekhon/Template-Repo/actions/workflows/grype.yaml)
-[![Semgrep](https://github.com/HariSekhon/Template-Repo/actions/workflows/semgrep.yaml/badge.svg)](https://github.com/HariSekhon/Template-Repo/actions/workflows/semgrep.yaml)
-[![Semgrep Cloud](https://github.com/HariSekhon/Template-Repo/actions/workflows/semgrep-cloud.yaml/badge.svg)](https://github.com/HariSekhon/Template-Repo/actions/workflows/semgrep-cloud.yaml)
-[![Trivy](https://github.com/HariSekhon/Template-Repo/actions/workflows/trivy.yaml/badge.svg)](https://github.com/HariSekhon/Template-Repo/actions/workflows/trivy.yaml)
+[![Validation](https://github.com/HariSekhon/Packer-templates/actions/workflows/validate.yaml/badge.svg)](https://github.com/HariSekhon/Packer-templates/actions/workflows/validate.yaml)
+[![Kics](https://github.com/HariSekhon/Packer-templates/actions/workflows/kics.yaml/badge.svg)](https://github.com/HariSekhon/Packer-templates/actions/workflows/kics.yaml)
+[![Grype](https://github.com/HariSekhon/Packer-templates/actions/workflows/grype.yaml/badge.svg)](https://github.com/HariSekhon/Packer-templates/actions/workflows/grype.yaml)
+[![Semgrep](https://github.com/HariSekhon/Packer-templates/actions/workflows/semgrep.yaml/badge.svg)](https://github.com/HariSekhon/Packer-templates/actions/workflows/semgrep.yaml)
+[![Semgrep Cloud](https://github.com/HariSekhon/Packer-templates/actions/workflows/semgrep-cloud.yaml/badge.svg)](https://github.com/HariSekhon/Packer-templates/actions/workflows/semgrep-cloud.yaml)
+[![Trivy](https://github.com/HariSekhon/Packer-templates/actions/workflows/trivy.yaml/badge.svg)](https://github.com/HariSekhon/Packer-templates/actions/workflows/trivy.yaml)
 
 
 PUT CONTENT HERE
