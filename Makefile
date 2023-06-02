@@ -4,7 +4,7 @@
 #
 #  vim:ts=4:sts=4:sw=4:noet
 #
-#  https://github.com/HariSekhon/Template-Repo
+#  https://github.com/HariSekhon/Packer-templates
 #
 #  If you're using my code you're welcome to connect with me on LinkedIn and optionally send me feedback
 #
@@ -36,7 +36,7 @@ ifneq ("$(wildcard bash-tools/Makefile.in)", "")
 	include bash-tools/Makefile.in
 endif
 
-Template-Repo := HariSekhon/Template-Repo
+Packer-templates := HariSekhon/Packer-templates
 
 CODE_FILES := $(shell git ls-files | grep -E -e '\.sh$$' -e '\.py$$' | sort)
 
@@ -73,7 +73,7 @@ python:
 	@echo
 	$(MAKE) pycompile
 	@echo
-	@echo 'BUILD SUCCESSFUL (Template-Repo)'
+	@echo 'BUILD SUCCESSFUL (Packer-templates)'
 
 .PHONY: test
 test:
