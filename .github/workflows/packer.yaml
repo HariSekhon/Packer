@@ -25,7 +25,7 @@ on:
       - master
       - main
     paths:
-      - template.pkr.hcl
+      - '*.pkr.hcl'
       - .github/workflows/packer.yaml  # this workflow
 
   pull_request:
@@ -33,7 +33,7 @@ on:
       - master
       - main
     paths:
-      - template.pkr.hcl
+      - '*.pkr.hcl'
       - .github/workflows/packer.yaml  # this workflow
 
   workflow_dispatch:
