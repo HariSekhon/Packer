@@ -46,7 +46,4 @@ jobs:
     name: Packer
     uses: HariSekhon/GitHub-Actions/.github/workflows/packer.yaml@master
     with:
-      files: |
-        debian-vbox.pkr.hcl \
-        fedora-vbox.pkr.hcl \
-        ubuntu-vbox.pkr.hcl \
+      files: '*.pkr.hcl'
