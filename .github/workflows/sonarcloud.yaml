@@ -24,11 +24,14 @@ on:
     branches:
       - master
       - main
+    paths-ignore:
+      - '**/*.md'
   pull_request:
-    types:
-      - opened
-      - synchronize
-      - reopened
+    branches:
+      - master
+      - main
+    paths-ignore:
+      - '**/*.md'
 jobs:
   sonarcloud:
     name: SonarCloud
