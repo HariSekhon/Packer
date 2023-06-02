@@ -13,7 +13,7 @@
 [![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=HariSekhon_Packer-templates&metric=reliability_rating)](https://sonarcloud.io/dashboard?id=HariSekhon_Packer-templates)
 [![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=HariSekhon_Packer-templates&metric=security_rating)](https://sonarcloud.io/dashboard?id=HariSekhon_Packer-templates)
 
-![Python](https://img.shields.io/badge/Python-3-blue)
+![HCL](https://img.shields.io/badge/Hashicorp%20Packer-HCL-blue)
 [![Linux](https://img.shields.io/badge/OS-Linux-blue?logo=linux)](https://github.com/HariSekhon/DevOps-Bash-tools#hari-sekhon---devops-bash-tools)
 [![Mac](https://img.shields.io/badge/OS-Mac-blue?logo=apple)](https://github.com/HariSekhon/DevOps-Bash-tools#hari-sekhon---devops-bash-tools)
 
@@ -44,21 +44,64 @@
 
 Packer templates for building portable OVA virtual machines images.
 
-In the age of IoT systems - which often require some on-premise - you still need base systems on which to build, even if everything else lives in [Kubernetes](https://github.com/HariSekhon/Kubernetes-configs), whether portal virtual machines (OVA format) or bare metal servers using [automated installers](https://github.com/HariSekhon/Packer-templates/tree/main/installers).
+Useful for IoT edge sites, [Kubernetes](https://github.com/HariSekhon/Kubernetes-configs) base servers etc.
 
-The primary templates are for the main Linux operating systems:
+Bare metal servers can be installed using each Linux distro's native [automated installers](https://github.com/HariSekhon/Packer-templates/tree/main/installers).
 
-- Ubuntu
-- Debian
-- Redhat
+Virtual Machines as appliances in portable OVA format are 100% automated using the installers above.
+
+The primary templates are for the main Linux distributions:
+
+- Ubuntu - using Ubuntu [AutoInstaller](https://github.com/HariSekhon/Packer-templates/blob/main/installers/autoinstall-user-data)
+- Debian - using Debian [Preseeding](https://github.com/HariSekhon/Packer-templates/blob/main/installers/preseed.cfg)
+- Redhat - using Redhat [Kickstart](https://github.com/HariSekhon/Packer-templates/blob/main/installers/anaconda-ks.cfg)
   - Redhat Enterprise Linux (RHEL)
   - CentOS (end-of-life)
   - Fedora
 
-Builds can be done in any number of different virtualization systems, the following are provided depending on your preferences:
+VM OVA appliances can be created in any number of different virtualization systems supported by Packer.
+
+The following are provided depending in this repo:
 
 - Qemu
 - VirtualBox (doesn't work on ARM processors, use Qemu instead)
+  - [debian-vbox.pkr.hcl](https://github.com/HariSekhon/Packer-templates/blob/main/debian-vbox.pkr.hcl)
+  - [fedora-vbox.pkr.hcl](https://github.com/HariSekhon/Packer-templates/blob/main/fedora-vbox.pkr.hcl)
+  - [ubuntu-vbox.pkr.hcl](https://github.com/HariSekhon/Packer-templates/blob/main/ubuntu-vbox.pkr.hcl)
+
+## Quick Start
+
+Running `make <distro>` will build the portable virtual machine OVA for that Linux distribution 100% automated using that distro's native installer's automation method:
+
+```shell
+make debian
+```
+
+results in:
+
+```
+output-debian/debian.ova
+packer_debian_*_md5.checksum
+packer_debian_*_sha512.checksum
+```
+
+You can then just import the `debian.ova` file on any virtualization platform such as VMware vSphere or your local VirtualBox.
+
+
+## Easy Customization
+
+Tweak the corresponding text files for that distro eg.
+
+```
+*.pkr.hcl
+installers/*
+scripts/*
+```
+and then re-run
+
+```shell
+make <distro>
+```
 
 
 ## See Also
