@@ -48,9 +48,9 @@ In the age of IoT systems - which often require some on-premise - you still need
 
 The primary templates are for the main Linux operating systems:
 
-- Ubuntu
-- Debian
-- Redhat
+- Ubuntu - using Ubuntu [AutoInstaller](https://github.com/HariSekhon/Packer-templates/blob/main/installers/autoinstall-user-data)
+- Debian - using Debian [Preseeding](https://github.com/HariSekhon/Packer-templates/blob/main/installers/preseed.cfg)
+- Redhat - using Redhat [Kickstart](https://github.com/HariSekhon/Packer-templates/blob/main/installers/anaconda-ks.cfg)
   - Redhat Enterprise Linux (RHEL)
   - CentOS (end-of-life)
   - Fedora
