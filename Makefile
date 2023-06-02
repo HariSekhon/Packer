@@ -54,4 +54,4 @@ clean:
 
 .PHONY: wc
 wc:
-	wc -l *.pkr.hcl installers/* scripts/*
+	ls *.pkr.hcl installers/* scripts/* | grep -v README | xargs wc -l
