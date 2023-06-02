@@ -49,4 +49,4 @@ jobs:
       files: |
         debian-vbox.pkr.hcl \
         fedora-vbox.pkr.hcl \
-        ubuntu-vbox.pkr.hcl
+        ubuntu-vbox.pkr.hcl \
