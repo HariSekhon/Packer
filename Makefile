@@ -57,12 +57,12 @@ debian:
 .PHONY: fedora
 fedora:
 	VBoxManage unregistervm fedora --delete 2>/dev/null || :
-	packer build --force fedora.pkr.hcl
+	packer build --force fedora-vbox.pkr.hcl
 
 .PHONY: ubuntu
 ubuntu:
 	VBoxManage unregistervm ubuntu --delete 2>/dev/null || :
-	packer build --force ubuntu.pkr.hcl
+	packer build --force ubuntu-vbox.pkr.hcl
 
 # if you really want to check it locally before pushing - otherwise just let the CI/CD workflows run and check the README badge statuses
 .PHONY: lint
