@@ -43,7 +43,20 @@ TODO: Replace Azure DevOps Pipeline ID here
 [![Trivy](https://github.com/HariSekhon/Packer-templates/actions/workflows/trivy.yaml/badge.svg)](https://github.com/HariSekhon/Packer-templates/actions/workflows/trivy.yaml)
 
 
-PUT CONTENT HERE
+Packer templates for building portable OVA virtual machines images.
+
+As an early [Docker](Dockerfiles) adopter I'd avoided Packer for years, but it turns out that IoT edge sites need VMs to run the base systems even if everything else lives in [Kubernetes](https://github.com/HariSekhon/Kubernetes-configs).
+
+The primary templates are for the main Linux operating systems:
+
+- Ubuntu
+- Debian
+- Redhat Enterprise Linux (RHEL) / CentOS / Fedora (RHEL requires licensing and CentOS is end of life, so the build uses Fedora)
+
+Builds can be done in any number of different virtualization systems, the following are provided depending on your preferences:
+
+- Qemu
+- VirtualBox (doesn't work on ARM processors, use Qemu instead)
 
 
 For tonnes of great free tech programs and scripts, see also:
