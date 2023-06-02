@@ -106,6 +106,7 @@ build {
     ]
     execute_command = "echo 'packer' | sudo -S -E bash '{{ .Path }}' '${packer.version}'"
   }
+
   provisioner "shell" {
     inline = [
       "cp -fv /var/log/installer/autoinstall-user-data /mnt/vboxsf/",
