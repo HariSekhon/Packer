@@ -22,7 +22,7 @@ ifneq ("$(wildcard bash-tools/Makefile.in)", "")
 	include bash-tools/Makefile.in
 endif
 
-Packer-templates := HariSekhon/Packer-templates
+REPO := HariSekhon/Packer-templates
 
 CODE_FILES := $(shell git ls-files | grep -E -e '\.sh$$' -e '\.py$$' | sort)
 
