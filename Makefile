@@ -72,6 +72,8 @@ lint:
 	$(MAKE) kickstart-lint
 	@echo
 	$(MAKE) preseed-lint
+	@echo
+	@echo "Linting passed"
 
 .PHONY: autoinstall-lint
 autoinstall-lint:
