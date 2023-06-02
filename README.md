@@ -63,6 +63,36 @@ Builds can be done in any number of different virtualization systems, the follow
   - [fedora-vbox.pkr.hcl](https://github.com/HariSekhon/Packer-templates/blob/main/fedora-vbox.pkr.hcl)
   - [ubuntu-vbox.pkr.hcl](https://github.com/HariSekhon/Packer-templates/blob/main/ubuntu-vbox.pkr.hcl)
 
+## Quick Start
+
+Running `make <distro>` will build the portable virtual machine OVA for that Linux distribution 100% automated using that distro's native installer's automation method:
+
+```
+make debian
+```
+
+results in:
+
+```
+output-debian/debian.ova
+packer_debian_*_md5.checksum
+packer_debian_*_sha512.checksum
+```
+
+You can then just import the `debian.ova` file on any virtualization platform such as VMware vSphere or your local VirtualBox.
+
+
+## Easily Customization
+
+Once you're happy with how easy it is to build any distro's VM, you can then tweak the corresponding text files for that distro eg.
+
+```
+*.pkr.hcl
+installers/*
+scripts/*
+```
+and then re-run `make <distro>`.
+
 
 ## See Also
 
