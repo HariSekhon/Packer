@@ -93,7 +93,7 @@ test:
 
 .PHONY: clean
 clean:
-	@rm -fv -- outputs-*
+	@rm -frv -- output-* *.checksum
 
 .PHONY: wc
 wc:
