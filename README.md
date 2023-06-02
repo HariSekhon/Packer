@@ -46,7 +46,7 @@ Packer templates for building portable OVA virtual machines images.
 
 In the age of IoT systems - which often require some on-premise - you still need base systems on which to build, even if everything else lives in [Kubernetes](https://github.com/HariSekhon/Kubernetes-configs), whether portal virtual machines (OVA format) or bare metal servers using [automated installers](https://github.com/HariSekhon/Packer-templates/tree/main/installers).
 
-The primary templates are for the main Linux operating systems:
+The primary templates are for the main Linux distributions:
 
 - Ubuntu - using Ubuntu [AutoInstaller](https://github.com/HariSekhon/Packer-templates/blob/main/installers/autoinstall-user-data)
 - Debian - using Debian [Preseeding](https://github.com/HariSekhon/Packer-templates/blob/main/installers/preseed.cfg)
