@@ -57,6 +57,7 @@ The primary templates are for the main Linux distributions:
 - Redhat - using Redhat [Kickstart](https://github.com/HariSekhon/Packer-templates/blob/main/installers/anaconda-ks.cfg)
   - Redhat Enterprise Linux (RHEL)
   - CentOS (end-of-life)
+  - Rocky Linux (CentOS replacement)
   - Fedora
 
 VM OVA appliances can be created in any number of different virtualization systems supported by Packer.
