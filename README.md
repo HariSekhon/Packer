@@ -42,6 +42,10 @@ TODO: Replace Azure DevOps Pipeline ID here
 [![Semgrep Cloud](https://github.com/HariSekhon/Packer-templates/actions/workflows/semgrep-cloud.yaml/badge.svg)](https://github.com/HariSekhon/Packer-templates/actions/workflows/semgrep-cloud.yaml)
 [![Trivy](https://github.com/HariSekhon/Packer-templates/actions/workflows/trivy.yaml/badge.svg)](https://github.com/HariSekhon/Packer-templates/actions/workflows/trivy.yaml)
 
+[![HashiCorp Packer](https://github.com/HariSekhon/Packer-templates/actions/workflows/packer.yaml/badge.svg)](https://github.com/HariSekhon/Packer-templates/actions/workflows/packer.yaml)
+[![Redhat Kickstart](https://github.com/HariSekhon/Packer-templates/actions/workflows/kickstart.yaml/badge.svg)](https://github.com/HariSekhon/Packer-templates/actions/workflows/kickstart.yaml)
+[![Debian Preseed](https://github.com/HariSekhon/Packer-templates/actions/workflows/preseed.yaml/badge.svg)](https://github.com/HariSekhon/Packer-templates/actions/workflows/preseed.yaml)
+[![Ubuntu AutoInstall Cloud-Init](https://github.com/HariSekhon/Packer-templates/actions/workflows/autoinstall-user-data.yaml/badge.svg)](https://github.com/HariSekhon/Packer-templates/actions/workflows/autoinstall-user-data.yaml)
 
 Packer templates for building portable OVA virtual machines images.
 
