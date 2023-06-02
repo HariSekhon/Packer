@@ -43,7 +43,7 @@ source "virtualbox-iso" "fedora" {
   memory               = 3072
   disk_size            = 40000
   disk_additional_size = []
-  http_directory       = "."
+  http_directory       = "installers"
   boot_wait            = "5s"
   boot_command = [
     "<up><wait>",
