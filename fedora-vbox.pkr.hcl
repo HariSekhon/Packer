@@ -76,15 +76,7 @@ build {
   # https://developer.hashicorp.com/packer/docs/provisioners/shell-local
   #
   provisioner "shell-local" {
-    inline = [
-      "env | grep PACKER || :",
-      "echo Build UUID ${build.PackerRunUUID}",
-      "echo Source '${source.name}' type '${source.type}'",
-      "echo Creating ~/vboxsf",
-      "mkdir -p -v ~/vboxsf",
-      "echo Adding shared folder to VM",
-      "VBoxManage sharedfolder add $PACKER_BUILD_NAME --name vboxsf --hostpath ~/vboxsf --automount --transient",
-    ]
+    script = "./scripts/local.sh"
   }
 
   # https://developer.hashicorp.com/packer/docs/provisioners/shell
