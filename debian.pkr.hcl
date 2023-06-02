@@ -15,7 +15,7 @@
 
 # Uses adjacent Debian Preseed from installers/
 #
-# 'packer' command must be run from the same directory as this file so the preseed.cfg provided are auto-served via HTTP
+# 'packer' command must be run from the same directory as this file so the preseed.cfg provided is auto-served via HTTP
 
 # ============================================================================ #
 #            P a c k e r   -   D e b i a n   -   V i r t u a l B o x
