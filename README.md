@@ -6,7 +6,7 @@
 [![License](https://img.shields.io/badge/license-MIT-green)](https://github.com/HariSekhon/Packer-templates/blob/master/LICENSE)
 [![GitHub Last Commit](https://img.shields.io/github/last-commit/HariSekhon/Packer-templates?logo=github)](https://github.com/HariSekhon/Packer-templates/commits/master)
 
-[![Codacy](https://app.codacy.com/project/badge/Grade/dffc1bfd13404c95b5a0ab97fd47974e)](https://www.codacy.com/gh/HariSekhon/Packer-templates/dashboard)
+[![Codacy](https://app.codacy.com/project/badge/Grade/19fb3e1bf45f494fb7332d4829cb3cd6)](https://www.codacy.com/gh/HariSekhon/Packer-templates/dashboard)
 [![CodeFactor](https://www.codefactor.io/repository/github/harisekhon/Packer-templates/badge)](https://www.codefactor.io/repository/github/harisekhon/Packer-templates)
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=HariSekhon_Packer-templates&metric=alert_status)](https://sonarcloud.io/dashboard?id=HariSekhon_Packer-templates)
 [![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=HariSekhon_Packer-templates&metric=sqale_rating)](https://sonarcloud.io/dashboard?id=HariSekhon_Packer-templates)
