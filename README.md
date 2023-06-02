@@ -24,17 +24,12 @@
 [![Redhat](https://img.shields.io/badge/Linux-Redhat-red?logo=red%20hat)](https://www.redhat.com/en)
 [![Ubuntu](https://img.shields.io/badge/Linux-Ubuntu-orange?logo=ubuntu&logoColor=white)](https://ubuntu.com/)
 
-[![CI Builds Overview](https://img.shields.io/badge/CI%20Builds-Overview%20Page-blue?logo=circleci)](https://harisekhon.github.io/CI-CD/)
-TODO: Replace Azure DevOps Pipeline ID here
-[![Azure DevOps Pipeline](https://dev.azure.com/harisekhon/GitHub/_apis/build/status%2FPacker-templates?branchName=master)](https://dev.azure.com/harisekhon/GitHub/_build/latest?definitionId=15&branchName=master)
-[![GitLab Pipeline](https://img.shields.io/badge/GitLab%20CI-legacy-lightgrey?logo=gitlab)](https://gitlab.com/HariSekhon/Packer-templates/pipelines)
-[![BitBucket Pipeline](https://img.shields.io/badge/Bitbucket%20CI-legacy-lightgrey?logo=bitbucket)](https://bitbucket.org/HariSekhon/Packer-templates/addon/pipelines/home#!/)
-
 [![Repo on Azure DevOps](https://img.shields.io/badge/repo-Azure%20DevOps-0078D7?logo=azure%20devops)](https://dev.azure.com/HariSekhon/GitHub/_git/Packer-templates)
 [![Repo on GitHub](https://img.shields.io/badge/repo-GitHub-2088FF?logo=github)](https://github.com/HariSekhon/Packer-templates)
 [![Repo on GitLab](https://img.shields.io/badge/repo-GitLab-FCA121?logo=gitlab)](https://gitlab.com/HariSekhon/Packer-templates)
 [![Repo on BitBucket](https://img.shields.io/badge/repo-BitBucket-0052CC?logo=bitbucket)](https://bitbucket.org/HariSekhon/Packer-templates)
 
+[![CI Builds Overview](https://img.shields.io/badge/CI%20Builds-Overview%20Page-blue?logo=circleci)](https://harisekhon.github.io/CI-CD/)
 [![Validation](https://github.com/HariSekhon/Packer-templates/actions/workflows/validate.yaml/badge.svg)](https://github.com/HariSekhon/Packer-templates/actions/workflows/validate.yaml)
 [![Kics](https://github.com/HariSekhon/Packer-templates/actions/workflows/kics.yaml/badge.svg)](https://github.com/HariSekhon/Packer-templates/actions/workflows/kics.yaml)
 [![Grype](https://github.com/HariSekhon/Packer-templates/actions/workflows/grype.yaml/badge.svg)](https://github.com/HariSekhon/Packer-templates/actions/workflows/grype.yaml)
