@@ -31,7 +31,7 @@ build: init
 	@echo ================
 	@echo Packer Builds
 	@echo ================
-	@$(MAKE) git-summary
+	@#$(MAKE) git-summary
 	@echo
 
 .PHONY: init
