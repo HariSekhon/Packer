@@ -45,7 +45,7 @@ TODO: Replace Azure DevOps Pipeline ID here
 
 Packer templates for building portable OVA virtual machines images.
 
-As an early [Docker](Dockerfiles) adopter I'd avoided Packer for years, but it turns out that IoT edge sites need VMs to run the base systems even if everything else lives in [Kubernetes](https://github.com/HariSekhon/Kubernetes-configs).
+In the age of IoT systems - which often require some on-premise - you still need base systems on which to build, even if everything else lives in Kubernetes, whether portal virtual machines (OVA format) or bare metal servers using automated [installers](https://github.com/HariSekhon/Packer-templates/tree/main/installers).
 
 The primary templates are for the main Linux operating systems:
 
