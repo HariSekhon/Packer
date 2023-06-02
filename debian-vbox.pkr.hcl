@@ -43,7 +43,7 @@ source "virtualbox-iso" "debian" {
   memory               = 2048
   disk_size            = 40000
   disk_additional_size = []
-  http_directory       = "."
+  http_directory       = "installers"
   # https://developer.hashicorp.com/packer/plugins/builders/virtualbox/iso#boot-configuration
   boot_wait = "5s"
   # Aliases useful with preseeding
