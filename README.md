@@ -1,4 +1,4 @@
-# Hari Sekhon - Template Repo
+# Hari Sekhon - Packer templates
 
 [![GitHub stars](https://img.shields.io/github/stars/HariSekhon/Packer-templates?logo=github)](https://github.com/HariSekhon/Packer-templates/stargazers)
 [![GitHub forks](https://img.shields.io/github/forks/HariSekhon/Packer-templates?logo=github)](https://github.com/HariSekhon/Packer-templates/network)
