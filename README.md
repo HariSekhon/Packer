@@ -73,7 +73,7 @@ The following are provided depending in this repo:
 
 Running `make <distro>` will build the portable virtual machine OVA for that Linux distribution 100% automated using that distro's native installer's automation method:
 
-```
+```shell
 make debian
 ```
 
@@ -97,7 +97,11 @@ Tweak the corresponding text files for that distro eg.
 installers/*
 scripts/*
 ```
-and then re-run `make <distro>`.
+and then re-run
+
+```shell
+make <distro>
+```
 
 
 ## See Also
