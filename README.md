@@ -44,13 +44,11 @@
 
 Packer templates for building portable OVA virtual machines images.
 
-In the age of IoT edge sites you still need these on-premise base systems on which to build.
-
-Even if everything else lives inside [Kubernetes](https://github.com/HariSekhon/Kubernetes-configs), you need somewhere to install your Kubernetes!
+Useful for IoT edge sites, [Kubernetes](https://github.com/HariSekhon/Kubernetes-configs) base servers etc.
 
 Bare metal servers can be installed using each Linux distro's native [automated installers](https://github.com/HariSekhon/Packer-templates/tree/main/installers).
 
-Virtual Machines in portable OVA format are 100% automated using the installers above, for easy ship-to-site as VM appliances.
+Virtual Machines as appliances in portable OVA format are 100% automated using the installers above.
 
 The primary templates are for the main Linux distributions:
 
@@ -61,7 +59,9 @@ The primary templates are for the main Linux distributions:
   - CentOS (end-of-life)
   - Fedora
 
-Builds can be done in any number of different virtualization systems, the following are provided depending on your preferences:
+VM OVA appliances can be created in any number of different virtualization systems supported by Packer.
+
+The following are provided depending in this repo:
 
 - Qemu
 - VirtualBox (doesn't work on ARM processors, use Qemu instead)
