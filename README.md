@@ -44,7 +44,7 @@
 
 Packer templates for building portable OVA virtual machines images.
 
-In the age of IoT systems - which often require some on-premise at edge site - you still need base systems on which to build, even if everything else lives in [Kubernetes](https://github.com/HariSekhon/Kubernetes-configs) (you need somewhere to install your Kubernetes!), whether portal virtual machines (OVA format) or bare metal servers using [automated installers](https://github.com/HariSekhon/Packer-templates/tree/main/installers).
+In the age of IoT systems - which often require some on-premise at edge site - you still need base systems on which to build, even if everything else lives in [Kubernetes](https://github.com/HariSekhon/Kubernetes-configs) (you need somewhere to install your Kubernetes!), whether portal virtual machines (OVA format) or bare metal servers using these [automated installers](https://github.com/HariSekhon/Packer-templates/tree/main/installers), which the VM creation automation also uses.
 
 The primary templates are for the main Linux distributions:
 
