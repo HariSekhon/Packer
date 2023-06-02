@@ -51,3 +51,7 @@ test:
 .PHONY: clean
 clean:
 	@rm -fv -- outputs-*
+
+.PHONY: wc
+wc:
+	wc -l *.pkr.hcl installers/* scripts/*
