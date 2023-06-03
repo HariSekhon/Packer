@@ -35,7 +35,7 @@ echo "Downloading Fedora ISO..."
 wget -cO "$iso" "$url"
 echo
 
-cidata_dir="fedora_cidata"
+cidata_dir="fedora-38_cidata"
 
 if [ -d "$cidata_dir" ]; then
 	rm -rf "$cidata_dir"*
