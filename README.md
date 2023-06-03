@@ -64,7 +64,7 @@ VM OVA appliances can be created in any number of different virtualization syste
 
 The following are provided depending in this repo:
 
-- Qemu
+- Qemu - https://www.qemu.org/
 - VirtualBox - https://www.virtualbox.org/
   - [debian-x86_64.vbox.pkr.hcl](https://github.com/HariSekhon/Packer-templates/blob/main/debian-x86_64.vbox.pkr.hcl)
   - [fedora-x86_64.vbox.pkr.hcl](https://github.com/HariSekhon/Packer-templates/blob/main/fedora-x86_64.vbox.pkr.hcl)
