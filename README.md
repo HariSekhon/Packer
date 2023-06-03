@@ -88,8 +88,8 @@ results in:
 
 ```
 output-debian/debian.ova
-packer_debian_*_md5.checksum
-packer_debian_*_sha512.checksum
+output-debian/debian.md5
+output-debian/debian.sha512
 ```
 
 You can then just import the `debian.ova` file on any virtualization platform such as VMware vSphere or your local VirtualBox.
