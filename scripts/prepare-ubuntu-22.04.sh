@@ -36,7 +36,7 @@ echo "Downloading Ubuntu ISO..."
 wget -cO "$iso" "$url"
 echo
 
-cidata_dir="ubuntu_cidata"
+cidata_dir="ubuntu-22.04_cidata"
 
 if [ -d "$cidata_dir" ]; then
 	rm -rf "$cidata_dir"*
