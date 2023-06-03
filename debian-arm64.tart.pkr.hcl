@@ -54,7 +54,6 @@ source "tart-cli" "debian" {
   ssh_password = "packer"
 }
 
-
 build {
   name = "debian"
 
