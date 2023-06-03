@@ -39,7 +39,7 @@ packer {
 source "tart-cli" "ubuntu" {
   vm_name = "ubuntu"
   # http://releases.ubuntu.com/
-  from_iso     = ["isos/cidata.iso", "isos/ubuntu-22.04.1-live-server-arm64.iso"]
+  from_iso     = ["isos/ubuntu_cidata.iso", "isos/ubuntu-22.04.1-live-server-arm64.iso"]
   cpu_count    = 3
   memory_gb    = 3
   disk_size_gb = 40
