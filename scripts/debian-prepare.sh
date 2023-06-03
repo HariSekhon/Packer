@@ -19,13 +19,13 @@ set -euo pipefail
 [ -n "${DEBUG:-}" ] && set -x
 srcdir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
-iso="debian-11.7.0-arm64-DVD-1.iso" # 4.7GB
+iso="debian-11.7.0-arm64-DVD-1.iso"
 
 mkdir -p -v "$srcdir/../isos"
 
 cd "$srcdir/../isos"
 
-url="https://cdimage.debian.org/debian-cd/current/amd64/iso-dvd/$iso"
+url="https://cdimage.debian.org/debian-cd/current/arm64/iso-dvd/$iso"
 
 # shellcheck disable=SC2064
 #trap "rm -f '$iso'" EXIT
