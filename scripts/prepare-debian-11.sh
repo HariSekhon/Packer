@@ -40,16 +40,16 @@ if [ -d "$cidata_dir" ]; then
 fi
 
 echo "Creating staging dir '$cidata_dir'"
-mkdir "$cidata_dir"
+mkdir -pv "$cidata_dir/cidata"
 echo
 
-cp -v "$srcdir/../installers/preseed.cfg" "$cidata_dir"/
+cp -v "$srcdir/../installers/preseed.cfg" "$cidata_dir"/cidata/
 echo
 
 #trap 'rm -f "$cidata_dir.iso"' EXIT
 
 echo "Creating '$cidata_dir.iso'"
-hdiutil makehybrid -o "$cidata_dir.iso" "$cidata_dir" -joliet -iso
+hdiutil makehybrid -o "$cidata_dir.iso" "$cidata_dir/cidata" -joliet -iso
 echo
 
 #trap '' EXIT
