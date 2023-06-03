@@ -39,7 +39,7 @@ if [ -d "$cidata_dir" ]; then
 	rm -rf "$cidata_dir"*
 fi
 
-echo "Creating staging dir '$cidata_dir'"
+echo "Creating staging dir '$cidata_dir/cidata'"
 mkdir -pv "$cidata_dir/cidata"
 echo
 
