@@ -35,7 +35,7 @@ packer {
   }
 }
 
-# https://developer.hashicorp.com/packer/plugins/builders/virtualbox/iso
+# https://developer.hashicorp.com/packer/plugins/builders/tart
 source "tart-cli" "ubuntu" {
   vm_name = "ubuntu"
   # Browse to http://releases.ubuntu.com/ and pick the latest LTS release
