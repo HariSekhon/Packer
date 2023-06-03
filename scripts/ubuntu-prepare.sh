@@ -49,8 +49,8 @@ cp -v "$srcdir/../installers/user-data" "$cidata_dir"/
 cp -v "$srcdir/../installers/meta-data" "$cidata_dir"/
 echo
 
-#trap 'rm -f "$cidata_dir"' EXIT
-hdiutil makehybrid -o "$cidata_dir".iso "$cidata_dir" -joliet -iso
+#trap 'rm -f "$cidata_dir.iso"' EXIT
+hdiutil makehybrid -o "$cidata_dir.iso" "$cidata_dir" -joliet -iso
 
 #trap '' EXIT
 
