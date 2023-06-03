@@ -68,6 +68,7 @@ The following are provided depending in this repo:
 - VirtualBox (doesn't work on ARM processors, use Qemu instead)
   - [debian-vbox.pkr.hcl](https://github.com/HariSekhon/Packer-templates/blob/main/debian-vbox.pkr.hcl)
   - [fedora-vbox.pkr.hcl](https://github.com/HariSekhon/Packer-templates/blob/main/fedora-vbox.pkr.hcl)
+  - [rocky-vbox.pkr.hcl](https://github.com/HariSekhon/Packer-templates/blob/main/rocky-vbox.pkr.hcl)
   - [ubuntu-vbox.pkr.hcl](https://github.com/HariSekhon/Packer-templates/blob/main/ubuntu-vbox.pkr.hcl)
 
 ## Quick Start
