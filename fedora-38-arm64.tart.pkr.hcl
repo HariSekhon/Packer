@@ -42,8 +42,8 @@ source "tart-cli" "fedora" {
     "isos/fedora-38_cidata.iso",
     "iso/Fedora-Server-dvd-x86_64-38-1.6.iso"
   ]
-  cpu_count    = 3
-  memory_gb    = 3
+  cpu_count    = 4
+  memory_gb    = 4
   disk_size_gb = 40
   boot_wait    = "5s"
   boot_command = [
