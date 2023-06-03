@@ -39,7 +39,7 @@ source "tart-cli" "rocky" {
   vm_name = "rocky"
   # https://alt.rockyproject.org/alt/
   from_iso = [
-    "isos/rocky_cidata.iso",
+    "isos/rocky-9.2_cidata.iso",
     "iso/Rocky-9.2-x86_64-dvd.iso"
   ]
   cpu_count    = 3
