@@ -64,15 +64,15 @@ VM OVA appliances can be created in any number of different virtualization syste
 
 You must install your virtualization system before running Packer.
 
-The following builds are provided for these combinations of Linux distros, arches and virtualization systems::
+The following builds are provided for these combinations of Linux distros, arches and virtualization systems:
 
-- Qemu - https://www.qemu.org/
-- VirtualBox - https://www.virtualbox.org/
+- [Qemu](https://www.qemu.org/)
+- [VirtualBox](https://www.virtualbox.org/)
   - [debian-x86_64.vbox.pkr.hcl](https://github.com/HariSekhon/Packer-templates/blob/main/debian-x86_64.vbox.pkr.hcl)
   - [fedora-x86_64.vbox.pkr.hcl](https://github.com/HariSekhon/Packer-templates/blob/main/fedora-x86_64.vbox.pkr.hcl)
   - [rocky-x86_64.vbox.pkr.hcl](https://github.com/HariSekhon/Packer-templates/blob/main/rocky-x86_64.vbox.pkr.hcl)
   - [ubuntu-x86_64.vbox.pkr.hcl](https://github.com/HariSekhon/Packer-templates/blob/main/ubuntu-x86_64.vbox.pkr.hcl)
-- Tart - https://tart.run/
+- [Tart](https://tart.run/)
   - [debian-arm64.tart.pkr.hcl](https://github.com/HariSekhon/Packer-templates/blob/main/debian-arm64.tart.pkr.hcl)
   - [fedora-arm64.tart.pkr.hcl](https://github.com/HariSekhon/Packer-templates/blob/main/fedora-arm64.tart.pkr.hcl)
   - [rocky-arm64.tart.pkr.hcl](https://github.com/HariSekhon/Packer-templates/blob/main/rocky-arm64.tart.pkr.hcl)
