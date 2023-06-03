@@ -47,12 +47,17 @@ source "tart-cli" "ubuntu" {
   memory_gb    = 4
   disk_size_gb = 40
   boot_wait    = "5s"
+  #boot_command = [
+  #  # boot grub without waiting for 30 sec countdown on default option
+  #  "<wait5s><enter>",
+  #  # auto-detects the cidata iso and prompts:
+  #  # Continue with autoinstall? (yes|no)
+  #  "<wait30s>yes<enter>"
+  #]
   boot_command = [
-    # boot grub without waiting for 30 sec countdown on default option
-    "<wait5s><enter>",
-    # auto-detects the cidata iso and prompts:
-    # Continue with autoinstall? (yes|no)
-    "<wait30s>yes<enter>"
+    "<wait3s>",
+    "e<down><down><down><down><left>",
+    " autoinstall<f10>"
   ]
   ssh_timeout  = "30m"
   ssh_username = "packer"
