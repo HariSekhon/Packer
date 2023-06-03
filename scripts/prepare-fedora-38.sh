@@ -35,25 +35,23 @@ echo "Downloading Fedora ISO..."
 wget -cO "$iso" "$url"
 echo
 
-cidata_dir="fedora-38_cidata"
+cidata_base="fedora-38_cidata"
+cidata="$cidata_base/cidata"  # last component must be called 'cidata' for auto-detect during boot
+iso="$cidata_base.iso"
 
-if [ -d "$cidata_dir" ]; then
-	rm -rf "$cidata_dir"*
+if [ -d "$cidata_base" ]; then
+	rm -rf "$cidata_base"*
 fi
 
-echo "Creating staging dir '$cidata_dir'"
-mkdir "$cidata_dir"
+echo "Creating staging dir '$cidata'"
+mkdir -pv "$cidata"
 echo
 
-cp -v "$srcdir/../installers/anaconda-ks.cfg" "$cidata_dir"/
+cp -v "$srcdir/../installers/anaconda-ks.cfg" "$cidata/"
 echo
 
-#trap 'rm -f "$cidata_dir.iso"' EXIT
-
-echo "Creating '$cidata_dir.iso'"
-hdiutil makehybrid -o "$cidata_dir.iso" "$cidata_dir" -joliet -iso
+echo "Creating '$iso'"
+hdiutil makehybrid -o "$iso" "$cidata" -joliet -iso
 echo
-
-#trap '' EXIT
 
 echo "Fedora ISOs prepared"
