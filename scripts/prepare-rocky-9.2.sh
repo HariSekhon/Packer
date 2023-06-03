@@ -35,25 +35,23 @@ echo "Downloading Rocky ISO..."
 wget -cO "$iso" "$url"
 echo
 
-cidata_dir="rocky-9.2_cidata"
+cidata_base="rocky-9.2_cidata"
+cidata="$cidata_base/cidata"  # last component must be called 'cidata' for auto-detect during boot
+iso="$cidata"
 
-if [ -d "$cidata_dir" ]; then
-	rm -rf "$cidata_dir"*
+if [ -d "$cidata" ]; then
+	rm -rf "$cidata_base"*
 fi
 
-echo "Creating staging dir '$cidata_dir/cidata'"
-mkdir "$cidata_dir/cidata"
+echo "Creating staging dir '$cidata'"
+mkdir -pv "$cidata"
 echo
 
-cp -v "$srcdir/../installers/anaconda-ks.cfg" "$cidata_dir"/cidata/
+cp -v "$srcdir/../installers/anaconda-ks.cfg" "$cidata/"
 echo
 
-#trap 'rm -f "$cidata_dir.iso"' EXIT
-
-echo "Creating '$cidata_dir.iso'"
-hdiutil makehybrid -o "$cidata_dir.iso" "$cidata_dir/cidata" -joliet -iso
+echo "Creating '$iso'"
+hdiutil makehybrid -o "$iso" "$cidata" -joliet -iso
 echo
-
-#trap '' EXIT
 
 echo "Rocky ISOs prepared"
