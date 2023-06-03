@@ -42,8 +42,8 @@ source "tart-cli" "debian" {
     "isos/debian-11_cidata.iso",
     "isos/debian-11.7.0-arm64-DVD-1.iso"
   ]
-  cpu_count    = 2
-  memory_gb    = 2
+  cpu_count    = 4
+  memory_gb    = 4
   disk_size_gb = 40
   boot_wait    = "5s"
   boot_command = [
