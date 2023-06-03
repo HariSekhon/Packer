@@ -52,17 +52,17 @@ packer:
 .PHONY: debian
 debian:
 	VBoxManage unregistervm debian --delete 2>/dev/null || :
-	packer build --force debian-x86_64.vbox.pkr.hcl
+	packer build --force debian-11-x86_64.vbox.pkr.hcl
 
 .PHONY: fedora
 fedora:
 	VBoxManage unregistervm fedora --delete 2>/dev/null || :
-	packer build --force fedora-x86_64.vbox.pkr.hcl
+	packer build --force fedora-38-x86_64.vbox.pkr.hcl
 
 .PHONY: ubuntu
 ubuntu:
 	VBoxManage unregistervm ubuntu --delete 2>/dev/null || :
-	packer build --force ubuntu-x86_64.vbox.pkr.hcl
+	packer build --force ubuntu-22.04-x86_64.vbox.pkr.hcl
 
 .PHONY: validate
 validate:
