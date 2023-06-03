@@ -13,6 +13,8 @@
 #  https://www.linkedin.com/in/HariSekhon
 #
 
+# Requires macOS Ventura 13.4
+#
 # Must run 'scripts/ubuntu-prepare.sh' first to download the ISO and generate another ISO with the AutoInstaller config
 #
 # 'packer' command must be run from the same directory as this file so the ISO files are found under iso/
