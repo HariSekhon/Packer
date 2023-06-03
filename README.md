@@ -62,7 +62,9 @@ The primary templates are for the main Linux distributions:
 
 VM OVA appliances can be created in any number of different virtualization systems supported by Packer.
 
-The following are provided depending in this repo:
+You must install your virtualization system before running Packer.
+
+The following builds are provided for these combinations of Linux distros, arches and virtualization systems::
 
 - Qemu - https://www.qemu.org/
 - VirtualBox - https://www.virtualbox.org/
