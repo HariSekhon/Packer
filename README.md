@@ -65,11 +65,13 @@ VM OVA appliances can be created in any number of different virtualization syste
 The following are provided depending in this repo:
 
 - Qemu
-- VirtualBox (doesn't work on ARM processors, use Qemu instead)
-  - [debian-vbox.pkr.hcl](https://github.com/HariSekhon/Packer-templates/blob/main/debian-vbox.pkr.hcl)
-  - [fedora-vbox.pkr.hcl](https://github.com/HariSekhon/Packer-templates/blob/main/fedora-vbox.pkr.hcl)
-  - [rocky-vbox.pkr.hcl](https://github.com/HariSekhon/Packer-templates/blob/main/rocky-vbox.pkr.hcl)
-  - [ubuntu-vbox.pkr.hcl](https://github.com/HariSekhon/Packer-templates/blob/main/ubuntu-vbox.pkr.hcl)
+- Tart
+  - [ubuntu-arm64.tart.pkr.hcl](https://github.com/HariSekhon/Packer-templates/blob/main/ubuntu-arm64.tart.pkr.hcl)
+- VirtualBox
+  - [debian-x86_64.vbox.pkr.hcl](https://github.com/HariSekhon/Packer-templates/blob/main/debian-x86_64.vbox.pkr.hcl)
+  - [fedora-x86_64.vbox.pkr.hcl](https://github.com/HariSekhon/Packer-templates/blob/main/fedora-x86_64.vbox.pkr.hcl)
+  - [rocky-x86_64.vbox.pkr.hcl](https://github.com/HariSekhon/Packer-templates/blob/main/rocky-x86_64.vbox.pkr.hcl)
+  - [ubuntu-x86_64.vbox.pkr.hcl](https://github.com/HariSekhon/Packer-templates/blob/main/ubuntu-x86_64.vbox.pkr.hcl)
 
 ## Quick Start
 
