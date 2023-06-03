@@ -38,7 +38,7 @@ packer {
 source "tart-cli" "fedora" {
   vm_name = "fedora"
   # https://alt.fedoraproject.org/alt/
-  from_iso     = [
+  from_iso = [
     "isos/fedora_cidata.iso",
     "iso/Fedora-Server-dvd-x86_64-38-1.6.iso"
   ]
