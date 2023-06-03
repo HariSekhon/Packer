@@ -40,7 +40,7 @@ source "tart-cli" "ubuntu" {
   vm_name = "ubuntu"
   # http://releases.ubuntu.com/
   from_iso = [
-    "isos/ubuntu_cidata.iso",
+    "isos/ubuntu-22.04_cidata.iso",
     "isos/ubuntu-22.04.2-live-server-arm64.iso"
   ]
   cpu_count    = 3
