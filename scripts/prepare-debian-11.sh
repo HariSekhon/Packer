@@ -33,7 +33,7 @@ echo "Downloading Debian ISO..."
 wget -cO "$iso" "$url"
 echo
 
-cidata_dir="debian_cidata"
+cidata_dir="debian-11_cidata"
 
 if [ -d "$cidata_dir" ]; then
 	rm -rf "$cidata_dir"*
