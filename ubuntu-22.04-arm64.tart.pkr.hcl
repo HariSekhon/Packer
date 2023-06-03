@@ -43,15 +43,21 @@ source "tart-cli" "ubuntu" {
     "isos/ubuntu-22.04_cidata.iso",
     "isos/ubuntu-22.04.2-live-server-arm64.iso"
   ]
-  cpu_count    = 3
-  memory_gb    = 3
+  cpu_count    = 4
+  memory_gb    = 4
   disk_size_gb = 40
   boot_wait    = "5s"
+  #boot_command = [
+  #  # grub
+  #  "<wait5s><enter>",
+  #  # autoinstall prompt
+  #  "<wait30s>yes<enter>"
+  #]
   boot_command = [
-    # grub
-    "<wait5s><enter>",
-    # autoinstall prompt
-    "<wait30s>yes<enter>"
+    "c<wait>",
+    "linux /casper/vmlinuz autoinstall 'ds=nocloud' <enter><wait>",
+    "initrd /casper/initrd <enter><wait>",
+    "boot <enter>"
   ]
   ssh_timeout  = "30m"
   ssh_username = "packer"
