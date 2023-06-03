@@ -13,11 +13,9 @@
 #  https://www.linkedin.com/in/HariSekhon
 #
 
-# Uses adjacent Ubuntu Autoinstaller from installers/
+# Must run 'scripts/ubuntu-prepare.sh' first to download the ISO and generate another ISO with the AutoInstaller config
 #
-# 'packer' command must be run from the same directory as this file so the autoinstaller files provided are auto-served via HTTP:
-#
-# - Ubuntu AutoInstaller - autoinstall-user-data and meta-data files
+# 'packer' command must be run from the same directory as this file so the ISO files are found under iso/
 
 # ============================================================================ #
 #                  P a c k e r   -   U b u n t u   -   T a r t
