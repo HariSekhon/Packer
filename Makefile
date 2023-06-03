@@ -64,6 +64,15 @@ ubuntu:
 	VBoxManage unregistervm ubuntu --delete 2>/dev/null || :
 	packer build --force ubuntu-vbox.pkr.hcl
 
+.PHONY: validate
+validate:
+	for x in *.hcl; do \
+		packer init "$$x" && \
+		packer validate "$$x" && \
+		packer fmt -diff "$$x" || \
+		exit 1; \
+	done
+
 # if you really want to check it locally before pushing - otherwise just let the CI/CD workflows run and check the README badge statuses
 .PHONY: lint
 lint:
