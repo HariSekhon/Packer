@@ -38,7 +38,7 @@ packer {
 # https://developer.hashicorp.com/packer/plugins/builders/tart
 source "tart-cli" "ubuntu" {
   vm_name = "ubuntu"
-  # Browse to http://releases.ubuntu.com/ and pick the latest LTS release
+  # http://releases.ubuntu.com/
   from_iso     = ["isos/cidata.iso", "isos/ubuntu-22.04.1-live-server-arm64.iso"]
   cpu_count    = 3
   memory_gb    = 3
