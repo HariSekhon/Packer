@@ -109,7 +109,7 @@ build {
   post-processor "checksum" {
     checksum_types      = ["md5", "sha512"]
     keep_input_artifact = true
-    output              = "output-{{.Name}}/{{.Name}}.{{.ChecksumType}}"
+    output              = "output-{{.BuildName}}/{{.BuildName}}.{{.ChecksumType}}"
   }
 
 }
