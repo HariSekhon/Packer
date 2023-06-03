@@ -19,7 +19,7 @@ set -euo pipefail
 [ -n "${DEBUG:-}" ] && set -x
 srcdir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
-iso="debian-11.7.0-amd64-DVD-1.iso" # 4.7GB
+iso="debian-11.7.0-arm64-DVD-1.iso" # 4.7GB
 
 mkdir -p -v "$srcdir/../isos"
 
