@@ -49,7 +49,7 @@ source "tart-cli" "ubuntu" {
   boot_wait    = "5s"
   #boot_command = [
   #  # boot grub without waiting for 30 sec countdown on default option
-  #  "<wait5s><enter>",
+  #  "<wait3s><enter>",
   #  # auto-detects the cidata iso and prompts:
   #  # Continue with autoinstall? (yes|no)
   #  "<wait30s>yes<enter>"
