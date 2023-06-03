@@ -42,7 +42,7 @@ if [ -d "$cidata_dir" ]; then
 	rm -rf "$cidata_dir"*
 fi
 
-echo "Creating staging dir '$cidata_dir'"
+echo "Creating staging dir '$cidata_dir/cidata'"
 mkdir -pv "$cidata_dir/cidata"
 echo
 
@@ -53,6 +53,7 @@ echo
 #trap 'rm -f "$cidata_dir.iso"' EXIT
 
 echo "Creating '$cidata_dir.iso'"
+# final dir must be 'cidata' so that the Ubuntu installer auto-boots the user-data
 hdiutil makehybrid -o "$cidata_dir.iso" "$cidata_dir/cidata" -joliet -iso
 echo
 
