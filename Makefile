@@ -98,7 +98,7 @@ preseed-lint:
 
 .PHONY: prepare
 prepare:
-	for script in scripts/*; do $$script; done
+	for script in scripts/prepare-*.sh; do $$script; done
 
 .PHONY: test
 test:
