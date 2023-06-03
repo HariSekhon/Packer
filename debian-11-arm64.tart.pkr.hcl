@@ -39,7 +39,7 @@ source "tart-cli" "debian" {
   vm_name = "debian"
   # https://www.debian.org/CD/http-ftp/
   from_iso = [
-    "isos/debian_cidata.iso",
+    "isos/debian-11_cidata.iso",
     "isos/debian-11.7.0-arm64-DVD-1.iso"
   ]
   cpu_count    = 2
