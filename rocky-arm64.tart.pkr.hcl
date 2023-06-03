@@ -38,7 +38,10 @@ packer {
 source "tart-cli" "rocky" {
   vm_name = "rocky"
   # https://alt.rockyproject.org/alt/
-  from_iso     = ["isos/rocky_cidata.iso", "iso/Rocky-9.2-x86_64-dvd.iso"]
+  from_iso     = [
+    "isos/rocky_cidata.iso",
+    "iso/Rocky-9.2-x86_64-dvd.iso"
+  ]
   cpu_count    = 3
   memory_gb    = 3
   disk_size_gb = 40
