@@ -35,7 +35,7 @@ echo "Downloading Rocky ISO..."
 wget -cO "$iso" "$url"
 echo
 
-cidata_dir="rocky_cidata"
+cidata_dir="rocky-9.2_cidata"
 
 if [ -d "$cidata_dir" ]; then
 	rm -rf "$cidata_dir"*
