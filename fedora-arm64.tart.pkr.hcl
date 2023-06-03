@@ -38,7 +38,10 @@ packer {
 source "tart-cli" "fedora" {
   vm_name = "fedora"
   # https://alt.fedoraproject.org/alt/
-  from_iso     = ["isos/fedora_cidata.iso", "iso/Fedora-Server-dvd-x86_64-38-1.6.iso"]
+  from_iso     = [
+    "isos/fedora_cidata.iso",
+    "iso/Fedora-Server-dvd-x86_64-38-1.6.iso"
+  ]
   cpu_count    = 3
   memory_gb    = 3
   disk_size_gb = 40
