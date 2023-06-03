@@ -46,7 +46,6 @@ source "tart-cli" "ubuntu" {
   cpu_count    = 4
   memory_gb    = 4
   disk_size_gb = 40
-  boot_wait    = "5s"
   #boot_command = [
   #  # boot grub without waiting for 30 sec countdown on default option
   #  "<wait3s><enter>",
