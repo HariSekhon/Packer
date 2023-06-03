@@ -33,23 +33,24 @@ echo "Downloading Debian ISO..."
 wget -cO "$iso" "$url"
 echo
 
-cidata_dir="debian-11_cidata"
+cidata_base="debian-11_cidata"
+cidata="$cidata_base/cidata"  # last component must be called 'cidata' for auto-booting
 
-if [ -d "$cidata_dir" ]; then
-	rm -rf "$cidata_dir"*
+if [ -d "$cidata_base" ]; then
+	rm -rf "$cidata_base"*
 fi
 
-echo "Creating staging dir '$cidata_dir/cidata'"
-mkdir -pv "$cidata_dir/cidata"
+echo "Creating staging dir '$cidata'"
+mkdir -pv "$cidata"
 echo
 
-cp -v "$srcdir/../installers/preseed.cfg" "$cidata_dir"/cidata/
+cp -v "$srcdir/../installers/preseed.cfg" "$cidata/"
 echo
 
-#trap 'rm -f "$cidata_dir.iso"' EXIT
+#trap 'rm -f "$cidata_base.iso"' EXIT
 
-echo "Creating '$cidata_dir.iso'"
-hdiutil makehybrid -o "$cidata_dir.iso" "$cidata_dir/cidata" -joliet -iso
+echo "Creating '$cidata_base.iso'"
+hdiutil makehybrid -o "$cidata_base.iso" "$cidata" -joliet -iso
 echo
 
 #trap '' EXIT
