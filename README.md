@@ -69,7 +69,7 @@ The following builds are provided for these combinations of Linux distros, arche
 - [Qemu](https://www.qemu.org/):
 - [VirtualBox](https://www.virtualbox.org/):
   - [debian-x86_64.vbox.pkr.hcl](https://github.com/HariSekhon/Packer-templates/blob/main/debian-x86_64.vbox.pkr.hcl)
-  - [fedora-x86_64.vbox.pkr.hcl](https://github.com/HariSekhon/Packer-templates/blob/main/fedora-x86_64.vbox.pkr.hcl)
+  - [fedora-38-x86_64.vbox.pkr.hcl](https://github.com/HariSekhon/Packer-templates/blob/main/fedora-38-x86_64.vbox.pkr.hcl)
   - [rocky-x86_64.vbox.pkr.hcl](https://github.com/HariSekhon/Packer-templates/blob/main/rocky-x86_64.vbox.pkr.hcl)
   - [ubuntu-x86_64.vbox.pkr.hcl](https://github.com/HariSekhon/Packer-templates/blob/main/ubuntu-x86_64.vbox.pkr.hcl)
 - [Tart](https://tart.run/):
