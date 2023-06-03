@@ -42,8 +42,8 @@ source "tart-cli" "rocky" {
     "isos/rocky-9.2_cidata.iso",
     "iso/Rocky-9.2-x86_64-dvd.iso"
   ]
-  cpu_count    = 3
-  memory_gb    = 3
+  cpu_count    = 4
+  memory_gb    = 4
   disk_size_gb = 40
   boot_wait    = "5s"
   boot_command = [
