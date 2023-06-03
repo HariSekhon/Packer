@@ -34,7 +34,8 @@ wget -cO "$iso" "$url"
 echo
 
 cidata_base="debian-11_cidata"
-cidata="$cidata_base/cidata"  # last component must be called 'cidata' for auto-booting
+cidata="$cidata_base/cidata"  # last component must be called 'cidata' for auto-detect during boot
+iso="$cidata_base.iso"
 
 if [ -d "$cidata_base" ]; then
 	rm -rf "$cidata_base"*
@@ -47,12 +48,8 @@ echo
 cp -v "$srcdir/../installers/preseed.cfg" "$cidata/"
 echo
 
-#trap 'rm -f "$cidata_base.iso"' EXIT
-
-echo "Creating '$cidata_base.iso'"
-hdiutil makehybrid -o "$cidata_base.iso" "$cidata" -joliet -iso
+echo "Creating '$iso'"
+hdiutil makehybrid -o "$iso" "$cidata" -joliet -iso
 echo
-
-#trap '' EXIT
 
 echo "Debian ISOs prepared"
