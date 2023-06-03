@@ -38,7 +38,7 @@ packer {
 source "tart-cli" "rocky" {
   vm_name = "rocky"
   # https://alt.rockyproject.org/alt/
-  from_iso     = [
+  from_iso = [
     "isos/rocky_cidata.iso",
     "iso/Rocky-9.2-x86_64-dvd.iso"
   ]
