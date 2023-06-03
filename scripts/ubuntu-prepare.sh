@@ -36,21 +36,23 @@ echo "Downloading Ubuntu ISO..."
 wget -cO "$iso" "$url"
 echo
 
-if [ -d cidata ]; then
-	rm -rf cidata*
+cidata_dir="ubuntu_cidata"
+
+if [ -d "$cidata_dir" ]; then
+	rm -rf "$cidata_dir"*
 fi
 
-mkdir -v cidata
+mkdir -v "$cidata_dir"
 echo
 
-cp -v "$srcdir/../installers/user-data" cidata/
-cp -v "$srcdir/../installers/meta-data" cidata/
+cp -v "$srcdir/../installers/user-data" "$cidata_dir"/
+cp -v "$srcdir/../installers/meta-data" "$cidata_dir"/
 echo
 
-trap "rm -f 'cidata.iso'" EXIT
-hdiutil makehybrid -o cidata.iso cidata -joliet -iso
+#trap 'rm -f "$cidata_dir"' EXIT
+hdiutil makehybrid -o "$cidata_dir".iso "$cidata_dir" -joliet -iso
 
-trap '' EXIT
+#trap '' EXIT
 
 echo
 echo "Ubunto ISOs prepared"
