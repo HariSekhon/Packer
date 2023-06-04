@@ -33,8 +33,8 @@ packer {
 }
 
 # https://developer.hashicorp.com/packer/plugins/builders/virtualbox/iso
-source "virtualbox-iso" "fedora" {
-  vm_name       = "fedora"
+source "virtualbox-iso" "fedora-38" {
+  vm_name       = "fedora-38"
   guest_os_type = "Fedora_64"
   # https://alt.fedoraproject.org/alt/
   iso_url              = "https://download.fedoraproject.org/pub/fedora/linux/releases/38/Server/x86_64/iso/Fedora-Server-dvd-x86_64-38-1.6.iso"
@@ -69,9 +69,9 @@ source "virtualbox-iso" "fedora" {
 }
 
 build {
-  name = "fedora"
+  name = "fedora-38"
 
-  sources = ["source.virtualbox-iso.fedora"]
+  sources = ["source.virtualbox-iso.fedora-38"]
 
   # https://developer.hashicorp.com/packer/docs/provisioners/shell-local
   #
