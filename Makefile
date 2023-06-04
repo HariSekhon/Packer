@@ -91,6 +91,16 @@ rocky: rocky-vbox
 ubuntu: ubuntu-vbox
 	@:
 
+.PHONY: all-vbox
+all-vbox:
+	$(MAKE) debian-vbox
+	@echo
+	$(MAKE) ubuntu-vbox
+	@echo
+	$(MAKE) fedora-vbox
+	@echo
+	$(MAKE) rocky-vbox
+
 .PHONY: debian-vbox
 debian-vbox:
 	VBoxManage unregistervm debian --delete 2>/dev/null || :
