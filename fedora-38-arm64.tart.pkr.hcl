@@ -35,8 +35,8 @@ packer {
 }
 
 # https://developer.hashicorp.com/packer/plugins/builders/tart
-source "tart-cli" "fedora" {
-  vm_name = "fedora"
+source "tart-cli" "fedora-38" {
+  vm_name = "fedora-38"
   # https://alt.fedoraproject.org/alt/
   from_iso = [
     "isos/fedora-38_cidata.iso",
@@ -60,9 +60,9 @@ source "tart-cli" "fedora" {
 
 
 build {
-  name = "fedora"
+  name = "fedora-38"
 
-  sources = ["source.tart-cli.fedora"]
+  sources = ["source.tart-cli.fedora-38"]
 
   # https://developer.hashicorp.com/packer/docs/provisioners/shell-local
   #
