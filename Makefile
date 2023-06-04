@@ -59,6 +59,11 @@ fedora:
 	VBoxManage unregistervm fedora --delete 2>/dev/null || :
 	packer build --force fedora-38-x86_64.vbox.pkr.hcl
 
+.PHONY: rocky
+rocky:
+	VBoxManage unregistervm rocky --delete 2>/dev/null || :
+	packer build --force rock-9.2-x86_64.vbox.pkr.hcl
+
 .PHONY: ubuntu
 ubuntu:
 	VBoxManage unregistervm ubuntu --delete 2>/dev/null || :
@@ -71,6 +76,10 @@ debian-tart:
 .PHONY: fedora-tart
 fedora-tart:
 	packer build --force fedora-38-arm64.tart.pkr.hcl
+
+.PHONY: rocky-tart
+rocky-tart:
+	packer build --force rocky-9.2-arm64.tart.pkr.hcl
 
 .PHONY: ubuntu-tart
 ubuntu-tart:
