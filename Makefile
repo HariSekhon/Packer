@@ -95,18 +95,22 @@ tart-all:
 
 .PHONY: debian-tart
 debian-tart:
+	scripts/prepare-debian-11.sh
 	packer build --force debian-11-arm64.tart.pkr.hcl
 
 .PHONY: fedora-tart
 fedora-tart:
+	scripts/prepare-fedora-38.sh
 	packer build --force fedora-38-arm64.tart.pkr.hcl
 
 .PHONY: rocky-tart
 rocky-tart:
+	scripts/prepare-rocky-9.2.sh
 	packer build --force rocky-9.2-arm64.tart.pkr.hcl
 
 .PHONY: ubuntu-tart
 ubuntu-tart:
+	scripts/prepare-ubuntu-22.04.sh
 	packer build --force ubuntu-22.04-arm64.tart.pkr.hcl
 
 .PHONY: validate
