@@ -41,7 +41,7 @@ cidata="$cidata_base/cidata"  # last component must be called 'cidata' for auto-
 iso="$cidata_base.iso"
 
 if [ -d "$cidata_base" ]; then
-	rm -rf "$cidata_base"*
+    rm -rf "$cidata_base"*
 fi
 
 echo "Creating staging dir '$cidata'"
