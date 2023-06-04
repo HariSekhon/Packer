@@ -30,8 +30,6 @@ version="${version%%.[[:digit:]]-*}"
 
 url="https://cdimage.ubuntu.com/releases/$version/release/$iso"
 
-# shellcheck disable=SC2064
-#trap "rm -f '$iso'" EXIT
 echo "Downloading Ubuntu ISO..."
 wget -cO "$iso" "$url"
 echo
