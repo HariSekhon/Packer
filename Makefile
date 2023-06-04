@@ -33,7 +33,7 @@ build: init
 	@echo ================
 	@#$(MAKE) git-summary
 	@echo
-	$(MAKE) packer
+	$(MAKE) all
 
 .PHONY: init
 init:
@@ -41,13 +41,27 @@ init:
 	git submodule update --init --recursive
 	@echo
 
+.PHONY: install
+install: packer tart
+	@:
+
 .PHONY: packer
 packer:
+	brew install packer
+
+.PHONY: tart
+tart:
+	brew install cirruslabs/cli/tart
+
+.PHONY: all
+all:
 	$(MAKE) debian
 	@echo
 	$(MAKE) ubuntu
 	@echo
 	$(MAKE) fedora
+	@echo
+	$(MAKE) rocky
 
 .PHONY: debian
 debian:
@@ -69,9 +83,15 @@ ubuntu:
 	VBoxManage unregistervm ubuntu --delete 2>/dev/null || :
 	packer build --force ubuntu-22.04-x86_64.vbox.pkr.hcl
 
-.PHONY: tart
-tart:
-	brew install cirruslabs/cli/tart
+.PHONY: all
+tart-all:
+	$(MAKE) debian-tart
+	@echo
+	$(MAKE) ubuntu-tart
+	@echo
+	$(MAKE) fedora-tart
+	@echo
+	$(MAKE) rocky-tart
 
 .PHONY: debian-tart
 debian-tart:
