@@ -45,12 +45,13 @@ source "tart-cli" "rocky" {
   cpu_count    = 4
   memory_gb    = 4
   disk_size_gb = 40
-  boot_wait    = "5s"
+  # need to mount /cdrom but device not found
   boot_command = [
-    # grub
-    "<wait5s><enter>",
-    # autoinstall prompt
-    "<wait30s>yes<enter>"
+    "<wait3s><up><wait>",
+    "e",
+    "<down><down><down><left>",
+    # leave a space from last arg
+    " inst.ks=file:///cdrom/anaconda-ks.cfg <f10>"
   ]
   ssh_timeout  = "30m"
   ssh_username = "packer"
