@@ -45,12 +45,10 @@ source "tart-cli" "debian" {
   cpu_count    = 4
   memory_gb    = 4
   disk_size_gb = 40
-  boot_wait    = "5s"
   boot_command = [
-    # grub
-    "<wait5s><enter>",
-    # autoinstall prompt
-    "<wait30s>yes<enter>"
+    "<wait2s>",
+    "e<down><down><down><down><left>",
+    " auto=true hostname=debian domain=local<f10>"
   ]
   ssh_timeout  = "30m"
   ssh_username = "packer"
