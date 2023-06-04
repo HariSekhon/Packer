@@ -27,8 +27,6 @@ cd "$srcdir/../isos"
 
 url="https://cdimage.debian.org/debian-cd/current/arm64/iso-dvd/$iso"
 
-# shellcheck disable=SC2064
-#trap "rm -f '$iso'" EXIT
 echo "Downloading Debian ISO..."
 wget -cO "$iso" "$url"
 echo
