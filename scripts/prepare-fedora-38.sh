@@ -35,12 +35,11 @@ echo "Downloading Fedora ISO..."
 wget -cO "$iso" "$url"
 echo
 
-cidata_base="fedora-38_cidata"
-cidata="$cidata_base/cidata"  # last component must be called 'cidata' for auto-detect during boot
-iso="$cidata_base.iso"
+cidata="fedora-38_cidata"
+iso="$cidata.iso"
 
-if [ -d "$cidata_base" ]; then
-    rm -rf "$cidata_base"*
+if [ -d "$cidata" ]; then
+    rm -rf "$cidata"*
 fi
 
 echo "Creating staging dir '$cidata'"
