@@ -56,7 +56,7 @@ source "tart-cli" "debian-11" {
 }
 
 build {
-  name = "debian"
+  name = "debian-11"
 
   sources = ["source.tart-cli.debian-11"]
 
