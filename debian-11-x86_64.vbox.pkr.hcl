@@ -33,8 +33,8 @@ packer {
 }
 
 # https://developer.hashicorp.com/packer/plugins/builders/virtualbox/iso
-source "virtualbox-iso" "debian" {
-  vm_name       = "debian"
+source "virtualbox-iso" "debian-11" {
+  vm_name       = "debian-11"
   guest_os_type = "Debian_64"
   # https://www.debian.org/CD/http-ftp/
   iso_url              = "https://cdimage.debian.org/debian-cd/current/amd64/iso-dvd/debian-11.7.0-amd64-DVD-1.iso" # 4.7GB
@@ -73,7 +73,7 @@ source "virtualbox-iso" "debian" {
 build {
   name = "debian"
 
-  sources = ["source.virtualbox-iso.debian"]
+  sources = ["source.virtualbox-iso.debian-11"]
 
   # https://developer.hashicorp.com/packer/docs/provisioners/shell-local
   #
