@@ -29,18 +29,15 @@ cd "$srcdir/../isos"
 
 url="https://download.rockylinux.org/pub/rocky/$version/isos/aarch64/$iso"
 
-# shellcheck disable=SC2064
-#trap "rm -f '$iso'" EXIT
 echo "Downloading Rocky ISO..."
 wget -cO "$iso" "$url"
 echo
 
-cidata_base="rocky-9.2_cidata"
-cidata="$cidata_base/cidata"  # last component must be called 'cidata' for auto-detect during boot
-iso="$cidata"
+cidata="rocky-9.2_cidata"
+iso="$cidata.iso"
 
 if [ -d "$cidata" ]; then
-    rm -rf "$cidata_base"*
+    rm -rf "$cidata"*
 fi
 
 echo "Creating staging dir '$cidata'"
