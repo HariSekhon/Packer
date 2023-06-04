@@ -40,7 +40,7 @@ source "tart-cli" "rocky" {
   # https://alt.rockyproject.org/alt/
   from_iso = [
     "isos/rocky-9.2_cidata.iso",
-    "iso/Rocky-9.2-x86_64-dvd.iso"
+    "isos/Rocky-9.2-aarch64-dvd.iso"
   ]
   cpu_count    = 4
   memory_gb    = 4
