@@ -33,12 +33,11 @@ echo "Downloading Debian ISO..."
 wget -cO "$iso" "$url"
 echo
 
-cidata_base="debian-11_cidata"
-cidata="$cidata_base/cidata"  # last component must be called 'cidata' for auto-detect during boot
-iso="$cidata_base.iso"
+cidata="debian-11_cidata"
+iso="$cidata.iso"
 
-if [ -d "$cidata_base" ]; then
-	rm -rf "$cidata_base"*
+if [ -d "$cidata" ]; then
+    rm -rf "$cidata"*
 fi
 
 echo "Creating staging dir '$cidata'"
