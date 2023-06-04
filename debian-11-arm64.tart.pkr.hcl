@@ -35,8 +35,8 @@ packer {
 }
 
 # https://developer.hashicorp.com/packer/plugins/builders/tart
-source "tart-cli" "debian" {
-  vm_name = "debian"
+source "tart-cli" "debian-11" {
+  vm_name = "debian-11"
   # https://www.debian.org/CD/http-ftp/
   from_iso = [
     "isos/debian-11_cidata.iso",
@@ -58,7 +58,7 @@ source "tart-cli" "debian" {
 build {
   name = "debian"
 
-  sources = ["source.tart-cli.debian"]
+  sources = ["source.tart-cli.debian-11"]
 
   # https://developer.hashicorp.com/packer/docs/provisioners/shell-local
   #
