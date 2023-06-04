@@ -36,7 +36,7 @@ packer {
 }
 
 # https://developer.hashicorp.com/packer/plugins/builders/tart
-source "tart-cli" "ubuntu-22.04" {
+source "tart-cli" "ubuntu-22" {
   vm_name = "ubuntu-22.04"
   # http://releases.ubuntu.com/
   from_iso = [
@@ -66,7 +66,10 @@ source "tart-cli" "ubuntu-22.04" {
 build {
   name = "ubuntu-22.04"
   sources = [
-    "source.tart-cli.ubuntu-22.04",
+    # 22.04 gets separated at the dot and results in this error:
+    # Error: Unknown source tart-cli.ubuntu-22
+    #"source.tart-cli.ubuntu-22.04",
+    "source.tart-cli.ubuntu-22",
   ]
 
   provisioner "file" {
