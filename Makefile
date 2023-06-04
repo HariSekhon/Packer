@@ -64,22 +64,38 @@ all:
 	$(MAKE) rocky
 
 .PHONY: debian
-debian:
+debian: debian-vbox
+	@:
+
+.PHONY: fedora
+fedora: fedora-vbox
+	@:
+
+.PHONY: rocky
+rocky: rocky-vbox
+	@:
+
+.PHONY: ubuntu
+ubuntu: ubuntu-vbox
+	@:
+
+.PHONY: debian-vbox
+debian-vbox:
 	VBoxManage unregistervm debian --delete 2>/dev/null || :
 	packer build --force debian-11-x86_64.vbox.pkr.hcl
 
-.PHONY: fedora
-fedora:
+.PHONY: fedora-vbox
+fedora-vbox:
 	VBoxManage unregistervm fedora --delete 2>/dev/null || :
 	packer build --force fedora-38-x86_64.vbox.pkr.hcl
 
-.PHONY: rocky
-rocky:
+.PHONY: rocky-vbox
+rocky-vbox:
 	VBoxManage unregistervm rocky --delete 2>/dev/null || :
 	packer build --force rock-9.2-x86_64.vbox.pkr.hcl
 
-.PHONY: ubuntu
-ubuntu:
+.PHONY: ubuntu-vbox
+ubuntu-vbox:
 	VBoxManage unregistervm ubuntu --delete 2>/dev/null || :
 	packer build --force ubuntu-22.04-x86_64.vbox.pkr.hcl
 
