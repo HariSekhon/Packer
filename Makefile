@@ -42,12 +42,24 @@ init:
 	@echo
 
 .PHONY: install
-install: packer tart
+install: packer
 	@:
 
 .PHONY: packer
 packer:
 	brew install packer
+
+.PHONY: virtualbox
+vbox: virtualbox
+	brew install virtualbox
+
+.PHONY: vbox
+vbox: virtualbox
+	@:
+
+.PHONY: qemu
+qemu:
+	brew install qemu
 
 .PHONY: tart
 tart:
