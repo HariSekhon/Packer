@@ -35,7 +35,7 @@ packer {
 }
 
 # https://developer.hashicorp.com/packer/plugins/builders/tart
-source "tart-cli" "rocky-9.2" {
+source "tart-cli" "rocky-9" {
   vm_name = "rocky-9.2"
   # https://alt.rockyproject.org/alt/
   from_iso = [
@@ -62,7 +62,7 @@ source "tart-cli" "rocky-9.2" {
 build {
   name = "rocky-9.2"
 
-  sources = ["source.tart-cli.rocky-9.2"]
+  sources = ["source.tart-cli.rocky-9"]
 
   # https://developer.hashicorp.com/packer/docs/provisioners/shell-local
   #
