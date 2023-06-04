@@ -29,8 +29,6 @@ cd "$srcdir/../isos"
 
 url="https://download.fedoraproject.org/pub/fedora/linux/releases/$version/Server/aarch64/iso/$iso"
 
-# shellcheck disable=SC2064
-#trap "rm -f '$iso'" EXIT
 echo "Downloading Fedora ISO..."
 wget -cO "$iso" "$url"
 echo
