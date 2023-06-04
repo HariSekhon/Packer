@@ -37,7 +37,7 @@ packer {
 #               results in "Aborted" VMs and so slow it even misses bootloader keystrokes - it is unworkable on ARM as of this date
 
 # https://developer.hashicorp.com/packer/plugins/builders/virtualbox/iso
-source "virtualbox-iso" "ubuntu-22.04" {
+source "virtualbox-iso" "ubuntu-22" {
   vm_name       = "ubuntu-22.04"
   guest_os_type = "Ubuntu_64"
   # Browse to http://releases.ubuntu.com/ and pick the latest LTS release
@@ -74,7 +74,10 @@ source "virtualbox-iso" "ubuntu-22.04" {
 build {
   name = "ubuntu-22.04"
   sources = [
-    "source.virtualbox-iso.ubuntu-22.04",
+    # 22.04 gets split at the dot and results in this error:
+    # Error: Unknown source virtualbox-iso.ubuntu-22
+    #"source.virtualbox-iso.ubuntu-22.04",
+    "source.virtualbox-iso.ubuntu-22",
   ]
 
   provisioner "file" {
