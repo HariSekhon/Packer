@@ -70,12 +70,12 @@ The following builds are provided for these combinations of Linux distros, arche
 - [VirtualBox](https://www.virtualbox.org/):
   - [debian-11-x86_64.vbox.pkr.hcl](https://github.com/HariSekhon/Packer-templates/blob/main/debian-11-x86_64.vbox.pkr.hcl)
   - [fedora-38-x86_64.vbox.pkr.hcl](https://github.com/HariSekhon/Packer-templates/blob/main/fedora-38-x86_64.vbox.pkr.hcl)
-  - [rocker-9.2-x86_64.vbox.pkr.hcl](https://github.com/HariSekhon/Packer-templates/blob/main/rocker-9.2-x86_64.vbox.pkr.hcl)
+  - [rocky-9.2-x86_64.vbox.pkr.hcl](https://github.com/HariSekhon/Packer-templates/blob/main/rocky-9.2-x86_64.vbox.pkr.hcl)
   - [ubuntu-22.04-x86_64.vbox.pkr.hcl](https://github.com/HariSekhon/Packer-templates/blob/main/ubuntu-22.04-x86_64.vbox.pkr.hcl)
 - [Tart](https://tart.run/):
   - [debian-11-arm64.tart.pkr.hcl](https://github.com/HariSekhon/Packer-templates/blob/main/debian-11-arm64.tart.pkr.hcl)
   - [fedora-38-arm64.tart.pkr.hcl](https://github.com/HariSekhon/Packer-templates/blob/main/fedora-38-arm64.tart.pkr.hcl)
-  - [rocker-9.2-arm64.tart.pkr.hcl](https://github.com/HariSekhon/Packer-templates/blob/main/rocker-9.2-arm64.tart.pkr.hcl)
+  - [rocky-9.2-arm64.tart.pkr.hcl](https://github.com/HariSekhon/Packer-templates/blob/main/rocky-9.2-arm64.tart.pkr.hcl)
   - [ubuntu-22.04-arm64.tart.pkr.hcl](https://github.com/HariSekhon/Packer-templates/blob/main/ubuntu-22.04-arm64.tart.pkr.hcl)
 
 ## Quick Start
