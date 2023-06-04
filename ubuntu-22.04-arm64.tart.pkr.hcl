@@ -36,8 +36,8 @@ packer {
 }
 
 # https://developer.hashicorp.com/packer/plugins/builders/tart
-source "tart-cli" "ubuntu" {
-  vm_name = "ubuntu"
+source "tart-cli" "ubuntu-22.04" {
+  vm_name = "ubuntu-22.04"
   # http://releases.ubuntu.com/
   from_iso = [
     "isos/ubuntu-22.04_cidata.iso",
@@ -64,9 +64,9 @@ source "tart-cli" "ubuntu" {
 }
 
 build {
-  name = "ubuntu"
+  name = "ubuntu-22.04"
   sources = [
-    "source.tart-cli.ubuntu",
+    "source.tart-cli.ubuntu-22.04",
   ]
 
   provisioner "file" {
