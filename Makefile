@@ -50,7 +50,7 @@ packer:
 	brew install packer
 
 .PHONY: virtualbox
-vbox: virtualbox
+virtualbox: virtualbox
 	brew install virtualbox
 
 .PHONY: vbox
