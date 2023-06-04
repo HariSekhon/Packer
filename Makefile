@@ -69,6 +69,10 @@ ubuntu:
 	VBoxManage unregistervm ubuntu --delete 2>/dev/null || :
 	packer build --force ubuntu-22.04-x86_64.vbox.pkr.hcl
 
+.PHONY: tart
+tart:
+	brew install cirruslabs/cli/tart
+
 .PHONY: debian-tart
 debian-tart:
 	packer build --force debian-11-arm64.tart.pkr.hcl
