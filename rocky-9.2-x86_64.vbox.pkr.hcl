@@ -33,7 +33,7 @@ packer {
 }
 
 # https://developer.hashicorp.com/packer/plugins/builders/virtualbox/iso
-source "virtualbox-iso" "rocky-9.2" {
+source "virtualbox-iso" "rocky-9" {
   vm_name       = "rocky-9.2"
   guest_os_type = "Redhat_64"
   # https://rockylinux.org/download/
@@ -71,7 +71,7 @@ source "virtualbox-iso" "rocky-9.2" {
 build {
   name = "rocky-9.2"
 
-  sources = ["source.virtualbox-iso.rocky-9.2"]
+  sources = ["source.virtualbox-iso.rocky-9"]
 
   # https://developer.hashicorp.com/packer/docs/provisioners/shell-local
   #
