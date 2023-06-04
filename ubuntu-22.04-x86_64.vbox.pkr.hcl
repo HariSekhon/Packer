@@ -37,8 +37,8 @@ packer {
 #               results in "Aborted" VMs and so slow it even misses bootloader keystrokes - it is unworkable on ARM as of this date
 
 # https://developer.hashicorp.com/packer/plugins/builders/virtualbox/iso
-source "virtualbox-iso" "ubuntu" {
-  vm_name       = "ubuntu"
+source "virtualbox-iso" "ubuntu-22.04" {
+  vm_name       = "ubuntu-22.04"
   guest_os_type = "Ubuntu_64"
   # Browse to http://releases.ubuntu.com/ and pick the latest LTS release
   iso_url              = "http://releases.ubuntu.com/jammy/ubuntu-22.04.2-live-server-amd64.iso"
@@ -72,9 +72,9 @@ source "virtualbox-iso" "ubuntu" {
 }
 
 build {
-  name = "ubuntu"
+  name = "ubuntu-22.04"
   sources = [
-    "source.virtualbox-iso.ubuntu",
+    "source.virtualbox-iso.ubuntu-22.04",
   ]
 
   provisioner "file" {
