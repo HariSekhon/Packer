@@ -38,7 +38,7 @@ locals {
   version = "38"
   patch   = "1.6"
   isos = [
-    #"isos/fedora-38_cidata.iso",
+    #"isos/fedora-${local.version}_cidata.iso",
     "isos/Fedora-Server-dvd-aarch64-${local.version}-${local.patch}.iso"
   ]
 }
