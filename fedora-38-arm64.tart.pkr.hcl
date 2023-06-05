@@ -58,7 +58,6 @@ source "tart-cli" "fedora-38" {
   ssh_password = "packer"
 }
 
-
 build {
   name = "fedora-38"
 
