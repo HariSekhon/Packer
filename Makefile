@@ -143,7 +143,7 @@ fedora-tart:
 
 .PHONY: rocky-tart
 rocky-tart:
-	scripts/prepare-rocky-9.2.sh
+	scripts/prepare_rocky-9.2.sh
 	packer build --force rocky-9.2-arm64.tart.pkr.hcl
 
 .PHONY: ubuntu-tart
