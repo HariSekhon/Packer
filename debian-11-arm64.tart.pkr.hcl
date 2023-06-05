@@ -48,14 +48,16 @@ source "tart-cli" "debian-11" {
   boot_command = [
     "<wait2s>",
     "e<down><down><down><down><left>",
-    " auto=true file=/mnt/cdrom2/preseed.cfg<f10>",
+    " auto=true file=/mnt/cdrom2/preseed.cfg hostname=debian domain=local<f10>",
     "<wait15s>",
     # go to terminal tty2 for CLI
     # XXX: this Alt-F2 keystroke is coming out unrecognized
     "<leftAltOn><f2><leftAltOff><wait2s>",
     # 'Press enter to activate this console' - drops into a Busybox shell
     "<enter><wait>",
+    "mkdir /mnt/cdrom<enter>",
     "mkdir /mnt/cdrom2<enter>",
+    "mount /dev/vdc1 /mnt/cdrom<enter>",
     # without '-t iso9660' gets unintuitive error 'mount: mounting /dev/vdb on /mnt/cdrom2 failed: Invalid argument''
     "mount -t iso9660 /dev/vdb /mnt/cdrom2<enter>",
     # go back to tty1
