@@ -151,6 +151,13 @@ ubuntu-tart:
 	scripts/prepare-ubuntu-22.04.sh
 	packer build --force ubuntu-22.04-arm64.tart.pkr.hcl
 
+.PHONY: ubuntu-tart-http
+ubuntu-tart-http:
+	scripts/prepare-ubuntu-22.04.sh
+	cd installers && python3 -m http.server &
+	packer build --force ubuntu-22.04-arm64.tart.http.pkr.hcl
+	pkill -9 -if -- '.*python.* -m http.server'
+
 .PHONY: validate
 validate:
 	for x in *.hcl; do \
