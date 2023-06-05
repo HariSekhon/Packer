@@ -76,20 +76,36 @@ all:
 	$(MAKE) rocky
 
 .PHONY: debian
-debian: debian-vbox
-	@:
+debian:
+	@if uname -m | grep -q arm64; then \
+		$(MAKE) debian-tart-http; \
+	else \
+		$(MAKE) debian-vbox; \
+	fi
 
 .PHONY: fedora
-fedora: fedora-vbox
-	@:
+fedora:
+	@if uname -m | grep -q arm64; then \
+		$(MAKE) fedora-tart-http; \
+	else \
+		$(MAKE) fedora-vbox; \
+	fi
 
 .PHONY: rocky
-rocky: rocky-vbox
-	@:
+rocky:
+	@if uname -m | grep -q arm64; then \
+		$(MAKE) rocky-tart-http; \
+	else \
+		$(MAKE) rocky-vbox; \
+	fi
 
 .PHONY: ubuntu
-ubuntu: ubuntu-vbox
-	@:
+ubuntu:
+	@if uname -m | grep -q arm64; then \
+		$(MAKE) ubuntu-tart-http; \
+	else \
+		$(MAKE) ubuntu-vbox; \
+	fi
 
 .PHONY: all-vbox
 all-vbox:
