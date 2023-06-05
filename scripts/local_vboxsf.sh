@@ -21,7 +21,7 @@ echo "Packer Environment Variables:"
 echo
 env | grep PACKER || :
 echo
-dir="$srcdir/share"
+dir="$srcdir/../share"
 echo "Creating $dir"
 mkdir -p -v "$dir"
 echo
