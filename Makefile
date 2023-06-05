@@ -151,6 +151,14 @@ ubuntu-tart:
 	scripts/prepare-ubuntu-22.04.sh
 	packer build --force ubuntu-22.04-arm64.tart.pkr.hcl
 
+.PHONY: fedora-tart-http
+fedora-tart-http:
+	scripts/prepare-fedora-38.sh
+	pkill -9 -if -- '.*python.* -m http.server'
+	cd installers && python3 -m http.server &
+	packer build --force fedora-38-arm64.tart.http.pkr.hcl
+	pkill -9 -if -- '.*python.* -m http.server'
+
 .PHONY: ubuntu-tart-http
 ubuntu-tart-http:
 	scripts/prepare-ubuntu-22.04.sh
