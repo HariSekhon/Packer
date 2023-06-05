@@ -77,7 +77,7 @@ source "virtualbox-iso" "fedora" {
 }
 
 build {
-  name = "fedora-${local.version}"
+  name = "fedora"
 
   sources = ["source.virtualbox-iso.fedora"]
 
