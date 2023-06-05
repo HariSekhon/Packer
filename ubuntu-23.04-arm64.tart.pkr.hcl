@@ -41,7 +41,7 @@ source "tart-cli" "ubuntu-23" {
   # http://releases.ubuntu.com/
   from_iso = [
     "isos/ubuntu-23.04_cidata.iso",
-    "isos/ubuntu-23.04.2-live-server-arm64.iso"
+    "isos/ubuntu-23.04-live-server-arm64.iso"
   ]
   cpu_count    = 4
   memory_gb    = 4
