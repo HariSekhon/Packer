@@ -31,7 +31,8 @@ mkdir -p -v "$srcdir/../isos"
 cd "$srcdir/../isos"
 
 version="${iso#ubuntu-}"
-version="${version%%.[[:digit:]]-*}"
+version="${version%%-live-server-arm64.iso}"
+version="${version%%.[[:digit:]]}"
 
 url="https://cdimage.ubuntu.com/releases/$version/release/$iso"
 
