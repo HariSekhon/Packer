@@ -85,14 +85,14 @@ build {
   provisioner "shell" {
     scripts = [
       "./scripts/version.sh",
-      "./scripts/vboxsf.sh",
+      "./scripts/mount-apple-virtiofs.sh",
     ]
     execute_command = "echo 'packer' | sudo -S -E bash '{{ .Path }}' '${packer.version}'"
   }
 
   provisioner "shell" {
     inline = [
-      "cp -fv /var/log/installer/autoinstall-user-data /mnt/vboxsf/",
+      "cp -fv /var/log/installer/autoinstall-user-data /mnt/virtiofs/",
     ]
     execute_command = "echo 'packer' | sudo -S -E bash '{{ .Path }}'"
   }
