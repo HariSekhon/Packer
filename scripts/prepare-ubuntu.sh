@@ -19,8 +19,12 @@ set -euo pipefail
 [ -n "${DEBUG:-}" ] && set -x
 srcdir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
-# https://ubuntu.com/download/server/arm
-iso="ubuntu-22.04.2-live-server-arm64.iso"
+if [ $# -ne 1 ]; then
+    echo "usage: ${0##*/} <iso_url>"
+    exit 3
+fi
+
+iso="$1"
 
 mkdir -p -v "$srcdir/../isos"
 
