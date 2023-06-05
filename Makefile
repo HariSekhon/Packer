@@ -172,6 +172,14 @@ fedora-tart-http:
 	packer build --force fedora-38-arm64.tart.http.pkr.hcl
 	pkill -9 -if -- '.*python.* -m http.server'
 
+.PHONY: rocky-tart-http
+rocky-tart-http:
+	scripts/prepare_rocky-9.2.sh
+	pkill -9 -if -- '.*python.* -m http.server'
+	cd installers && python3 -m http.server &
+	packer build --force rocky-9.2-arm64.tart.http.pkr.hcl
+	pkill -9 -if -- '.*python.* -m http.server'
+
 .PHONY: ubuntu-tart-http
 ubuntu-tart-http:
 	scripts/prepare_ubuntu-22.04.sh
