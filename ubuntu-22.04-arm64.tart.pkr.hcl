@@ -85,7 +85,7 @@ build {
   provisioner "shell" {
     scripts = [
       "./scripts/version.sh",
-      "./scripts/mount-apple-virtiofs.sh",
+      "./scripts/mount_apple_virtiofs.sh",
       "./scripts/collect_autoinstall_user_data.sh",
     ]
     execute_command = "echo 'packer' | sudo -S -E bash '{{ .Path }}' '${packer.version}'"
