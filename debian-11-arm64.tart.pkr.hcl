@@ -48,7 +48,7 @@ source "tart-cli" "debian-11" {
   boot_command = [
     "<wait2s>",
     "e<down><down><down><down><left>",
-    " auto=true file=/mnt/cdrom2/preseed.cfg<f10>", #  hostname=debian domain=local<f10>",
+    " auto=true file=/mnt/cdrom2/preseed.cfg<f10>",
     "<wait15s>",
     # go to terminal tty2 for CLI
     # XXX: this Alt-F2 keystroke is coming out unrecognized
