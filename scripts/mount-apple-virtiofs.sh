@@ -21,7 +21,7 @@ if [ "$EUID" -ne 0 ]; then
     sudo=sudo
 fi
 
-dir="/mnt/virtiofs"
+dir="/mnt/host"
 
 $sudo mkdir -pv "$dir"
 echo "Mounting $dir"
