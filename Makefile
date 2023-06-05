@@ -138,7 +138,7 @@ debian-tart:
 
 .PHONY: fedora-tart
 fedora-tart:
-	scripts/prepare-fedora-38.sh
+	scripts/prepare_fedora-38.sh
 	packer build --force fedora-38-arm64.tart.pkr.hcl
 
 .PHONY: rocky-tart
@@ -166,7 +166,7 @@ debian-tart-http:
 
 .PHONY: fedora-tart-http
 fedora-tart-http:
-	scripts/prepare-fedora-38.sh
+	scripts/prepare_fedora-38.sh
 	pkill -9 -if -- '.*python.* -m http.server'
 	cd installers && python3 -m http.server &
 	packer build --force fedora-38-arm64.tart.http.pkr.hcl
