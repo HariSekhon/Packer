@@ -92,6 +92,7 @@ build {
     scripts          = [
       "./scripts/version.sh",
       "./scripts/mount-apple-virtiofs.sh",
+      "./scripts/collect_preseed.sh",
     ]
     execute_command = "echo 'packer' | sudo -S -E bash '{{ .Path }}' '${packer.version}'"
   }
