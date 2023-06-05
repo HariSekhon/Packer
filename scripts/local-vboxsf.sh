@@ -15,13 +15,15 @@
 
 set -euo pipefail
 [ -n "${DEBUG:-}" ] && set -x
+srcdir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 echo "Packer Environment Variables:"
 echo
 env | grep PACKER || :
 echo
-echo "Creating ~/vboxsf"
-mkdir -p -v ~/vboxsf
+dir="$srcdir/share"
+echo "Creating $dir"
+mkdir -p -v "$dir"
 echo
-echo "Adding Shared Folder to VM"
-VBoxManage sharedfolder add "$PACKER_BUILD_NAME" --name vboxsf --hostpath ~/vboxsf --automount --transient
+echo "Adding Shared Folder '$dir' to VM"
+VBoxManage sharedfolder add "$PACKER_BUILD_NAME" --name vboxsf --hostpath "$dir" --automount --transient
