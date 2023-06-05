@@ -17,12 +17,13 @@ set -euo pipefail
 [ -n "${DEBUG:-}" ] && set -x
 #srcdir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
-distro="$(awk -F= '/^ID=|^VERSION_ID=/{print $2}' | tr '\n' '-' | sed 's/-$//')"
+distro="$(awk -F= '/^ID=/{printf $2"-"}' /etc/os-release)"
+version="$(awk -F= '/^VERSION_ID=/{print $2}' /etc/os-release | sed 's/"//g')"
 
-echo "Distro was detemined to be '$distro'"
+echo "Distro was detemined to be '$distro-$version'"
 
 for x in anaconda-ks.cfg ks-pre.log ks-post.log; do
     if [ -f /root/$x ]; then
-        cp -fv "/root/$x" "/mnt/host/$x-$distro";
+        cp -fv "/root/$x" "/mnt/host/$x-$distro-$version";
     fi
 done
