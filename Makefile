@@ -133,7 +133,7 @@ tart-all:
 
 .PHONY: debian-tart
 debian-tart:
-	scripts/prepare-debian-11.sh
+	scripts/prepare_debian-11.sh
 	packer build --force debian-11-arm64.tart.pkr.hcl
 
 .PHONY: fedora-tart
@@ -158,7 +158,7 @@ ubuntu-23-tart:
 
 .PHONY: debian-tart-http
 debian-tart-http:
-	scripts/prepare-debian-11.sh
+	scripts/prepare_debian-11.sh
 	pkill -9 -if -- '.*python.* -m http.server'
 	cd installers && python3 -m http.server &
 	packer build --force debian-11-arm64.tart.http.pkr.hcl
