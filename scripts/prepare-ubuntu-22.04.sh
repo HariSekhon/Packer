@@ -20,4 +20,4 @@ set -euo pipefail
 srcdir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 # https://ubuntu.com/download/server/arm
-"$srcdir/prepare-ubuntu.sh" "ubuntu-22.04.2-live-server-arm64.iso"
+"$srcdir/prepare_ubuntu.sh" "ubuntu-22.04.2-live-server-arm64.iso"
