@@ -84,7 +84,7 @@ build {
   provisioner "shell" {
     scripts = [
       "./scripts/version.sh",
-      "./scripts/mount-vboxsf.sh",
+      "./scripts/mount_vboxsf.sh",
       "./scripts/collect-anaconda.sh",
     ]
     execute_command = "echo 'packer' | sudo -S -E bash '{{ .Path }}' '${packer.version}'"
