@@ -154,6 +154,7 @@ ubuntu-tart:
 .PHONY: ubuntu-tart-http
 ubuntu-tart-http:
 	scripts/prepare-ubuntu-22.04.sh
+	pkill -9 -if -- '.*python.* -m http.server'
 	cd installers && python3 -m http.server &
 	packer build --force ubuntu-22.04-arm64.tart.http.pkr.hcl
 	pkill -9 -if -- '.*python.* -m http.server'
