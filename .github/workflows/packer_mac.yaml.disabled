@@ -16,6 +16,10 @@
 #                        H a s h i C o r p   P a c k e r
 # ============================================================================ #
 
+# runner is still x86_64, gets this error:
+#
+# ignoring invalid remote binary packer-plugin-tart_v0.5.3_x5.0_darwin_arm64.zip: wrong system, expected darwin_amd64
+
 ---
 name: HashiCorp Packer Mac
 
