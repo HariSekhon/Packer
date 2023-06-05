@@ -17,6 +17,11 @@ set -euo pipefail
 [ -n "${DEBUG:-}" ] && set -x
 #srcdir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
+sudo=""
+if [ $EUID -ne 0 ]; then
+    sudo=sudo
+fi
+
 distro="$(awk -F= '/^ID=/{printf $2"-"}' /etc/os-release)"
 version="$(awk -F= '/^VERSION_ID=/{print $2}' /etc/os-release | sed 's/"//g')"
 
