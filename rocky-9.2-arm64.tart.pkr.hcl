@@ -67,7 +67,7 @@ build {
   # https://developer.hashicorp.com/packer/docs/provisioners/shell-local
   #
   provisioner "shell-local" {
-    script = "./scripts/local.sh"
+    script = "./scripts/local-virtiofs.sh"
   }
 
   # https://developer.hashicorp.com/packer/docs/provisioners/shell
@@ -75,7 +75,7 @@ build {
   provisioner "shell" {
     scripts = [
       "./scripts/version.sh",
-      "./scripts/vboxsf.sh",
+      "./scripts/virtiofs.sh",
     ]
     execute_command = "echo 'packer' | sudo -S -E bash '{{ .Path }}' '${packer.version}'"
   }
@@ -85,7 +85,7 @@ build {
   provisioner "shell" {
     execute_command = "echo 'packer' | sudo -S -E bash '{{ .Path }}'"
     inline = [
-      "for x in anaconda-ks.cfg ks-pre.log ks-post.log; do if [ -f /root/$x ]; then cp -fv /root/$x /mnt/vboxsf/; fi; done"
+      "for x in anaconda-ks.cfg ks-pre.log ks-post.log; do if [ -f /root/$x ]; then cp -fv /root/$x /mnt/virtiofs/; fi; done"
     ]
   }
 
