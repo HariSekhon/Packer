@@ -81,7 +81,7 @@ build {
   }
 
   provisioner "shell-local" {
-    script = "./scripts/local.sh"
+    script = "./scripts/local-virtiofs.sh"
   }
 
   provisioner "shell" {
