@@ -36,13 +36,21 @@ packer {
 # WARNING: XXX: Do not build on ARM M1/M2 Macs using VirtualBox 7.0 - as of 2023 VirtualBox 7.0 Beta is extremely buggy, slow,
 #               results in "Aborted" VMs and so slow it even misses bootloader keystrokes - it is unworkable on ARM as of this date
 
+locals {
+  version  = "22.04"
+  patch    = "2"
+  iso      = "ubuntu-${local.version}.${local.patch}-live-server-amd64.iso"
+  url      = "http://releases.ubuntu.com/jammy/${local.iso}"
+  checksum = "5e38b55d57d94ff029719342357325ed3bda38fa80054f9330dc789cd2d43931"
+}
+
 # https://developer.hashicorp.com/packer/plugins/builders/virtualbox/iso
-source "virtualbox-iso" "ubuntu-22" {
-  vm_name       = "ubuntu-22.04"
+source "virtualbox-iso" "ubuntu" {
+  vm_name       = "ubuntu-${local.version}"
   guest_os_type = "Ubuntu_64"
   # Browse to http://releases.ubuntu.com/ and pick the latest LTS release
-  iso_url              = "http://releases.ubuntu.com/jammy/ubuntu-22.04.2-live-server-amd64.iso"
-  iso_checksum         = "5e38b55d57d94ff029719342357325ed3bda38fa80054f9330dc789cd2d43931"
+  iso_url              = local.url
+  iso_checksum         = local.checksum
   cpus                 = 3
   memory               = 3072
   disk_size            = 40000
@@ -72,12 +80,12 @@ source "virtualbox-iso" "ubuntu-22" {
 }
 
 build {
-  name = "ubuntu-22.04"
+  name = "ubuntu"
   sources = [
     # 22.04 gets split at the dot and results in this error:
     # Error: Unknown source virtualbox-iso.ubuntu-22
     #"source.virtualbox-iso.ubuntu-22.04",
-    "source.virtualbox-iso.ubuntu-22",
+    "source.virtualbox-iso.ubuntu",
   ]
 
   provisioner "file" {
