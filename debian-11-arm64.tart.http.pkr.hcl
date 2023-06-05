@@ -46,6 +46,7 @@ source "tart-cli" "debian-11" {
   memory_gb    = 4
   disk_size_gb = 40
   boot_command = [
+    "<wait5s>",
     "<down><wait>",
     "<tab><wait>",
     # preseed-md5=... add later
