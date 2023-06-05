@@ -32,13 +32,21 @@ packer {
   }
 }
 
-# https://developer.hashicorp.com/packer/plugins/builders/virtualbox/iso
-source "virtualbox-iso" "rocky-9" {
-  vm_name       = "rocky-9.2"
-  guest_os_type = "Redhat_64"
+locals {
   # https://rockylinux.org/download/
-  iso_url              = "https://download.rockylinux.org/pub/rocky/9/isos/x86_64/Rocky-9.2-x86_64-dvd.iso"
-  iso_checksum         = "cd43bb2671472471b1fc0a7a30113dfc9a56831516c46f4dbd12fb43bb4286d2"
+  version       = "9.2"
+  major_version = "9"
+  iso           = "Rocky-${local.version}-x86_64-dvd.iso"
+  url           = "https://download.rockylinux.org/pub/rocky/${local.major_version}/isos/x86_64/$iso"
+  checksum      = "cd43bb2671472471b1fc0a7a30113dfc9a56831516c46f4dbd12fb43bb4286d2"
+}
+
+# https://developer.hashicorp.com/packer/plugins/builders/virtualbox/iso
+source "virtualbox-iso" "rocky" {
+  vm_name              = "rocky-${local.version}"
+  guest_os_type        = "Redhat_64"
+  iso_url              = local.url
+  iso_checksum         = local.checksum
   cpus                 = 3
   memory               = 3072
   disk_size            = 40000
@@ -69,9 +77,9 @@ source "virtualbox-iso" "rocky-9" {
 }
 
 build {
-  name = "rocky-9.2"
+  name = "rocky"
 
-  sources = ["source.virtualbox-iso.rocky-9"]
+  sources = ["source.virtualbox-iso.rocky"]
 
   # https://developer.hashicorp.com/packer/docs/provisioners/shell-local
   #

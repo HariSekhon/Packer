@@ -34,14 +34,20 @@ packer {
   }
 }
 
-# https://developer.hashicorp.com/packer/plugins/builders/tart
-source "tart-cli" "debian-11" {
-  vm_name = "debian-11"
-  # https://www.debian.org/CD/http-ftp/
-  from_iso = [
-    #"isos/debian-11_cidata.iso",
-    "isos/debian-11.7.0-arm64-DVD-1.iso"
+locals {
+  version = "11"
+  patch   = "7.0"
+  isos = [
+    #"isos/debian-${local.version}_cidata.iso",
+    "isos/debian-${local.version}.${local.patch}-arm64-DVD-1.iso"
   ]
+}
+
+# https://developer.hashicorp.com/packer/plugins/builders/tart
+source "tart-cli" "debian" {
+  vm_name = "debian-${local.version}"
+  # https://www.debian.org/CD/http-ftp/
+  from_iso     = local.isos
   cpu_count    = 4
   memory_gb    = 4
   disk_size_gb = 40
@@ -59,9 +65,9 @@ source "tart-cli" "debian-11" {
 }
 
 build {
-  name = "debian-11"
+  name = "debian"
 
-  sources = ["source.tart-cli.debian-11"]
+  sources = ["source.tart-cli.debian"]
 
   # https://developer.hashicorp.com/packer/docs/provisioners/shell-local
   #
@@ -72,7 +78,7 @@ build {
   # https://developer.hashicorp.com/packer/docs/provisioners/shell
   #
   provisioner "shell" {
-    scripts          = [
+    scripts = [
       "./scripts/version.sh",
       "./scripts/mount_apple_virtiofs.sh",
       "./scripts/collect_preseed.sh",

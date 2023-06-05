@@ -35,14 +35,19 @@ packer {
   }
 }
 
-# https://developer.hashicorp.com/packer/plugins/builders/tart
-source "tart-cli" "ubuntu-23" {
-  vm_name = "ubuntu-23.04"
+locals {
   # http://releases.ubuntu.com/
-  from_iso = [
-    "isos/ubuntu-23.04_cidata.iso",
-    "isos/ubuntu-23.04-live-server-arm64.iso"
+  version = "23.04"
+  isos = [
+    "isos/ubuntu-${local.version}_cidata.iso",
+    "isos/ubuntu-${local.version}-live-server-arm64.iso"
   ]
+}
+
+# https://developer.hashicorp.com/packer/plugins/builders/tart
+source "tart-cli" "ubuntu" {
+  vm_name      = "ubuntu-${local.version}"
+  from_iso     = local.isos
   cpu_count    = 4
   memory_gb    = 4
   disk_size_gb = 40
@@ -64,12 +69,9 @@ source "tart-cli" "ubuntu-23" {
 }
 
 build {
-  name = "ubuntu-23.04"
+  name = "ubuntu"
   sources = [
-    # 23.04 gets separated at the dot and results in this error:
-    # Error: Unknown source tart-cli.ubuntu-22
-    #"source.tart-cli.ubuntu-23.04",
-    "source.tart-cli.ubuntu-23",
+    "source.tart-cli.ubuntu",
   ]
 
   provisioner "file" {

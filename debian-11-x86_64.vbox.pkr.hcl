@@ -32,13 +32,21 @@ packer {
   }
 }
 
+locals {
+  version  = "11"
+  patch    = "7.0"
+  iso      = "debian-${local.version}.${local.patch}-amd64-DVD-1.iso" # 4.7GB
+  url      = "https://cdimage.debian.org/debian-cd/current/amd64/iso-dvd/${local.iso}"
+  checksum = "cfbb1387d92c83f49420eca06e2d11a23e5a817a21a5d614339749634709a32f"
+}
+
 # https://developer.hashicorp.com/packer/plugins/builders/virtualbox/iso
-source "virtualbox-iso" "debian-11" {
-  vm_name       = "debian-11"
+source "virtualbox-iso" "debian" {
+  vm_name       = "debian-${local.version}"
   guest_os_type = "Debian_64"
   # https://www.debian.org/CD/http-ftp/
-  iso_url              = "https://cdimage.debian.org/debian-cd/current/amd64/iso-dvd/debian-11.7.0-amd64-DVD-1.iso" # 4.7GB
-  iso_checksum         = "cfbb1387d92c83f49420eca06e2d11a23e5a817a21a5d614339749634709a32f"
+  iso_url              = local.url
+  iso_checksum         = local.checksum
   cpus                 = 2
   memory               = 2048
   disk_size            = 40000
@@ -71,9 +79,9 @@ source "virtualbox-iso" "debian-11" {
 }
 
 build {
-  name = "debian-11"
+  name = "debian"
 
-  sources = ["source.virtualbox-iso.debian-11"]
+  sources = ["source.virtualbox-iso.debian"]
 
   # https://developer.hashicorp.com/packer/docs/provisioners/shell-local
   #
@@ -84,9 +92,9 @@ build {
   # https://developer.hashicorp.com/packer/docs/provisioners/shell
   #
   provisioner "shell" {
-    scripts         = [
-      "scripts/version.sh",
-      "scripts/mount_vboxsf.sh",
+    scripts = [
+      "./scripts/version.sh",
+      "./scripts/mount_vboxsf.sh",
       "./scripts/collect_preseed.sh",
     ]
     execute_command = "echo 'packer' | sudo -S -E bash '{{ .Path }}' '${packer.version}'"
@@ -95,6 +103,6 @@ build {
   post-processor "checksum" {
     checksum_types      = ["md5", "sha512"]
     keep_input_artifact = true
-    output              = "output-{{.BuildName}}/{{.BuildName}}.{{.ChecksumType}}"
+    output              = "output-{{.BuildName}}/{{.BuildName}}-${local.version}.{{.ChecksumType}}"
   }
 }
