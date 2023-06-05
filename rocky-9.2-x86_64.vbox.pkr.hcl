@@ -34,10 +34,11 @@ packer {
 
 locals {
   # https://rockylinux.org/download/
-  version  = "9.2"
-  iso      = "Rocky-${local.version}-x86_64-dvd.iso"
-  url      = "https://download.rockylinux.org/pub/rocky/9/isos/x86_64/$iso"
-  checksum = "cd43bb2671472471b1fc0a7a30113dfc9a56831516c46f4dbd12fb43bb4286d2"
+  version       = "9.2"
+  major_version = "9"
+  iso           = "Rocky-${local.version}-x86_64-dvd.iso"
+  url           = "https://download.rockylinux.org/pub/rocky/${local.major_version}/isos/x86_64/$iso"
+  checksum      = "cd43bb2671472471b1fc0a7a30113dfc9a56831516c46f4dbd12fb43bb4286d2"
 }
 
 # https://developer.hashicorp.com/packer/plugins/builders/virtualbox/iso
