@@ -37,6 +37,7 @@ packer {
 #               results in "Aborted" VMs and so slow it even misses bootloader keystrokes - it is unworkable on ARM as of this date
 
 locals {
+  # http://releases.ubuntu.com/
   version  = "22.04"
   patch    = "2"
   iso      = "ubuntu-${local.version}.${local.patch}-live-server-amd64.iso"
