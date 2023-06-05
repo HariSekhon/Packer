@@ -33,17 +33,17 @@ packer {
 }
 
 locals {
-  version = "9.2"
-  iso = "Rocky-${local.version}-x86_64-dvd.iso"
-  url = "https://download.rockylinux.org/pub/rocky/9/isos/x86_64/$iso"
+  # https://rockylinux.org/download/
+  version  = "9.2"
+  iso      = "Rocky-${local.version}-x86_64-dvd.iso"
+  url      = "https://download.rockylinux.org/pub/rocky/9/isos/x86_64/$iso"
   checksum = "cd43bb2671472471b1fc0a7a30113dfc9a56831516c46f4dbd12fb43bb4286d2"
 }
 
 # https://developer.hashicorp.com/packer/plugins/builders/virtualbox/iso
 source "virtualbox-iso" "rocky" {
-  vm_name       = "rocky-${local.version}"
-  guest_os_type = "Redhat_64"
-  # https://rockylinux.org/download/
+  vm_name              = "rocky-${local.version}"
+  guest_os_type        = "Redhat_64"
   iso_url              = local.url
   iso_checksum         = local.checksum
   cpus                 = 3
