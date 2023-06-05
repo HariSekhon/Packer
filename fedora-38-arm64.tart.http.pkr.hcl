@@ -80,7 +80,7 @@ build {
 
   # https://developer.hashicorp.com/packer/docs/provisioners/shell
   #
-  #provisioner "shell" {
+  provisioner "shell" {
     execute_command = "echo 'packer' | sudo -S -E bash '{{ .Path }}'"
     inline = [
       "for x in anaconda-ks.cfg ks-pre.log ks-post.log; do if [ -f /root/$x ]; then cp -fv /root/$x /mnt/virtiofs/; fi; done"
