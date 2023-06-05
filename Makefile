@@ -153,7 +153,7 @@ ubuntu-tart:
 
 .PHONY: ubuntu-tart
 ubuntu-23-tart:
-	scripts/prepare-ubuntu-23.04.sh
+	scripts/prepare_ubuntu-23.04.sh
 	packer build --force ubuntu-23.04-arm64.tart.pkr.hcl
 
 .PHONY: debian-tart-http
