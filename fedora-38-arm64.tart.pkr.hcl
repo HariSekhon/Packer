@@ -74,19 +74,19 @@ build {
   provisioner "shell" {
     scripts = [
       "./scripts/version.sh",
-      #"./scripts/vboxsf.sh",
+      "./scripts/mount-apple-virtiofs.sh",
     ]
     execute_command = "echo 'packer' | sudo -S -E bash '{{ .Path }}' '${packer.version}'"
   }
 
   # https://developer.hashicorp.com/packer/docs/provisioners/shell
   #
-  #provisioner "shell" {
-  #  execute_command = "echo 'packer' | sudo -S -E bash '{{ .Path }}'"
-  #  inline = [
-  #    "for x in anaconda-ks.cfg ks-pre.log ks-post.log; do if [ -f /root/$x ]; then cp -fv /root/$x /mnt/vboxsf/; fi; done"
-  #  ]
-  #}
+  provisioner "shell" {
+    execute_command = "echo 'packer' | sudo -S -E bash '{{ .Path }}'"
+    inline = [
+      "for x in anaconda-ks.cfg ks-pre.log ks-post.log; do if [ -f /root/$x ]; then cp -fv /root/$x /mnt/virtiofs/; fi; done"
+    ]
+  }
 
   post-processor "checksum" {
     checksum_types      = ["md5", "sha512"]
