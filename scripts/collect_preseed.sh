@@ -17,10 +17,15 @@ set -euo pipefail
 [ -n "${DEBUG:-}" ] && set -x
 #srcdir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
+sudo=""
+if [ $EUID -ne 0 ]; then
+    sudo=sudo
+fi
+
 distro="$(awk -F= '/^ID=/{printf $2"-"}' /etc/os-release)"
 version="$(awk -F= '/^VERSION_ID=/{print $2}' /etc/os-release | sed 's/"//g')"
 
 echo "Distro was detemined to be '$distro-$version'"
 
-debconf-get-selections --installer > "/mnt/host/preseed.cfg-$distro-$version"
-debconf-get-selections > "/mnt/host/debconf-selections.cfg-$distro-$version"
+$sudo debconf-get-selections --installer > "/mnt/host/preseed.cfg-$distro-$version"
+$sudo debconf-get-selections > "/mnt/host/debconf-selections.cfg-$distro-$version"
