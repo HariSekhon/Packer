@@ -45,12 +45,13 @@ source "tart-cli" "debian-11" {
   cpu_count    = 4
   memory_gb    = 4
   disk_size_gb = 40
+  # completely different installer to the x86_64, requiring different boot_command
   boot_command = [
-    "<wait5s>",
-    "<down><wait>",
-    "<tab><wait>",
-    # preseed-md5=... add later
-    "fb=true auto=true url=http:///192.168.64.1:8000/preseed.cfg hostname={{.Name}} domain=local <enter>"
+    "<wait3s>",
+    "e<wait>",
+    "<down><down><down><down><left>",
+    # preseed-md5=... add later                          {{.Name}} not available in this plugin to use for hostname, gets 'hostname=<no value>'
+    " auto=true url=http://192.168.64.1:8000/preseed.cfg hostname=debian domain=local <f10>"
   ]
   ssh_timeout  = "30m"
   ssh_username = "packer"
