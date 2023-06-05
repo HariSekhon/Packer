@@ -27,4 +27,4 @@ version="$(awk -F= '/^VERSION_ID=/{print $2}' /etc/os-release | sed 's/"//g')"
 
 echo "Distro was detemined to be '$distro-$version'"
 
-$sudo cp -fv /var/log/installer/autoinstall-user-data /mnt/host/
+$sudo cp -fv /var/log/installer/autoinstall-user-data "/mnt/host/autoinstall-user-data-$distro"
