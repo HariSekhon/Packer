@@ -32,13 +32,21 @@ packer {
   }
 }
 
+locals {
+  version  = "38"
+  patch = "1.6"
+  iso      = "Fedora-Server-dvd-x86_64-${local.version}-${local.patch}.iso"
+  url      = "https://download.fedoraproject.org/pub/fedora/linux/releases/${local.version}/Server/x86_64/iso/${local.iso}"
+  checksum = "09dee2cd626a269aefc67b69e63a30bd0baa52d4"
+}
+
 # https://developer.hashicorp.com/packer/plugins/builders/virtualbox/iso
-source "virtualbox-iso" "fedora-38" {
-  vm_name       = "fedora-38"
+source "virtualbox-iso" "fedora" {
+  vm_name       = "fedora-${local.version}"
   guest_os_type = "Fedora_64"
   # https://alt.fedoraproject.org/alt/
-  iso_url              = "https://download.fedoraproject.org/pub/fedora/linux/releases/38/Server/x86_64/iso/Fedora-Server-dvd-x86_64-38-1.6.iso"
-  iso_checksum         = "09dee2cd626a269aefc67b69e63a30bd0baa52d4"
+  iso_url              = local.url
+  iso_checksum         = local.checksum
   cpus                 = 3
   memory               = 3072
   disk_size            = 40000
@@ -69,9 +77,9 @@ source "virtualbox-iso" "fedora-38" {
 }
 
 build {
-  name = "fedora-38"
+  name = "fedora-${local.version}"
 
-  sources = ["source.virtualbox-iso.fedora-38"]
+  sources = ["source.virtualbox-iso.fedora"]
 
   # https://developer.hashicorp.com/packer/docs/provisioners/shell-local
   #
