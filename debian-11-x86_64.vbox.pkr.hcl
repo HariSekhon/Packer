@@ -78,13 +78,16 @@ build {
   # https://developer.hashicorp.com/packer/docs/provisioners/shell-local
   #
   provisioner "shell-local" {
-    script = "./scripts/local.sh"
+    script = "./scripts/local-virtiofs.sh"
   }
 
   # https://developer.hashicorp.com/packer/docs/provisioners/shell
   #
   provisioner "shell" {
-    script          = "./scripts/version.sh"
+    scripts         = [
+      "scripts/version.sh"
+      "scripts/mount-vboxsf.sh"
+    ]
     execute_command = "echo 'packer' | sudo -S -E bash '{{ .Path }}' '${packer.version}'"
   }
 
