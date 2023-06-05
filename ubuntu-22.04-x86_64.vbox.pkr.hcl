@@ -98,16 +98,17 @@ build {
     scripts = [
       "./scripts/version.sh",
       "./scripts/vboxsf.sh",
+      "./scripts/collect_autoinstall_user_data.sh",
     ]
     execute_command = "echo 'packer' | sudo -S -E bash '{{ .Path }}' '${packer.version}'"
   }
 
-  provisioner "shell" {
-    inline = [
-      "cp -fv /var/log/installer/autoinstall-user-data /mnt/vboxsf/",
-    ]
-    execute_command = "echo 'packer' | sudo -S -E bash '{{ .Path }}'"
-  }
+  #provisioner "shell" {
+  #  inline = [
+  #    "cp -fv /var/log/installer/autoinstall-user-data /mnt/vboxsf/",
+  #  ]
+  #  execute_command = "echo 'packer' | sudo -S -E bash '{{ .Path }}'"
+  #}
 
   post-processor "checksum" {
     checksum_types      = ["md5", "sha512"]
