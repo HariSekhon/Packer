@@ -151,6 +151,11 @@ ubuntu-tart:
 	scripts/prepare-ubuntu-22.04.sh
 	packer build --force ubuntu-22.04-arm64.tart.pkr.hcl
 
+.PHONY: ubuntu-tart
+ubuntu-23-tart:
+	scripts/prepare-ubuntu-23.04.sh
+	packer build --force ubuntu-23.04-arm64.tart.pkr.hcl
+
 .PHONY: debian-tart-http
 debian-tart-http:
 	scripts/prepare-debian-11.sh
