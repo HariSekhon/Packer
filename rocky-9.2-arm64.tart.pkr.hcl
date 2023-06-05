@@ -76,7 +76,7 @@ build {
     scripts = [
       "./scripts/version.sh",
       "./scripts/mount_apple_virtiofs.sh",
-      "./scripts/collect-anaconda.sh",
+      "./scripts/collect_anaconda.sh",
     ]
     execute_command = "echo 'packer' | sudo -S -E bash '{{ .Path }}' '${packer.version}'"
   }
