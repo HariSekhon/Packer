@@ -19,6 +19,7 @@ set -euo pipefail
 [ -n "${DEBUG:-}" ] && set -x
 srcdir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
+# https://ubuntu.com/download/server/arm
 iso="ubuntu-22.04.2-live-server-arm64.iso"
 
 mkdir -p -v "$srcdir/../isos"
@@ -34,7 +35,7 @@ echo "Downloading Ubuntu ISO..."
 wget -cO "$iso" "$url"
 echo
 
-cidata_base="ubuntu-22.04_cidata"
+cidata_base="ubuntu-${version}_cidata"
 cidata="$cidata_base/cidata"  # last component must be called 'cidata' for auto-detect during boot
 iso="$cidata_base.iso"
 
