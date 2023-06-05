@@ -48,7 +48,25 @@ source "tart-cli" "debian-11" {
   boot_command = [
     "<wait2s>",
     "e<down><down><down><down><left>",
-    " auto=true hostname=debian domain=local<f10>"
+    " auto=true file=/mnt/cdrom2/preseed.cfg<f10>", #  hostname=debian domain=local<f10>",
+    "<wait15s>",
+    # go to terminal tty2 for CLI
+    # XXX: this Alt-F2 keystroke is coming out unrecognized
+    "<leftAltOn><f2><leftAltOff><wait2s>",
+    # 'Press enter to activate this console' - drops into a Busybox shell
+    "<enter><wait>",
+    "mkdir /mnt/cdrom2<enter>",
+    # without '-t iso9660' gets unintuitive error 'mount: mounting /dev/vdb on /mnt/cdrom2 failed: Invalid argument''
+    "mount -t iso9660 /dev/vdb /mnt/cdrom2<enter>",
+    # go back to tty1
+    # XXX: this Alt-F1 keystroke is coming out unrecognized
+    "<leftAltOn><f1><leftAltOff>",
+    # 'Load drives from removable media?' -> No
+    "<right><enter><wait>",
+    # 'Manually select a module and device for instation media?' -> Yes
+    "<enter><wait>",
+    # none, cdrom - press down and enter to select second option
+    "<down><enter>",
   ]
   ssh_timeout  = "30m"
   ssh_username = "packer"
@@ -76,6 +94,6 @@ build {
   post-processor "checksum" {
     checksum_types      = ["md5", "sha512"]
     keep_input_artifact = true
-    output              = "output-{{.Name}}/{{.Name}}.{{.ChecksumType}}"
+    output              = "output-{{.BuildName}}/{{.BuildName}}.{{.ChecksumType}}"
   }
 }
