@@ -89,7 +89,7 @@ build {
   # https://developer.hashicorp.com/packer/docs/provisioners/shell-local
   #
   provisioner "shell-local" {
-    script = "./scripts/local.sh"
+    script = "./scripts/local-vboxsf.sh"
   }
 
   # https://developer.hashicorp.com/packer/docs/provisioners/shell
