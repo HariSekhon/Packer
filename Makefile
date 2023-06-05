@@ -148,7 +148,7 @@ rocky-tart:
 
 .PHONY: ubuntu-tart
 ubuntu-tart:
-	scripts/prepare-ubuntu-22.04.sh
+	scripts/prepare_ubuntu-22.04.sh
 	packer build --force ubuntu-22.04-arm64.tart.pkr.hcl
 
 .PHONY: ubuntu-tart
@@ -174,7 +174,7 @@ fedora-tart-http:
 
 .PHONY: ubuntu-tart-http
 ubuntu-tart-http:
-	scripts/prepare-ubuntu-22.04.sh
+	scripts/prepare_ubuntu-22.04.sh
 	pkill -9 -if -- '.*python.* -m http.server'
 	cd installers && python3 -m http.server &
 	packer build --force ubuntu-22.04-arm64.tart.http.pkr.hcl
