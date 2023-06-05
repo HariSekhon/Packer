@@ -17,8 +17,12 @@ set -euo pipefail
 [ -n "${DEBUG:-}" ] && set -x
 #srcdir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
+distro="$(awk -F= '/^ID=|^VERSION_ID=/{print $2}' | tr '\n' '-' | sed 's/-$//')"
+
+echo "Distro was detemined to be '$distro'"
+
 for x in anaconda-ks.cfg ks-pre.log ks-post.log; do
     if [ -f /root/$x ]; then
-        cp -fv /root/$x /mnt/host/;
+        cp -fv "/root/$x" "/mnt/host/$x-$distro";
     fi
 done
