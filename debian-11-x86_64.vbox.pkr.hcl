@@ -33,11 +33,11 @@ packer {
 }
 
 locals {
-  version       = "11"
-  minor_version = "7.0"
-  iso           = "debian-${local.version}.${local.minor_version}-amd64-DVD-1.iso" # 4.7GB
-  url           = "https://cdimage.debian.org/debian-cd/current/amd64/iso-dvd/${local.iso}"
-  checksum      = "cfbb1387d92c83f49420eca06e2d11a23e5a817a21a5d614339749634709a32f"
+  version  = "11"
+  patch    = "7.0"
+  iso      = "debian-${local.version}.${local.patch}-amd64-DVD-1.iso" # 4.7GB
+  url      = "https://cdimage.debian.org/debian-cd/current/amd64/iso-dvd/${local.iso}"
+  checksum = "cfbb1387d92c83f49420eca06e2d11a23e5a817a21a5d614339749634709a32f"
 }
 
 # https://developer.hashicorp.com/packer/plugins/builders/virtualbox/iso
