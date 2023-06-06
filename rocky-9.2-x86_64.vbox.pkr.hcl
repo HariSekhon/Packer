@@ -56,11 +56,8 @@ source "virtualbox-iso" "rocky" {
   http_directory       = "installers"
   boot_wait            = "5s"
   boot_command = [
-    "<up><wait>",
-    "e",
-    "<down><down><down><left>",
-    # leave a space from last arg
-    " inst.ks=http://{{.HTTPIP}}:{{.HTTPPort}}/anaconda-ks.cfg <f10>"
+    "<up><tab>",
+    " inst.ks=http://{{.HTTPIP}}:{{.HTTPPort}}/anaconda-ks.cfg <enter>"
   ]
   ssh_timeout      = "30m"
   ssh_username     = "packer"
