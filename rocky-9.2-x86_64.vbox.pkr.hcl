@@ -40,11 +40,12 @@ locals {
   iso           = "Rocky-${local.version}-x86_64-dvd.iso"
   url           = "https://download.rockylinux.org/pub/rocky/${local.major_version}/isos/x86_64/$iso"
   checksum      = "cd43bb2671472471b1fc0a7a30113dfc9a56831516c46f4dbd12fb43bb4286d2"
+  vm_name       = "${local.name}-${local.version}"
 }
 
 # https://developer.hashicorp.com/packer/plugins/builders/virtualbox/iso
 source "virtualbox-iso" "rocky" {
-  vm_name              = "${local.name}-${local.version}"
+  vm_name              = "${local.vm_name}"
   guest_os_type        = "Redhat_64"
   iso_url              = local.url
   iso_checksum         = local.checksum
