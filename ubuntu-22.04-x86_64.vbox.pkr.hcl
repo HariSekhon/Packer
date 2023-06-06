@@ -81,7 +81,7 @@ source "virtualbox-iso" "ubuntu" {
 }
 
 build {
-  name = "ubuntu"
+  name = "ubuntu-${local.version}"  # needed for local_vboxsf.sh below to add the shared folder to the right VM name
   sources = [
     # 22.04 gets split at the dot and results in this error:
     # Error: Unknown source virtualbox-iso.ubuntu-22
@@ -106,7 +106,7 @@ build {
   provisioner "shell" {
     scripts = [
       "./scripts/version.sh",
-      "./scripts/mount_vboxsf.sh",
+      "./scripts/mount_vboxsf.sh '{{.BuildName}}-${local.version}'",
       "./scripts/collect_autoinstall_user_data.sh",
     ]
     execute_command = "echo 'packer' | sudo -S -E bash '{{ .Path }}' '${packer.version}'"
