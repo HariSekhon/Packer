@@ -174,7 +174,7 @@ ubuntu-23-tart:
 
 .PHONY: kill-webserver
 kill-webserver:
-	pkill -9 -if -- '.*python.* -m http.server -d installers'
+	pkill -9 -if -- '.*python.* -m http.server -d installer[s]' || :
 
 .PHONY: webserver
 webserver:
