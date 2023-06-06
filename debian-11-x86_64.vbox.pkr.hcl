@@ -40,11 +40,12 @@ locals {
   iso      = "debian-${local.version}.${local.patch}-amd64-DVD-1.iso" # 4.7GB
   url      = "https://cdimage.debian.org/debian-cd/current/amd64/iso-dvd/${local.iso}"
   checksum = "cfbb1387d92c83f49420eca06e2d11a23e5a817a21a5d614339749634709a32f"
+  vm_name  = "${local.name}-${local.version}"
 }
 
 # https://developer.hashicorp.com/packer/plugins/builders/virtualbox/iso
 source "virtualbox-iso" "debian" {
-  vm_name              = "${local.name}-${local.version}"
+  vm_name              = "${local.vm_name}"
   guest_os_type        = "Debian_64"
   iso_url              = local.url
   iso_checksum         = local.checksum
@@ -87,7 +88,10 @@ build {
   # https://developer.hashicorp.com/packer/docs/provisioners/shell-local
   #
   provisioner "shell-local" {
-    script = "./scripts/local_vboxsf.sh '${local.name}-${local.version}'"
+    environment_vars = [
+      "VM_NAME=${local.vm_name}"
+    ]
+    script = "./scripts/local_vboxsf.sh"
   }
 
   # https://developer.hashicorp.com/packer/docs/provisioners/shell
