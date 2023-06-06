@@ -38,6 +38,7 @@ packer {
 
 locals {
   # http://releases.ubuntu.com/
+  name     = "ubuntu"
   version  = "22.04"
   patch    = "2"
   iso      = "ubuntu-${local.version}.${local.patch}-live-server-amd64.iso"
@@ -47,9 +48,8 @@ locals {
 
 # https://developer.hashicorp.com/packer/plugins/builders/virtualbox/iso
 source "virtualbox-iso" "ubuntu" {
-  vm_name       = "ubuntu-${local.version}"
-  guest_os_type = "Ubuntu_64"
-  # Browse to http://releases.ubuntu.com/ and pick the latest LTS release
+  vm_name              = "${local.name}-${local.version}"
+  guest_os_type        = "Ubuntu_64"
   iso_url              = local.url
   iso_checksum         = local.checksum
   cpus                 = 3
@@ -81,7 +81,7 @@ source "virtualbox-iso" "ubuntu" {
 }
 
 build {
-  name = "ubuntu-${local.version}"  # needed for local_vboxsf.sh below to add the shared folder to the right VM name
+  name = "${local.name}"
   sources = [
     # 22.04 gets split at the dot and results in this error:
     # Error: Unknown source virtualbox-iso.ubuntu-22
@@ -98,7 +98,7 @@ build {
   # https://developer.hashicorp.com/packer/docs/provisioners/shell-local
   #
   provisioner "shell-local" {
-    script = "./scripts/local_vboxsf.sh"
+    script = "./scripts/local_vboxsf.sh '${local.name}-${local.version}'"
   }
 
   # https://developer.hashicorp.com/packer/docs/provisioners/shell
@@ -106,7 +106,7 @@ build {
   provisioner "shell" {
     scripts = [
       "./scripts/version.sh",
-      "./scripts/mount_vboxsf.sh '{{.BuildName}}-${local.version}'",
+      "./scripts/mount_vboxsf.sh",
       "./scripts/collect_autoinstall_user_data.sh",
     ]
     execute_command = "echo 'packer' | sudo -S -E bash '{{ .Path }}' '${packer.version}'"
