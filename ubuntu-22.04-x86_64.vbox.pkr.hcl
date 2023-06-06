@@ -98,12 +98,18 @@ build {
   # https://developer.hashicorp.com/packer/docs/provisioners/shell-local
   #
   provisioner "shell-local" {
-    script = "./scripts/local_vboxsf.sh '${local.name}-${local.version}'"
+    environment_vars = [
+      "VM_NAME=${local.vm_name}"
+    ]
+    script = "./scripts/local_vboxsf.sh"
   }
 
   # https://developer.hashicorp.com/packer/docs/provisioners/shell
   #
   provisioner "shell" {
+    environment_vars = [
+      "VM_NAME=${local.vm_name}"
+    ]
     scripts = [
       "./scripts/version.sh",
       "./scripts/mount_vboxsf.sh",
