@@ -94,7 +94,7 @@ build {
   provisioner "shell" {
     scripts = [
       "./scripts/version.sh",
-      "./scripts/mount_vboxsf.sh",
+      "./scripts/mount_vboxsf.sh '{{.BuildName}}-${local.version}'",
       "./scripts/collect_preseed.sh",
     ]
     execute_command = "echo 'packer' | sudo -S -E bash '{{ .Path }}' '${packer.version}'"
