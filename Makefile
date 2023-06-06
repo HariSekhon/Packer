@@ -172,37 +172,42 @@ ubuntu-23-tart:
 	scripts/prepare_ubuntu-23.04.sh
 	packer build --force ubuntu-23.04-arm64.tart.pkr.hcl
 
+.PHONY: kill-webserver
+kill-webserver:
+	pkill -9 -if -- '.*python.* -m http.server -d installers'
+
+.PHONY: webserver
+webserver:
+	$(MAKE) kill-webserver
+	python3 -m http.server -d installers &
+
 .PHONY: debian-tart-http
 debian-tart-http:
 	scripts/prepare_debian-11.sh
-	pkill -9 -if -- '.*python.* -m http.server'
-	cd installers && python3 -m http.server &
+	$(MAKE) webserver
 	packer build --force debian-11-arm64.tart.http.pkr.hcl
-	pkill -9 -if -- '.*python.* -m http.server'
+	$(MAKE) kill-webserver
 
 .PHONY: fedora-tart-http
 fedora-tart-http:
 	scripts/prepare_fedora-38.sh
-	pkill -9 -if -- '.*python.* -m http.server'
-	cd installers && python3 -m http.server &
+	$(MAKE) webserver
 	packer build --force fedora-38-arm64.tart.http.pkr.hcl
-	pkill -9 -if -- '.*python.* -m http.server'
+	$(MAKE) kill-webserver
 
 .PHONY: rocky-tart-http
 rocky-tart-http:
 	scripts/prepare_rocky-9.2.sh
-	pkill -9 -if -- '.*python.* -m http.server'
-	cd installers && python3 -m http.server &
+	$(MAKE) webserver
 	packer build --force rocky-9.2-arm64.tart.http.pkr.hcl
-	pkill -9 -if -- '.*python.* -m http.server'
+	$(MAKE) kill-webserver
 
 .PHONY: ubuntu-tart-http
 ubuntu-tart-http:
 	scripts/prepare_ubuntu-22.04.sh
-	pkill -9 -if -- '.*python.* -m http.server'
-	cd installers && python3 -m http.server &
+	$(MAKE) webserver
 	packer build --force ubuntu-22.04-arm64.tart.http.pkr.hcl
-	pkill -9 -if -- '.*python.* -m http.server'
+	$(MAKE) kill-webserver
 
 .PHONY: validate
 validate:
