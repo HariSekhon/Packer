@@ -33,6 +33,8 @@ packer {
 }
 
 locals {
+  # https://www.debian.org/CD/http-ftp/
+  name     = "debian"
   version  = "11"
   patch    = "7.0"
   iso      = "debian-${local.version}.${local.patch}-amd64-DVD-1.iso" # 4.7GB
@@ -42,9 +44,8 @@ locals {
 
 # https://developer.hashicorp.com/packer/plugins/builders/virtualbox/iso
 source "virtualbox-iso" "debian" {
-  vm_name       = "debian-${local.version}"
-  guest_os_type = "Debian_64"
-  # https://www.debian.org/CD/http-ftp/
+  vm_name              = "${local.name}-${local.version}"
+  guest_os_type        = "Debian_64"
   iso_url              = local.url
   iso_checksum         = local.checksum
   cpus                 = 2
@@ -79,14 +80,14 @@ source "virtualbox-iso" "debian" {
 }
 
 build {
-  name = "debian"
+  name = "${local.name}"
 
   sources = ["source.virtualbox-iso.debian"]
 
   # https://developer.hashicorp.com/packer/docs/provisioners/shell-local
   #
   provisioner "shell-local" {
-    script = "./scripts/local_vboxsf.sh"
+    script = "./scripts/local_vboxsf.sh '${local.name}-${local.version}'"
   }
 
   # https://developer.hashicorp.com/packer/docs/provisioners/shell
@@ -94,7 +95,7 @@ build {
   provisioner "shell" {
     scripts = [
       "./scripts/version.sh",
-      "./scripts/mount_vboxsf.sh '{{.BuildName}}-${local.version}'",
+      "./scripts/mount_vboxsf.sh",
       "./scripts/collect_preseed.sh",
     ]
     execute_command = "echo 'packer' | sudo -S -E bash '{{ .Path }}' '${packer.version}'"
