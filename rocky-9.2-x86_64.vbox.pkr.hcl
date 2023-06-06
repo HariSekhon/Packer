@@ -34,6 +34,7 @@ packer {
 
 locals {
   # https://rockylinux.org/download/
+  name          = "rocky"
   version       = "9.2"
   major_version = "9"
   iso           = "Rocky-${local.version}-x86_64-dvd.iso"
@@ -43,7 +44,7 @@ locals {
 
 # https://developer.hashicorp.com/packer/plugins/builders/virtualbox/iso
 source "virtualbox-iso" "rocky" {
-  vm_name              = "rocky-${local.version}"
+  vm_name              = "${local.name}-${local.version}"
   guest_os_type        = "Redhat_64"
   iso_url              = local.url
   iso_checksum         = local.checksum
@@ -77,14 +78,14 @@ source "virtualbox-iso" "rocky" {
 }
 
 build {
-  name = "rocky"
+  name = "${local.name}"
 
   sources = ["source.virtualbox-iso.rocky"]
 
   # https://developer.hashicorp.com/packer/docs/provisioners/shell-local
   #
   provisioner "shell-local" {
-    script = "./scripts/local_vboxsf.sh"
+    script = "./scripts/local_vboxsf.sh '${local.name}-${local.version}'"
   }
 
   # https://developer.hashicorp.com/packer/docs/provisioners/shell
@@ -92,7 +93,7 @@ build {
   provisioner "shell" {
     scripts = [
       "./scripts/version.sh",
-      "./scripts/mount_vboxsf.sh '{{.BuildName}}-${local.version}'",
+      "./scripts/mount_vboxsf.sh",
       "./scripts/collect_anaconda.sh",
     ]
     execute_command = "echo 'packer' | sudo -S -E bash '{{ .Path }}' '${packer.version}'"
