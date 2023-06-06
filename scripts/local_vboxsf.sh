@@ -19,7 +19,7 @@ srcdir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 echo "Packer Environment Variables:"
 echo
-env | sort # | grep PACKER || :
+env | sort | grep PACKER || :
 echo
 dir="$srcdir/../share"
 echo "Creating $dir"
