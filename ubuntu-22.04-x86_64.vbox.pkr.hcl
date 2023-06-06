@@ -44,11 +44,12 @@ locals {
   iso      = "ubuntu-${local.version}.${local.patch}-live-server-amd64.iso"
   url      = "http://releases.ubuntu.com/jammy/${local.iso}"
   checksum = "5e38b55d57d94ff029719342357325ed3bda38fa80054f9330dc789cd2d43931"
+  vm_name  = "${local.name}-${local.version}"
 }
 
 # https://developer.hashicorp.com/packer/plugins/builders/virtualbox/iso
 source "virtualbox-iso" "ubuntu" {
-  vm_name              = "${local.name}-${local.version}"
+  vm_name              = "${local.vm_name}"
   guest_os_type        = "Ubuntu_64"
   iso_url              = local.url
   iso_checksum         = local.checksum
