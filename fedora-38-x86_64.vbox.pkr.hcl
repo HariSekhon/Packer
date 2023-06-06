@@ -40,11 +40,12 @@ locals {
   iso      = "Fedora-Server-dvd-x86_64-${local.version}-${local.patch}.iso"
   url      = "https://download.fedoraproject.org/pub/fedora/linux/releases/${local.version}/Server/x86_64/iso/${local.iso}"
   checksum = "09dee2cd626a269aefc67b69e63a30bd0baa52d4"
+  vm_name  = "${local.name}-${local.version}"
 }
 
 # https://developer.hashicorp.com/packer/plugins/builders/virtualbox/iso
 source "virtualbox-iso" "fedora" {
-  vm_name              = "${local.name}-${local.version}"
+  vm_name              = "${local.vm_name}"
   guest_os_type        = "Fedora_64"
   iso_url              = local.url
   iso_checksum         = local.checksum
