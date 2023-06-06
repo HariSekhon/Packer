@@ -33,8 +33,10 @@ packer {
 }
 
 locals {
+  # https://alt.fedoraproject.org/alt/
+  name     = "fedora"
   version  = "38"
-  patch = "1.6"
+  patch    = "1.6"
   iso      = "Fedora-Server-dvd-x86_64-${local.version}-${local.patch}.iso"
   url      = "https://download.fedoraproject.org/pub/fedora/linux/releases/${local.version}/Server/x86_64/iso/${local.iso}"
   checksum = "09dee2cd626a269aefc67b69e63a30bd0baa52d4"
@@ -42,9 +44,8 @@ locals {
 
 # https://developer.hashicorp.com/packer/plugins/builders/virtualbox/iso
 source "virtualbox-iso" "fedora" {
-  vm_name       = "fedora-${local.version}"
-  guest_os_type = "Fedora_64"
-  # https://alt.fedoraproject.org/alt/
+  vm_name              = "${local.name}-${local.version}"
+  guest_os_type        = "Fedora_64"
   iso_url              = local.url
   iso_checksum         = local.checksum
   cpus                 = 3
@@ -77,14 +78,14 @@ source "virtualbox-iso" "fedora" {
 }
 
 build {
-  name = "fedora"
+  name = "${local.name}"
 
   sources = ["source.virtualbox-iso.fedora"]
 
   # https://developer.hashicorp.com/packer/docs/provisioners/shell-local
   #
   provisioner "shell-local" {
-    script = "./scripts/local_vboxsf.sh"
+    script = "./scripts/local_vboxsf.sh '${local.name}-${local.version}'"
   }
 
   # https://developer.hashicorp.com/packer/docs/provisioners/shell
@@ -92,7 +93,7 @@ build {
   provisioner "shell" {
     scripts = [
       "./scripts/version.sh",
-      "./scripts/mount_vboxsf.sh '{{.BuildName}}-${local.version}'",
+      "./scripts/mount_vboxsf.sh",
       "./scripts/collect_anaconda.sh",
     ]
     execute_command = "echo 'packer' | sudo -S -E bash '{{ .Path }}' '${packer.version}'"
