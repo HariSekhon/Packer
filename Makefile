@@ -198,7 +198,7 @@ tart-all:
 .PHONY: debian-tart
 debian-tart:
 	scripts/prepare_debian-11.sh
-	packer build --force debian-11-arm64.tart.pkr.hcl
+	packer build --force debian-arm64.tart.pkr.hcl
 
 .PHONY: fedora-tart
 fedora-tart:
@@ -260,7 +260,7 @@ webserver:
 debian-tart-http:
 	scripts/prepare_debian-11.sh
 	$(MAKE) webserver
-	packer build --force debian-11-arm64.tart.http.pkr.hcl
+	packer build --force debian-arm64.tart.http.pkr.hcl
 	$(MAKE) kill-webserver
 
 .PHONY: fedora-tart-http
