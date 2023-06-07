@@ -36,18 +36,29 @@ packer {
   }
 }
 
+# https://alt.rockyproject.org/alt/
+variable "version" {
+  type    = string
+  default = "9.2"
+}
+
+variable "iso" {
+  type    = string
+  default = "Rocky-9.2-aarch64-dvd.iso"
+}
+
 locals {
-  version = "9.2"
+  name = "rocky"
   isos = [
-    #"isos/rocky-${local.version}_cidata.iso",
-    "isos/Rocky-${local.version}-aarch64-dvd.iso"
+    #"isos/rocky-${var.version}_cidata.iso",
+    "isos/${var.iso}"
   ]
+  vm_name = "${local.name}-${var.version}"
 }
 
 # https://developer.hashicorp.com/packer/plugins/builders/tart
 source "tart-cli" "rocky" {
-  vm_name = "rocky-${local.version}"
-  # https://alt.rockyproject.org/alt/
+  vm_name      = local.vm_name
   from_iso     = local.isos
   cpu_count    = 4
   memory_gb    = 4
