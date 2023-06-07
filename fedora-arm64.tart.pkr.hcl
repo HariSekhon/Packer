@@ -55,11 +55,12 @@ locals {
     "isos/fedora-${var.version}_cidata.iso",
     "isos/${var.iso}"
   ]
+  vm_name = "${local.name}-${var.version}"
 }
 
 # https://developer.hashicorp.com/packer/plugins/builders/tart
 source "tart-cli" "fedora" {
-  vm_name      = "${local.vm_name}"
+  vm_name      = local.vm_name
   from_iso     = local.isos
   cpu_count    = 4
   memory_gb    = 4
