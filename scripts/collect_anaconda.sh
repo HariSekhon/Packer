@@ -17,10 +17,7 @@ set -euo pipefail
 [ -n "${DEBUG:-}" ] && set -x
 #srcdir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
-sudo=""
-if [ $EUID -ne 0 ]; then
-    sudo=sudo
-fi
+# must be run as root to be able to detect files under /root to copy out
 
 distro="$(awk -F= '/^ID=/{printf $2}' /etc/os-release | sed 's/"//g')"
 version="$(awk -F= '/^VERSION_ID=/{print $2}' /etc/os-release | sed 's/"//g')"
@@ -29,6 +26,6 @@ echo "Distro was detemined to be '$distro-$version'"
 
 for x in anaconda-ks.cfg ks-pre.log ks-post.log; do
     if [ -f /root/$x ]; then
-        $sudo cp -fv "/root/$x" "/mnt/host/$x-$distro-$version";
+        cp -fv "/root/$x" "/mnt/host/$x-$distro-$version";
     fi
 done
