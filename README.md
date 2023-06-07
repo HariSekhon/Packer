@@ -73,13 +73,9 @@ The following builds are provided for these combinations of Linux distros, arche
   - [rocky-9.2-x86_64.vbox.pkr.hcl](https://github.com/HariSekhon/Packer-templates/blob/main/rocky-9.2-x86_64.vbox.pkr.hcl)
   - [ubuntu-22.04-x86_64.vbox.pkr.hcl](https://github.com/HariSekhon/Packer-templates/blob/main/ubuntu-22.04-x86_64.vbox.pkr.hcl)
 - [Tart](https://tart.run/):
-  - [debian-11-arm64.tart.pkr.hcl](https://github.com/HariSekhon/Packer-templates/blob/main/debian-11-arm64.tart.pkr.hcl)
   - [debian-11-arm64.tart.http.pkr.hcl](https://github.com/HariSekhon/Packer-templates/blob/main/debian-11-arm64.tart.http.pkr.hcl)
-  - [fedora-38-arm64.tart.pkr.hcl](https://github.com/HariSekhon/Packer-templates/blob/main/fedora-38-arm64.tart.pkr.hcl)
   - [fedora-38-arm64.tart.http.pkr.hcl](https://github.com/HariSekhon/Packer-templates/blob/main/fedora-38-arm64.tart.http.pkr.hcl)
-  - [rocky-9.2-arm64.tart.pkr.hcl](https://github.com/HariSekhon/Packer-templates/blob/main/rocky-9.2-arm64.tart.pkr.hcl)
   - [rocky-9.2-arm64.tart.http.pkr.hcl](https://github.com/HariSekhon/Packer-templates/blob/main/rocky-9.2-arm64.tart.http.pkr.hcl)
-  - [ubuntu-22.04-arm64.tart.pkr.hcl](https://github.com/HariSekhon/Packer-templates/blob/main/ubuntu-22.04-arm64.tart.pkr.hcl)
   - [ubuntu-22.04-arm64.tart.http.pkr.hcl](https://github.com/HariSekhon/Packer-templates/blob/main/ubuntu-22.04-arm64.tart.http.pkr.hcl)
 
 ## Quick Start
