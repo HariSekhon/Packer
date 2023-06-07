@@ -35,10 +35,6 @@ packer {
   }
 }
 
-variable {
-  autoinstall_args = "'ds=nocloud-net;s=http://192.168.64.1:8000/'"
-}
-
 locals {
   # http://releases.ubuntu.com/
   version = "22.04"
@@ -68,7 +64,7 @@ source "tart-cli" "ubuntu" {
     "e<down><down><down><down><left>",
     # must run a web server such as 'python3 -m http.server' from installers/ directory before running 'packer build'
     # this is done automatically by 'make ubuntu-tart-http'
-    " autoinstall ${var.autoinstall_args} <f10>",
+    " autoinstall 'ds=nocloud-net;s=http://192.168.64.1:8000/' <f10>",
   ]
   ssh_timeout  = "30m"
   ssh_username = "packer"
