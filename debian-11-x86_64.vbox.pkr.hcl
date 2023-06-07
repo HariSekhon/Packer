@@ -32,20 +32,27 @@ packer {
   }
 }
 
+# https://deb.debian.org/debian/dists/
+variable "version" {
+  type    = string
+  default = "11"
+}
+
+variable "iso" {
+  type    = string
+  default = "debian-11.7.0-amd64-DVD-1.iso" # 4.7GB
+}
+
 locals {
-  # https://www.debian.org/CD/http-ftp/
   name     = "debian"
-  version  = "11"
-  patch    = "7.0"
-  iso      = "debian-${local.version}.${local.patch}-amd64-DVD-1.iso" # 4.7GB
-  url      = "https://cdimage.debian.org/debian-cd/current/amd64/iso-dvd/${local.iso}"
+  url      = "https://cdimage.debian.org/debian-cd/current/amd64/iso-dvd/${var.iso}"
   checksum = "cfbb1387d92c83f49420eca06e2d11a23e5a817a21a5d614339749634709a32f"
-  vm_name  = "${local.name}-${local.version}"
+  vm_name  = "${local.name}-${var.version}"
 }
 
 # https://developer.hashicorp.com/packer/plugins/builders/virtualbox/iso
 source "virtualbox-iso" "debian" {
-  vm_name              = "${local.vm_name}"
+  vm_name              = local.vm_name
   guest_os_type        = "Debian_64"
   iso_url              = local.url
   iso_checksum         = local.checksum
@@ -108,6 +115,6 @@ build {
   post-processor "checksum" {
     checksum_types      = ["md5", "sha512"]
     keep_input_artifact = true
-    output              = "output-{{.BuildName}}/{{.BuildName}}-${local.version}.{{.ChecksumType}}"
+    output              = "output-{{.BuildName}}/{{.BuildName}}-${var.version}.{{.ChecksumType}}"
   }
 }
