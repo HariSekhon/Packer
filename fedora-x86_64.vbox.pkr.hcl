@@ -44,7 +44,7 @@ variable "iso" {
 }
 
 locals {
-  name     = "fedora-${var.version}"
+  name     = "fedora"
   url      = "https://download.fedoraproject.org/pub/fedora/linux/releases/${var.version}/Server/x86_64/iso/${var.iso}"
   checksum = "09dee2cd626a269aefc67b69e63a30bd0baa52d4"
   vm_name  = "${local.name}-${var.version}"
