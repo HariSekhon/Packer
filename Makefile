@@ -143,12 +143,12 @@ all-vbox:
 
 .PHONY: debian-vbox
 debian-vbox:
-	VBoxManage unregistervm debian --delete 2>/dev/null || :
+	VBoxManage unregistervm debian-11 --delete 2>/dev/null || :
 	packer build --force debian-x86_64.vbox.pkr.hcl
 
 .PHONY: debian-11-vbox
 debian-11-vbox:
-	VBoxManage unregistervm debian --delete 2>/dev/null || :
+	VBoxManage unregistervm debian-11 --delete 2>/dev/null || :
 	packer build --force \
 		-var version=11 \
 		-var iso=debian-11.7.0-amd64-DVD-1.iso \
@@ -156,12 +156,12 @@ debian-11-vbox:
 
 .PHONY: fedora-vbox
 fedora-vbox:
-	VBoxManage unregistervm fedora --delete 2>/dev/null || :
+	VBoxManage unregistervm fedora-38 --delete 2>/dev/null || :
 	packer build --force fedora-x86_64.vbox.pkr.hcl
 
 .PHONY: fedora-37-vbox
 fedora-37-vbox:
-	VBoxManage unregistervm fedora --delete 2>/dev/null || :
+	VBoxManage unregistervm fedora-37 --delete 2>/dev/null || :
 	packer build --force \
 		-var version=37 \
 		-var iso=Fedora-Server-dvd-x86_64-37-1.7.iso \
@@ -169,7 +169,7 @@ fedora-37-vbox:
 
 .PHONY: fedora-38-vbox
 fedora-38-vbox:
-	VBoxManage unregistervm fedora --delete 2>/dev/null || :
+	VBoxManage unregistervm fedora-38 --delete 2>/dev/null || :
 	packer build --force \
 		-var version=38 \
 		-var iso=Fedora-Server-dvd-x86_64-38-1.6.iso \
@@ -177,8 +177,20 @@ fedora-38-vbox:
 
 .PHONY: rocky-vbox
 rocky-vbox:
-	VBoxManage unregistervm rocky --delete 2>/dev/null || :
-	packer build --force rocky-9.2-x86_64.vbox.pkr.hcl
+	VBoxManage unregistervm rocky-9.2 --delete 2>/dev/null || :
+	packer build --force rocky-x86_64.vbox.pkr.hcl
+
+.PHONY: rocky-9-vbox
+rocky-9.2-vbox: rocky-9-vbox
+	@:
+
+.PHONY: rocky-9.2-vbox
+rocky-9.2-vbox:
+	VBoxManage unregistervm rocky-9.2 --delete 2>/dev/null || :
+	packer build --force \
+		-var version="9.2" \
+		-var iso="Rocky-9.2-x86_64-dvd.iso" \
+		rocky-x86_64.vbox.pkr.hcl
 
 .PHONY: ubuntu-vbox
 ubuntu-vbox:
