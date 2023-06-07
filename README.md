@@ -111,6 +111,10 @@ and then re-run
 ```shell
 make <distro>
 ```
+or for a specific build
+```shell
+make <distro>-<major_version>
+```
 
 
 ## See Also
