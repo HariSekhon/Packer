@@ -165,7 +165,7 @@ rocky-tart:
 .PHONY: ubuntu-tart
 ubuntu-tart:
 	scripts/prepare_ubuntu-22.04.sh
-	packer build --force ubuntu-22.04-arm64.tart.pkr.hcl
+	packer build --force -var autoinstall_args="" ubuntu-22.04-arm64.tart.pkr.hcl
 
 .PHONY: ubuntu-tart
 ubuntu-23-tart:
@@ -206,7 +206,7 @@ rocky-tart-http:
 ubuntu-tart-http:
 	scripts/prepare_ubuntu-22.04.sh
 	$(MAKE) webserver
-	packer build --force ubuntu-22.04-arm64.tart.http.pkr.hcl
+	packer build --force ubuntu-22.04-arm64.tart.pkr.hcl
 	$(MAKE) kill-webserver
 
 .PHONY: validate
