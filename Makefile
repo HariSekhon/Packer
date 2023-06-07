@@ -50,7 +50,7 @@ packer:
 	brew install packer
 
 .PHONY: virtualbox
-virtualbox: virtualbox
+virtualbox:
 	brew install virtualbox
 
 .PHONY: vbox
@@ -165,12 +165,23 @@ rocky-tart:
 .PHONY: ubuntu-tart
 ubuntu-tart:
 	scripts/prepare_ubuntu-22.04.sh
-	packer build --force ubuntu-22.04-arm64.tart.pkr.hcl
+	packer build --force ubuntu-arm64.tart.pkr.hcl
 
-.PHONY: ubuntu-tart
+.PHONY: ubuntu-22-tart
+ubuntu-22-tart:
+	scripts/prepare_ubuntu-22.04.sh
+	packer build --force \
+		-var version 22.04 \
+		-var iso isos/ubuntu-22.04.2-live-server-arm64.iso \
+		ubuntu-arm64.tart.pkr.hcl
+
+.PHONY: ubuntu-23-tart
 ubuntu-23-tart:
 	scripts/prepare_ubuntu-23.04.sh
-	packer build --force ubuntu-23.04-arm64.tart.pkr.hcl
+	packer build --force \
+		-var version 23.04 \
+		-var iso isos/ubuntu-23.04-live-server-arm64.iso \
+		ubuntu-arm64.tart.pkr.hcl
 
 .PHONY: kill-webserver
 kill-webserver:
