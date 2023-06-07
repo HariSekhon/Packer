@@ -39,19 +39,27 @@ packer {
   }
 }
 
+# http://releases.ubuntu.com/
+variable "version" {
+  type    = string
+  default = "22.04"
+}
+
+variable "iso" {
+  type    = string
+  default = "isos/ubuntu-22.04.2-live-server-arm64.iso"
+}
+
 locals {
-  # http://releases.ubuntu.com/
-  version = "22.04"
-  patch   = "2"
   isos = [
-    "isos/ubuntu-${local.version}_cidata.iso",
-    "isos/ubuntu-${local.version}.${local.patch}-live-server-arm64.iso"
+    "isos/ubuntu-${var.version}_cidata.iso",
+    var.iso
   ]
 }
 
 # https://developer.hashicorp.com/packer/plugins/builders/tart
 source "tart-cli" "ubuntu" {
-  vm_name      = "ubuntu-${local.version}"
+  vm_name      = "ubuntu-${var.version}"
   from_iso     = local.isos
   cpu_count    = 4
   memory_gb    = 4
@@ -88,7 +96,7 @@ source "tart-cli" "ubuntu" {
 }
 
 build {
-  name = "ubuntu-${local.version}"
+  name = "ubuntu-${var.version}"
   sources = [
     # 22.04 gets separated at the dot and results in this error:
     # Error: Unknown source tart-cli.ubuntu-22
