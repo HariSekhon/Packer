@@ -49,14 +49,14 @@ variable "checksum" {
 }
 
 locals {
-  name     = "fedora"
-  url      = "https://download.fedoraproject.org/pub/fedora/linux/releases/${var.version}/Server/x86_64/iso/${var.iso}"
-  vm_name  = "${local.name}-${var.version}"
+  name    = "fedora"
+  url     = "https://download.fedoraproject.org/pub/fedora/linux/releases/${var.version}/Server/x86_64/iso/${var.iso}"
+  vm_name = "${local.name}-${var.version}"
 }
 
 # https://developer.hashicorp.com/packer/plugins/builders/virtualbox/iso
 source "virtualbox-iso" "fedora" {
-  vm_name              = "${local.vm_name}"
+  vm_name              = local.vm_name
   guest_os_type        = "Fedora_64"
   iso_url              = local.url
   iso_checksum         = var.checksum
