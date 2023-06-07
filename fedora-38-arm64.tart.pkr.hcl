@@ -61,7 +61,7 @@ source "tart-cli" "fedora" {
     "e",
     "<down><down><down><left>",
     # leave a space from last arg
-    " inst.ks=file:///cdrom/anaconda-ks.cfg <f10>"
+    " inst.ks=file:///cdrom/anaconda-ks.cfg <f10>",
     # go to terminal tty2 for CLI
     # XXX: this Alt-F2 keystroke is coming out unrecognized - https://github.com/cirruslabs/packer-plugin-tart/issues/71
     "<leftAltOn><f2><leftAltOff><wait2s>",
