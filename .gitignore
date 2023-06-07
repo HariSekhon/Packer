@@ -1,3 +1,6 @@
 isos/
+share/
+output-*/
+*.new
 # override my global .gitignore
 !scripts
