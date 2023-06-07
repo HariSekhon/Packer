@@ -91,6 +91,22 @@ fedora:
 		$(MAKE) fedora-vbox; \
 	fi
 
+.PHONY: fedora-38
+fedora-38:
+	@if uname -m | grep -q arm64; then \
+		$(MAKE) fedora-38-tart-http; \
+	else \
+		$(MAKE) fedora-38-vbox; \
+	fi
+
+.PHONY: fedora-37
+fedora-37:
+	@if uname -m | grep -q arm64; then \
+		$(MAKE) fedora-37-tart-http; \
+	else \
+		$(MAKE) fedora-37-vbox; \
+	fi
+
 .PHONY: rocky
 rocky:
 	@if uname -m | grep -q arm64; then \
@@ -125,7 +141,23 @@ debian-vbox:
 .PHONY: fedora-vbox
 fedora-vbox:
 	VBoxManage unregistervm fedora --delete 2>/dev/null || :
-	packer build --force fedora-38-x86_64.vbox.pkr.hcl
+	packer build --force fedora-x86_64.vbox.pkr.hcl
+
+.PHONY: fedora-37-vbox
+fedora-37-vbox:
+	VBoxManage unregistervm fedora --delete 2>/dev/null || :
+	packer build --force \
+		-var version=37 \
+		-var iso=Fedora-Server-dvd-x86_64-37-1.7.iso \
+		fedora-x86_64.vbox.pkr.hcl
+
+.PHONY: fedora-38-vbox
+fedora-38-vbox:
+	VBoxManage unregistervm fedora --delete 2>/dev/null || :
+	packer build --force \
+		-var version=38 \
+		-var iso=Fedora-Server-dvd-x86_64-38-1.6.iso \
+		fedora-x86_64.vbox.pkr.hcl
 
 .PHONY: rocky-vbox
 rocky-vbox:
@@ -155,7 +187,23 @@ debian-tart:
 .PHONY: fedora-tart
 fedora-tart:
 	scripts/prepare_fedora-38.sh
-	packer build --force fedora-38-arm64.tart.pkr.hcl
+	packer build --force fedora-arm64.tart.pkr.hcl
+
+.PHONY: fedora-38-tart
+fedora-tart:
+	scripts/prepare_fedora-37.sh
+	packer build --force \
+		-var version=38 \
+		-var iso=Fedora-Server-dvd-x86_64-37-1.6.iso \
+		fedora-arm64.tart.pkr.hcl
+
+.PHONY: fedora-38-tart
+fedora-tart:
+	scripts/prepare_fedora-38.sh
+	packer build --force \
+		-var version=38 \
+		-var iso=Fedora-Server-dvd-x86_64-38-1.6.iso \
+		fedora-arm64.tart.pkr.hcl
 
 .PHONY: rocky-tart
 rocky-tart:
