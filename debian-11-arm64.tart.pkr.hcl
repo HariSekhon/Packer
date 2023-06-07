@@ -13,6 +13,10 @@
 #  https://www.linkedin.com/in/HariSekhon
 #
 
+# XXX: Use alternative http.pkr.hcl for now until this issue is resolved:
+#
+#   https://github.com/cirruslabs/packer-plugin-tart/issues/71
+
 # Requires macOS Ventura 13.4
 #
 # Must run 'scripts/prepare_debian-11.sh' first to download the ISO and generate another ISO with the preseed.cfg
@@ -69,6 +73,7 @@ source "tart-cli" "debian" {
     # go back to tty1
     # XXX: this Alt-F1 keystroke is coming out unrecognized
     "<leftAltOn><f1><leftAltOff>",
+    # TODO: rest of keystrokes once F2 issue is resolved
     # 'Load drives from removable media?' -> No
     "<right><enter><wait>",
     # 'Manually select a module and device for instation media?' -> Yes
