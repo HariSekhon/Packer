@@ -43,11 +43,14 @@ variable "iso" {
   default = "debian-11.7.0-amd64-DVD-1.iso" # 4.7GB
 }
 
+variable "checksum" {
+  type    = string
+  default = "cfbb1387d92c83f49420eca06e2d11a23e5a817a21a5d614339749634709a32f"
+}
 locals {
-  name     = "debian"
-  url      = "https://cdimage.debian.org/debian-cd/current/amd64/iso-dvd/${var.iso}"
-  checksum = "cfbb1387d92c83f49420eca06e2d11a23e5a817a21a5d614339749634709a32f"
-  vm_name  = "${local.name}-${var.version}"
+  name    = "debian"
+  url     = "https://cdimage.debian.org/debian-cd/current/amd64/iso-dvd/${var.iso}"
+  vm_name = "${local.name}-${var.version}"
 }
 
 # https://developer.hashicorp.com/packer/plugins/builders/virtualbox/iso
@@ -55,7 +58,7 @@ source "virtualbox-iso" "debian" {
   vm_name              = local.vm_name
   guest_os_type        = "Debian_64"
   iso_url              = local.url
-  iso_checksum         = local.checksum
+  iso_checksum         = var.checksum
   cpus                 = 2
   memory               = 2048
   disk_size            = 40000
