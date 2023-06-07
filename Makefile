@@ -171,16 +171,16 @@ ubuntu-tart:
 ubuntu-22-tart:
 	scripts/prepare_ubuntu-22.04.sh
 	packer build --force \
-		-var version 22.04 \
-		-var iso isos/ubuntu-22.04.2-live-server-arm64.iso \
+		-var version=22.04 \
+		-var iso=isos/ubuntu-22.04.2-live-server-arm64.iso \
 		ubuntu-arm64.tart.pkr.hcl
 
 .PHONY: ubuntu-23-tart
 ubuntu-23-tart:
 	scripts/prepare_ubuntu-23.04.sh
 	packer build --force \
-		-var version 23.04 \
-		-var iso isos/ubuntu-23.04-live-server-arm64.iso \
+		-var version=23.04 \
+		-var iso=isos/ubuntu-23.04-live-server-arm64.iso \
 		ubuntu-arm64.tart.pkr.hcl
 
 .PHONY: kill-webserver
@@ -217,7 +217,27 @@ rocky-tart-http:
 ubuntu-tart-http:
 	scripts/prepare_ubuntu-22.04.sh
 	$(MAKE) webserver
-	packer build --force ubuntu-22.04-arm64.tart.http.pkr.hcl
+	packer build --force ubuntu-arm64.tart.http.pkr.hcl
+	$(MAKE) kill-webserver
+
+.PHONY: ubuntu-22-tart-http
+ubuntu-22-tart-http:
+	scripts/prepare_ubuntu-22.04.sh
+	$(MAKE) webserver
+	packer build --force \
+		-var version=22.04 \
+		-var iso=isos/ubuntu-22.04.2-live-server-arm64.iso \
+		ubuntu-arm64.tart.http.pkr.hcl
+	$(MAKE) kill-webserver
+
+.PHONY: ubuntu-23-tart-http
+ubuntu-23-tart-http:
+	scripts/prepare_ubuntu-22.04.sh
+	$(MAKE) webserver
+	packer build --force \
+		-var version=23.04 \
+		-var iso=isos/ubuntu-23.04-live-server-arm64.iso \
+		ubuntu-arm64.tart.http.pkr.hcl
 	$(MAKE) kill-webserver
 
 .PHONY: validate
