@@ -36,18 +36,29 @@ packer {
   }
 }
 
+# https://deb.debian.org/debian/dists/
+variable "version" {
+  type    = string
+  default = "11"
+}
+
+variable "iso" {
+  type    = string
+  default = "debian-11.7.0-arm64-DVD-1.iso"
+}
+
 locals {
-  version = "11"
-  patch   = "7.0"
+  name = "debian"
   isos = [
-    #"isos/debian-${local.version}_cidata.iso",
-    "isos/debian-${local.version}.${local.patch}-arm64-DVD-1.iso"
+    #"isos/debian-${var.version}_cidata.iso",
+    "isos/${var.iso}"
   ]
+  vm_name = "${local.name}-${var.version}"
 }
 
 # https://developer.hashicorp.com/packer/plugins/builders/tart
 source "tart-cli" "debian" {
-  vm_name = "debian-${local.version}"
+  vm_name = local.vm_name
   # https://www.debian.org/CD/http-ftp/
   from_iso     = local.isos
   cpu_count    = 4
