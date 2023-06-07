@@ -35,20 +35,24 @@ packer {
   }
 }
 
+variable {
+  autoinstall_args = "'ds=nocloud-net;s=http://192.168.64.1:8000/'"
+}
+
 locals {
   # http://releases.ubuntu.com/
   version = "22.04"
-  patch = "2"
+  patch   = "2"
   isos = [
-    #"isos/ubuntu-${local.version}_cidata.iso",
+    "isos/ubuntu-${local.version}_cidata.iso",
     "isos/ubuntu-${local.version}.${local.patch}-live-server-arm64.iso"
   ]
 }
 
 # https://developer.hashicorp.com/packer/plugins/builders/tart
 source "tart-cli" "ubuntu" {
-  vm_name = "ubuntu-${local.version}"
-  from_iso = local.isos
+  vm_name      = "ubuntu-${local.version}"
+  from_iso     = local.isos
   cpu_count    = 4
   memory_gb    = 4
   disk_size_gb = 40
@@ -64,7 +68,7 @@ source "tart-cli" "ubuntu" {
     "e<down><down><down><down><left>",
     # must run a web server such as 'python3 -m http.server' from installers/ directory before running 'packer build'
     # this is done automatically by 'make ubuntu-tart-http'
-    " autoinstall 'ds=nocloud-net;s=http://192.168.64.1:8000/' <f10>",
+    " autoinstall ${var.autoinstall_args} <f10>",
   ]
   ssh_timeout  = "30m"
   ssh_username = "packer"
