@@ -34,7 +34,7 @@ if type -P yum &>/dev/null; then
 elif type -P apt-get &>/dev/null; then
     export DEBIAN_FRONTEND=noninteractive
     apt-get update
-    apt-get install -y kernel-headers
+    apt-get install -y build-essential
 fi
 
 echo "Install VirtualBox Guest Additions"
