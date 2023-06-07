@@ -33,3 +33,5 @@ $sudo "$vbox/VBoxLinuxAdditions.run"
 
 echo "Mounting $dir"
 $sudo mount -t vboxsf vboxsf "$dir"
+
+cp -fv /var/log/vboxadd-setup.log "$dir/"
