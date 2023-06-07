@@ -17,6 +17,8 @@
 #
 # Must run 'scripts/prepare_debian-11.sh' first to download the ISO and generate another ISO with the preseed.cfg
 #
+# Must run 'python3 -m http.server -d installers' from this same directory before running 'packer'
+#
 # 'packer' command must be run from the same directory as this file so the ISO files are found under iso/
 
 # ============================================================================ #
