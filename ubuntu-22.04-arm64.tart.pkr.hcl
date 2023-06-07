@@ -36,7 +36,7 @@ packer {
 }
 
 variable "autoinstall_args" {
-  type    = string
+  type    = "string"
   default = "'ds=nocloud-net;s=http://192.168.64.1:8000/'"
 }
 
