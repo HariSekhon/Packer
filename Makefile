@@ -189,7 +189,7 @@ rocky-vbox:
 	packer build --force rocky-x86_64.vbox.pkr.hcl
 
 .PHONY: rocky-9-vbox
-rocky-9.2-vbox: rocky-9-vbox
+rocky-9-vbox: rocky-9.2-vbox
 	@:
 
 .PHONY: rocky-9.2-vbox
