@@ -50,7 +50,7 @@ variable "iso" {
 }
 
 locals {
-  name = "fedora-${var.version}"
+  name = "fedora"
   isos = [
     "isos/fedora-${var.version}_cidata.iso",
     "isos/${var.iso}"
