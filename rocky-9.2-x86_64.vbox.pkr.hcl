@@ -94,6 +94,7 @@ build {
   provisioner "shell" {
     scripts = [
       "./scripts/version.sh",
+      "./scripts/install_vbox_additions.sh",
       "./scripts/mount_vboxsf.sh",
       "./scripts/collect_anaconda.sh",
     ]
