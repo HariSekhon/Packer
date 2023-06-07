@@ -45,13 +45,13 @@ variable "version" {
 
 variable "iso" {
   type    = string
-  default = "isos/ubuntu-22.04.2-live-server-arm64.iso"
+  default = "ubuntu-22.04.2-live-server-arm64.iso"
 }
 
 locals {
   isos = [
     "isos/ubuntu-${var.version}_cidata.iso",
-    var.iso
+    "isos/${var.iso}"
   ]
 }
 
