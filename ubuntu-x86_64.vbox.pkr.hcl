@@ -44,7 +44,7 @@ variable "version" {
 
 variable "url" {
   type    = string
-  url     = "http://releases.ubuntu.com/jammy/ubuntu-22.04.2-live-server-arm64.iso"
+  default = "http://releases.ubuntu.com/jammy/ubuntu-22.04.2-live-server-arm64.iso"
 }
 
 variable "checksum" {
