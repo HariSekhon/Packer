@@ -24,6 +24,8 @@ fi
 dir="/mnt/host"
 vbox="/mnt/vbox"
 
+uname -a
+
 $sudo mkdir -pv "$dir" "$vbox"
 
 mount -t iso9660 -o ro "$PWD/VBoxGuestAdditions.iso" "$vbox"
