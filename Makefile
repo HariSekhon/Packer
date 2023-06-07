@@ -83,6 +83,14 @@ debian:
 		$(MAKE) debian-vbox; \
 	fi
 
+.PHONY: debian-11
+debian-11:
+	@if uname -m | grep -q arm64; then \
+		$(MAKE) debian-11-tart-http; \
+	else \
+		$(MAKE) debian-11-vbox; \
+	fi
+
 .PHONY: fedora
 fedora:
 	@if uname -m | grep -q arm64; then \
@@ -136,7 +144,15 @@ all-vbox:
 .PHONY: debian-vbox
 debian-vbox:
 	VBoxManage unregistervm debian --delete 2>/dev/null || :
-	packer build --force debian-11-x86_64.vbox.pkr.hcl
+	packer build --force debian-x86_64.vbox.pkr.hcl
+
+.PHONY: debian-11-vbox
+debian-11-vbox:
+	VBoxManage unregistervm debian --delete 2>/dev/null || :
+	packer build --force \
+		-var version=11 \
+		-var iso=debian-11.7.0-amd64-DVD-1.iso \
+		debian-x86_64.vbox.pkr.hcl
 
 .PHONY: fedora-vbox
 fedora-vbox:
