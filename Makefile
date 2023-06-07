@@ -272,7 +272,7 @@ ubuntu-22-tart:
 	scripts/prepare_ubuntu-22.04.sh
 	packer build --force \
 		-var version=22.04 \
-		-var iso=isos/ubuntu-22.04.2-live-server-arm64.iso \
+		-var iso=ubuntu-22.04.2-live-server-arm64.iso \
 		ubuntu-arm64.tart.pkr.hcl
 
 .PHONY: ubuntu-23-tart
@@ -280,7 +280,7 @@ ubuntu-23-tart:
 	scripts/prepare_ubuntu-23.04.sh
 	packer build --force \
 		-var version=23.04 \
-		-var iso=isos/ubuntu-23.04-live-server-arm64.iso \
+		-var iso=ubuntu-23.04-live-server-arm64.iso \
 		ubuntu-arm64.tart.pkr.hcl
 
 .PHONY: kill-webserver
