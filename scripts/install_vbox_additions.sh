@@ -31,7 +31,12 @@ mount -t iso9660 -o ro "$PWD/VBoxGuestAdditions.iso" "$dir"
 
 # needs kernel headers
 if type -P yum &>/dev/null; then
-    yum install -y kernel-headers
+    yum install -y kernel-headers \
+                   kernel-devel
+                   #libX11 \
+                   #libXt \
+                   #libXext \
+                   #libXmu
     # might be overkill
     #yum groupinstall "Development Tools"
 elif type -P apt-get &>/dev/null; then
