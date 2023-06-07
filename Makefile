@@ -131,6 +131,14 @@ ubuntu:
 		$(MAKE) ubuntu-vbox; \
 	fi
 
+.PHONY: ubuntu-22.04
+ubuntu-22.04:
+	@if uname -m | grep -q arm64; then \
+		$(MAKE) ubuntu-22.04-tart-http; \
+	else \
+		$(MAKE) ubuntu-22.04-vbox; \
+	fi
+
 .PHONY: all-vbox
 all-vbox:
 	$(MAKE) debian-vbox
@@ -194,8 +202,16 @@ rocky-9.2-vbox:
 
 .PHONY: ubuntu-vbox
 ubuntu-vbox:
-	VBoxManage unregistervm ubuntu --delete 2>/dev/null || :
+	VBoxManage unregistervm ubuntu-22.04 --delete 2>/dev/null || :
 	packer build --force ubuntu-x86_64.vbox.pkr.hcl
+
+.PHONY: ubuntu-22.04-vbox
+ubuntu-22.04-vbox:
+	VBoxManage unregistervm ubuntu-22.04 --delete 2>/dev/null || :
+	packer build --force \
+		-var version="22.04" \
+		-var url="http://releases.ubuntu.com/jammy/ubuntu-22.04.2-live-server-arm64.iso" \
+		ubuntu-x86_64.vbox.pkr.hcl
 
 .PHONY: all
 tart-all:
