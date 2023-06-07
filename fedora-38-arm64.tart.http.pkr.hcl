@@ -36,18 +36,28 @@ packer {
   }
 }
 
+# https://alt.fedoraproject.org/alt/
+variable "version" {
+  type    = string
+  default = "38"
+}
+
+variable "iso" {
+  type    = string
+  default = "isos/Fedora-Server-dvd-aarch64-38-1.6.iso"
+}
+
 locals {
-  version = "38"
-  patch   = "1.6"
+  name = "fedora-${var.version}"
   isos = [
-    #"isos/fedora-${local.version}_cidata.iso",
-    "isos/Fedora-Server-dvd-aarch64-${local.version}-${local.patch}.iso"
+    #"isos/fedora-${var.version}_cidata.iso",
+    var.iso
   ]
 }
 
 # https://developer.hashicorp.com/packer/plugins/builders/tart
 source "tart-cli" "fedora" {
-  vm_name = "fedora-${local.version}"
+  vm_name = "${local.vm_name}"
   # https://alt.fedoraproject.org/alt/
   from_iso     = local.isos
   cpu_count    = 4
@@ -66,7 +76,7 @@ source "tart-cli" "fedora" {
 }
 
 build {
-  name = "fedora"
+  name = "${local.name}"
 
   sources = ["source.tart-cli.fedora"]
 
