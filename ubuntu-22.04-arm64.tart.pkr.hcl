@@ -35,9 +35,8 @@ packer {
   }
 }
 
-variable "autoinstall_args" {
-  type    = "string"
-  default = "'ds=nocloud-net;s=http://192.168.64.1:8000/'"
+variable {
+  autoinstall_args = "'ds=nocloud-net;s=http://192.168.64.1:8000/'"
 }
 
 locals {
