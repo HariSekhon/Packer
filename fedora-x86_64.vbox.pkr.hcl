@@ -43,10 +43,14 @@ variable "iso" {
   default = "Fedora-Server-dvd-x86_64-38-1.6.iso"
 }
 
+variable "checksum" {
+  type    = string
+  default = "09dee2cd626a269aefc67b69e63a30bd0baa52d4"
+}
+
 locals {
   name     = "fedora"
   url      = "https://download.fedoraproject.org/pub/fedora/linux/releases/${var.version}/Server/x86_64/iso/${var.iso}"
-  checksum = "09dee2cd626a269aefc67b69e63a30bd0baa52d4"
   vm_name  = "${local.name}-${var.version}"
 }
 
@@ -55,7 +59,7 @@ source "virtualbox-iso" "fedora" {
   vm_name              = "${local.vm_name}"
   guest_os_type        = "Fedora_64"
   iso_url              = local.url
-  iso_checksum         = local.checksum
+  iso_checksum         = var.checksum
   cpus                 = 3
   memory               = 3072
   disk_size            = 40000
