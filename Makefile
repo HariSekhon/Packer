@@ -126,7 +126,7 @@ rocky:
 .PHONY: rocky-9.2
 rocky-9.2:
 	@if uname -m | grep -q arm64; then \
-		$(MAKE) rocky-9-2.tart-http; \
+		$(MAKE) rocky-9-2-tart-http; \
 	else \
 		$(MAKE) rocky-9.2-vbox; \
 	fi
