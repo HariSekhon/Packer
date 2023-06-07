@@ -33,6 +33,8 @@ mount -t iso9660 -o ro "$PWD/VBoxGuestAdditions.iso" "$dir"
 if type -P yum &>/dev/null; then
     yum install -y kernel-headers \
                    kernel-devel
+    # don't really need to fix this
+    # /opt/VBoxGuestAdditions-7.0.8/bin/VBoxClient: error while loading shared libraries: libX11.so.6: cannot open shared object file: No such file or directory
                    #libX11 \
                    #libXt \
                    #libXext \
