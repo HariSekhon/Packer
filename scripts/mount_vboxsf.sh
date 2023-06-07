@@ -22,30 +22,12 @@ if [ "$EUID" -ne 0 ]; then
 fi
 
 dir="/mnt/host"
-vbox="/mnt/vbox"
 
-uname -a
-
-$sudo mkdir -pv "$dir" "$vbox"
-
-mount -t iso9660 -o ro "$PWD/VBoxGuestAdditions.iso" "$vbox"
-
-# needs kernel headers
-if type -P yum &>/dev/null; then
-    yum install -y kernel-headers
-    # might be overkill
-    #yum groupinstall "Development Tools"
-elif type -P apt-get &>/dev/null; then
-    export DEBIAN_FRONTEND=noninteractive
-    apt-get update
-    # might be overkill
-    apt-get install -y build-essential
-fi
-
-echo "Install VirtualBox Guest Additions"
-$sudo "$vbox/VBoxLinuxAdditions.run"
+$sudo mkdir -pv "$dir"
 
 echo "Mounting $dir"
 $sudo mount -t vboxsf vboxsf "$dir"
 
-cp -fv /var/log/vboxadd-setup.log "$dir/"
+if [ -f /var/log/vboxadd-setup.log ]; then
+    cp -fv /var/log/vboxadd-setup.log "$dir/"
+fi
