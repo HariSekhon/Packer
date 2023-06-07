@@ -70,7 +70,7 @@ source "tart-cli" "ubuntu" {
 }
 
 build {
-  name = "ubuntu"
+  name = "ubuntu-${local.version}"
   sources = [
     # 22.04 gets separated at the dot and results in this error:
     # Error: Unknown source tart-cli.ubuntu-22
