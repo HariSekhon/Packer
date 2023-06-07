@@ -31,9 +31,12 @@ mount -t iso9660 -o ro "$PWD/VBoxGuestAdditions.iso" "$vbox"
 # needs kernel headers
 if type -P yum &>/dev/null; then
     yum install -y kernel-headers
+    # might be overkill
+    #yum groupinstall "Development Tools"
 elif type -P apt-get &>/dev/null; then
     export DEBIAN_FRONTEND=noninteractive
     apt-get update
+    # might be overkill
     apt-get install -y build-essential
 fi
 
