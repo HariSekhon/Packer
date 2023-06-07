@@ -42,9 +42,9 @@ variable "version" {
   default = "22.04"
 }
 
-variable "iso" {
+variable "url" {
   type    = string
-  default = "isos/ubuntu-22.04.2-live-server-arm64.iso"
+  url     = "http://releases.ubuntu.com/jammy/ubuntu-22.04.2-live-server-arm64.iso"
 }
 
 variable "checksum" {
@@ -54,7 +54,6 @@ variable "checksum" {
 
 locals {
   name    = "ubuntu"
-  url     = "http://releases.ubuntu.com/jammy/${var.iso}"
   vm_name = "${local.name}-${var.version}"
 }
 
@@ -62,7 +61,7 @@ locals {
 source "virtualbox-iso" "ubuntu" {
   vm_name              = local.vm_name
   guest_os_type        = "Ubuntu_64"
-  iso_url              = local.url
+  iso_url              = var.url
   iso_checksum         = var.checksum
   cpus                 = 3
   memory               = 3072
