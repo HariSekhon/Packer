@@ -22,7 +22,14 @@ if [ "$EUID" -ne 0 ]; then
 fi
 
 dir="/mnt/host"
+vbox="/mnt/vbox"
 
-$sudo mkdir -pv "$dir"
+$sudo mkdir -pv "$dir" "$vbox"
+
+mount -t iso9660 -o ro "$PWD/VBoxGuestAdditions.iso" "$vbox"
+
+echo "Install VirtualBox Guest Additions"
+$sudo "$vbox/VBoxLinuxAdditions.run"
+
 echo "Mounting $dir"
 $sudo mount -t vboxsf vboxsf "$dir"
