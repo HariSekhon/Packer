@@ -57,7 +57,7 @@ source "tart-cli" "debian" {
     " auto=true file=/mnt/cdrom2/preseed.cfg hostname=debian domain=local<f10>",
     "<wait15s>",
     # go to terminal tty2 for CLI
-    # XXX: this Alt-F2 keystroke is coming out unrecognized
+    # XXX: this Alt-F2 keystroke is coming out unrecognized - https://github.com/cirruslabs/packer-plugin-tart/issues/71
     "<leftAltOn><f2><leftAltOff><wait2s>",
     # 'Press enter to activate this console' - drops into a Busybox shell
     "<enter><wait>",
