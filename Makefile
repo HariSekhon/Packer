@@ -195,7 +195,7 @@ rocky-9.2-vbox:
 .PHONY: ubuntu-vbox
 ubuntu-vbox:
 	VBoxManage unregistervm ubuntu --delete 2>/dev/null || :
-	packer build --force ubuntu-22.04-x86_64.vbox.pkr.hcl
+	packer build --force ubuntu-x86_64.vbox.pkr.hcl
 
 .PHONY: all
 tart-all:
@@ -218,7 +218,7 @@ fedora-tart:
 	packer build --force fedora-arm64.tart.pkr.hcl
 
 .PHONY: fedora-38-tart
-fedora-tart:
+fedora-37-tart:
 	scripts/prepare_fedora-37.sh
 	packer build --force \
 		-var version=38 \
@@ -226,7 +226,7 @@ fedora-tart:
 		fedora-arm64.tart.pkr.hcl
 
 .PHONY: fedora-38-tart
-fedora-tart:
+fedora-38-tart:
 	scripts/prepare_fedora-38.sh
 	packer build --force \
 		-var version=38 \
@@ -236,7 +236,15 @@ fedora-tart:
 .PHONY: rocky-tart
 rocky-tart:
 	scripts/prepare_rocky-9.2.sh
-	packer build --force rocky-9.2-arm64.tart.pkr.hcl
+	packer build --force rocky-arm64.tart.pkr.hcl
+
+.PHONY: rocky-9.2-tart
+rocky-9.2-tart:
+	scripts/prepare_rocky-9.2.sh
+	packer build --force \
+		-var version="9.2" \
+		-var iso="Rocky-9.2-aarch64-dvd.iso" \
+		rocky-arm64.tart.pkr.hcl
 
 .PHONY: ubuntu-tart
 ubuntu-tart:
@@ -279,14 +287,24 @@ debian-tart-http:
 fedora-tart-http:
 	scripts/prepare_fedora-38.sh
 	$(MAKE) webserver
-	packer build --force fedora-38-arm64.tart.http.pkr.hcl
+	packer build --force fedora-arm64.tart.http.pkr.hcl
 	$(MAKE) kill-webserver
 
 .PHONY: rocky-tart-http
 rocky-tart-http:
 	scripts/prepare_rocky-9.2.sh
 	$(MAKE) webserver
-	packer build --force rocky-9.2-arm64.tart.http.pkr.hcl
+	packer build --force rocky-arm64.tart.http.pkr.hcl
+	$(MAKE) kill-webserver
+
+.PHONY: rocky-9.2-tart-http
+rocky-9.2-tart-http:
+	scripts/prepare_rocky-9.2.sh
+	$(MAKE) webserver
+	packer build --force \
+		-var version="9.2" \
+		-var iso="Rocky-9.2-aarch64-dvd.iso" \
+		rocky-arm64.tart.http.pkr.hcl
 	$(MAKE) kill-webserver
 
 .PHONY: ubuntu-tart-http
