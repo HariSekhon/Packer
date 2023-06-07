@@ -46,21 +46,20 @@ variable "version" {
 
 variable "iso" {
   type    = string
-  default = "isos/Fedora-Server-dvd-aarch64-38-1.6.iso"
+  default = "Fedora-Server-dvd-aarch64-38-1.6.iso"
 }
 
 locals {
-  name     = "fedora-${var.version}"
+  name = "fedora-${var.version}"
   isos = [
     "isos/fedora-${var.version}_cidata.iso",
-    var.iso
+    "isos/${var.iso}"
   ]
 }
 
 # https://developer.hashicorp.com/packer/plugins/builders/tart
 source "tart-cli" "fedora" {
-  vm_name              = "${local.vm_name}"
-  # https://alt.fedoraproject.org/alt/
+  vm_name      = "${local.vm_name}"
   from_iso     = local.isos
   cpu_count    = 4
   memory_gb    = 4
@@ -71,7 +70,7 @@ source "tart-cli" "fedora" {
     "e",
     "<down><down><down><left>",
     # leave a space from last arg
-    " inst.ks=file:///cdrom/anaconda-ks.cfg <f10>"
+    " inst.ks=file:///cdrom/anaconda-ks.cfg <f10>",
     # go to terminal tty2 for CLI
     # XXX: this Alt-F2 keystroke is coming out unrecognized - https://github.com/cirruslabs/packer-plugin-tart/issues/71
     "<leftAltOn><f2><leftAltOff><wait2s>",
