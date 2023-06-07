@@ -123,6 +123,14 @@ rocky:
 		$(MAKE) rocky-vbox; \
 	fi
 
+.PHONY: rocky-9.2
+rocky-9.2:
+	@if uname -m | grep -q arm64; then \
+		$(MAKE) rocky-9-2.tart-http; \
+	else \
+		$(MAKE) rocky-9.2-vbox; \
+	fi
+
 .PHONY: ubuntu
 ubuntu:
 	@if uname -m | grep -q arm64; then \
