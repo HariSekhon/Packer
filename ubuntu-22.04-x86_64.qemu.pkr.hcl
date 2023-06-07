@@ -23,24 +23,34 @@
 #                  P a c k e r   -   U b u n t u   -   Q e m u
 # ============================================================================ #
 
+# http://releases.ubuntu.com/
+variable "version" {
+  type    = string
+  default = "22.04"
+}
+
+variable "url" {
+  type    = string
+  default = "http://releases.ubuntu.com/jammy/ubuntu-22.04.2-live-server-arm64.iso"
+}
+
+variable "checksum" {
+  type    = string
+  default = "5e38b55d57d94ff029719342357325ed3bda38fa80054f9330dc789cd2"
+}
+
 locals {
-  # http://releases.ubuntu.com/
   name     = "ubuntu"
-  version  = "22.04"
-  patch    = "2"
-  iso      = "ubuntu-${local.version}.${local.patch}-live-server-amd64.iso"
-  url      = "http://releases.ubuntu.com/jammy/${local.iso}"
-  checksum = "5e38b55d57d94ff029719342357325ed3bda38fa80054f9330dc789cd2d43931"
-  vm_name  = "${local.name}-${local.version}"
+  vm_name  = "${local.name}-${var.version}"
 }
 
 source "qemu" "ubuntu" {
-  vm_name = "${local.vm_name}"
+  vm_name = local.vm_name
   #iso_url             = "http://cloud-images.ubuntu.com/releases/bionic/release/ubuntu-18.04-server-cloudimg-amd64.img"
   #iso_checksum_url    = "http://cloud-images.ubuntu.com/releases/bionic/release/SHA256SUMS"
   #iso_checksum_type   = "sha256"
-  iso_url        = local.url
-  iso_checksum   = local.checksum
+  iso_url        = var.url
+  iso_checksum   = var.checksum
   cpus           = 3
   memory         = 3072
   disk_discard   = "unmap"
