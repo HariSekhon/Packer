@@ -32,6 +32,7 @@ mount -t iso9660 -o ro "$PWD/VBoxGuestAdditions.iso" "$vbox"
 if type -P yum &>/dev/null; then
     yum install -y kernel-headers
 elif type -P apt-get &>/dev/null; then
+    export DEBIAN_FRONTEND=noninteractive
     apt-get update
     apt-get install -y kernel-headers
 fi
