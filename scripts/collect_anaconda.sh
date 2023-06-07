@@ -29,6 +29,6 @@ echo "Distro was detemined to be '$distro-$version'"
 
 for x in anaconda-ks.cfg ks-pre.log ks-post.log; do
     if [ -f /root/$x ]; then
-        cp -fv "/root/$x" "/mnt/host/$x-$distro-$version";
+        $sudo cp -fv "/root/$x" "/mnt/host/$x-$distro-$version";
     fi
 done
