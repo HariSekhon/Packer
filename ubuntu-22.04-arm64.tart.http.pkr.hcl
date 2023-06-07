@@ -37,13 +37,28 @@ packer {
   }
 }
 
+variable "version" {
+  type    = string
+  default = "22.04"
+}
+
+variable "patch" {
+  type    = string
+  default = "2"
+}
+
+variable "iso" {
+  type    = string
+  default = "isos/ubuntu-${local.version}.${local.patch}-live-server-arm64.iso"
+}
+
 locals {
   # http://releases.ubuntu.com/
   version = "22.04"
   patch   = "2"
   isos = [
     "isos/ubuntu-${local.version}_cidata.iso",
-    "isos/ubuntu-${local.version}.${local.patch}-live-server-arm64.iso"
+    var.iso
   ]
 }
 
