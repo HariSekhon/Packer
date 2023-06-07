@@ -35,18 +35,28 @@ locals {
 }
 
 source "qemu" "ubuntu" {
-  vm_name              = "${local.vm_name}"
+  vm_name = "${local.vm_name}"
   #iso_url             = "http://cloud-images.ubuntu.com/releases/bionic/release/ubuntu-18.04-server-cloudimg-amd64.img"
   #iso_checksum_url    = "http://cloud-images.ubuntu.com/releases/bionic/release/SHA256SUMS"
   #iso_checksum_type   = "sha256"
-  iso_url              = local.url
-  iso_checksum         = local.checksum
+  iso_url        = local.url
+  iso_checksum   = local.checksum
+  cpus           = 3
+  memory         = 3072
+  disk_discard   = "unmap"
+  disk_image     = true
+  disk_interface = "virtio-scsi"
+  disk_size      = 40000
+  boot_wait      = "5s"
+  boot_command = [
+    "c<wait>",
+    "linux /casper/vmlinuz autoinstall 'ds=nocloud-net;s=http://{{.HTTPIP}}:{{.HTTPPort}}/' <enter><wait>",
+    "initrd /casper/initrd <enter><wait>",
+    "boot <enter>"
+  ]
   ssh_password        = "packer"
   ssh_username        = "packer"
-  disk_discard        = "unmap"
-  disk_image          = true
-  disk_interface      = "virtio-scsi"
-  disk_size           = 5120
+  shutdown_command    = "echo 'packer' | sudo -S shutdown -P now"
   use_default_display = true
   http_directory      = "installers"
   qemuargs = [
