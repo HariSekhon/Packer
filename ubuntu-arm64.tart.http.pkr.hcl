@@ -49,15 +49,17 @@ variable "iso" {
 }
 
 locals {
+  name = "ubuntu"
   isos = [
     "isos/ubuntu-${var.version}_cidata.iso",
     "isos/${var.iso}"
   ]
+  vm_name = "${local.name}-${var.version}"
 }
 
 # https://developer.hashicorp.com/packer/plugins/builders/tart
 source "tart-cli" "ubuntu" {
-  vm_name      = "ubuntu-${var.version}"
+  vm_name      = local.vm_name
   from_iso     = local.isos
   cpu_count    = 4
   memory_gb    = 4
