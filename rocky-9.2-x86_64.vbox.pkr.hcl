@@ -32,23 +32,34 @@ packer {
   }
 }
 
+# https://alt.rockyproject.org/alt/
+variable "version" {
+  type    = string
+  default = "9.2"
+}
+
+variable "iso" {
+  type    = string
+  default = "Rocky-9.2-x86_64-dvd.iso"
+}
+
+variable "checksum" {
+  type    = string
+  default = "cd43bb2671472471b1fc0a7a30113dfc9a56831516c46f4dbd12fb43bb4286d2"
+}
+
 locals {
-  # https://rockylinux.org/download/
-  name          = "rocky"
-  version       = "9.2"
-  major_version = "9"
-  iso           = "Rocky-${local.version}-x86_64-dvd.iso"
-  url           = "https://download.rockylinux.org/pub/rocky/${local.major_version}/isos/x86_64/$iso"
-  checksum      = "cd43bb2671472471b1fc0a7a30113dfc9a56831516c46f4dbd12fb43bb4286d2"
-  vm_name       = "${local.name}-${local.version}"
+  name    = "rocky"
+  url     = "https://download.rockylinux.org/pub/rocky/${split(".", var.version)[0]}/isos/x86_64/${var.iso}"
+  vm_name = "${local.name}-${var.version}"
 }
 
 # https://developer.hashicorp.com/packer/plugins/builders/virtualbox/iso
 source "virtualbox-iso" "rocky" {
-  vm_name              = "${local.vm_name}"
+  vm_name              = local.vm_name
   guest_os_type        = "Redhat_64"
   iso_url              = local.url
-  iso_checksum         = local.checksum
+  iso_checksum         = var.checksum
   cpus                 = 3
   memory               = 3072
   disk_size            = 40000
