@@ -74,7 +74,7 @@ source "tart-cli" "ubuntu" {
   boot_command = [
     "<wait3s>",
     "e<down><down><down><down><left>",
-    " autoinstall<f10>"
+    " autoinstall<f10>",
     # go to terminal tty2 for CLI
     # XXX: this Alt-F2 keystroke is coming out unrecognized - https://github.com/cirruslabs/packer-plugin-tart/issues/71
     "<leftAltOn><f2><leftAltOff><wait2s>",
