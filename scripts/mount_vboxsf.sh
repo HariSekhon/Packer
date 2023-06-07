@@ -28,6 +28,14 @@ $sudo mkdir -pv "$dir" "$vbox"
 
 mount -t iso9660 -o ro "$PWD/VBoxGuestAdditions.iso" "$vbox"
 
+# needs kernel headers
+if type -P yum &>/dev/null; then
+    yum install -y kernel-headers
+elif type -P apt-get &>/dev/null; then
+    apt-get update
+    apt-get install -y kernel-headers
+fi
+
 echo "Install VirtualBox Guest Additions"
 $sudo "$vbox/VBoxLinuxAdditions.run"
 
