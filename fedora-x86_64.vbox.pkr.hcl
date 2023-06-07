@@ -32,15 +32,22 @@ packer {
   }
 }
 
+# https://alt.fedoraproject.org/alt/
+variable "version" {
+  type    = string
+  default = "38"
+}
+
+variable "iso" {
+  type    = string
+  default = "Fedora-Server-dvd-x86_64-38-1.6.iso"
+}
+
 locals {
-  # https://alt.fedoraproject.org/alt/
-  name     = "fedora"
-  version  = "38"
-  patch    = "1.6"
-  iso      = "Fedora-Server-dvd-x86_64-${local.version}-${local.patch}.iso"
-  url      = "https://download.fedoraproject.org/pub/fedora/linux/releases/${local.version}/Server/x86_64/iso/${local.iso}"
+  name     = "fedora-${var.version}"
+  url      = "https://download.fedoraproject.org/pub/fedora/linux/releases/${var.version}/Server/x86_64/iso/${var.iso}"
   checksum = "09dee2cd626a269aefc67b69e63a30bd0baa52d4"
-  vm_name  = "${local.name}-${local.version}"
+  vm_name  = "${local.name}-${var.version}"
 }
 
 # https://developer.hashicorp.com/packer/plugins/builders/virtualbox/iso
