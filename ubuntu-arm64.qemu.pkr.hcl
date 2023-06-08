@@ -92,7 +92,7 @@ source "qemu" "ubuntu" {
 }
 
 build {
-  name = "${local.name}"
+  name = local.name
 
   # specify multiple sources defined above to build near identical images for different platforms
   sources = [
@@ -107,30 +107,24 @@ build {
 
   # https://developer.hashicorp.com/packer/docs/provisioners/shell-local
   #
-  provisioner "shell-local" {
-    environment_vars = [
-      "VM_NAME=${local.vm_name}"
-    ]
-    script = "./scripts/local_vboxsf.sh"
-  }
+  #provisioner "shell-local" {
+  #  environment_vars = [
+  #    "VM_NAME=${local.vm_name}"
+  #  ]
+  #  script = "./scripts/local_vboxsf.sh"
+  #}
 
   # https://developer.hashicorp.com/packer/docs/provisioners/shell
   #
   provisioner "shell" {
     scripts = [
       "./scripts/version.sh",
-      "./scripts/mount_vboxsf.sh",
-      "./scripts/collect_autoinstall_user_data.sh",
+      #"./scripts/mount_vboxsf.sh",
+      #"./scripts/collect_autoinstall_user_data.sh",
+      "./scripts/final.sh"
     ]
     execute_command = "echo 'packer' | sudo -S -E bash '{{ .Path }}' '${packer.version}'"
   }
-
-  #provisioner "shell" {
-  #  inline = [
-  #    "cp -fv /var/log/installer/autoinstall-user-data /mnt/vboxsf/",
-  #  ]
-  #  execute_command = "echo 'packer' | sudo -S -E bash '{{ .Path }}'"
-  #}
 
   post-processor "checksum" {
     checksum_types      = ["md5", "sha512"]
