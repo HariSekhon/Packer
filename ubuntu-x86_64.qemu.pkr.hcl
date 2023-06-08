@@ -23,6 +23,11 @@
 #                  P a c k e r   -   U b u n t u   -   Q e m u
 # ============================================================================ #
 
+packer {
+  # Data sources only available in 1.7+
+  required_version = ">= 1.7.0, < 2.0.0"
+}
+
 # http://releases.ubuntu.com/
 variable "version" {
   type    = string
@@ -60,11 +65,13 @@ source "qemu" "ubuntu" {
   disk_additional_size = []
   http_directory       = "installers"
   boot_wait            = "5s"
-  boot_command = [
-    "c<wait>",
-    "linux /casper/vmlinuz autoinstall 'ds=nocloud-net;s=http://{{.HTTPIP}}:{{.HTTPPort}}/' <enter><wait>",
-    "initrd /casper/initrd <enter><wait>",
-    "boot <enter>"
+  boot_steps = [
+    ["c<wait>"],
+    # XXX: must single quotes the ds=... arg to prevent grub from interpreting the semicolon as a terminator
+    # https://cloudinit.readthedocs.io/en/latest/reference/datasources/nocloud.html
+    ["linux /casper/vmlinuz autoinstall 'ds=nocloud-net;s=http://{{.HTTPIP}}:{{.HTTPPort}}/' <enter><wait>"],
+    ["initrd /casper/initrd <enter><wait>"],
+    ["boot <enter>"]
   ]
   ssh_timeout         = "30m"
   ssh_password        = "packer"
