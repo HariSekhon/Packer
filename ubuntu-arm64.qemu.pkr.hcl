@@ -29,9 +29,14 @@ packer {
 }
 
 # http://releases.ubuntu.com/
-variable "url" {
+variable "version" {
   type    = string
-  default = "https://cdimage.ubuntu.com/releases/22.04/release/ubuntu-22.04.2-live-server-amd64.iso"
+  default = "22.04"
+}
+
+variable "iso" {
+  type    = string
+  default = "ubuntu-22.04.2-live-server-arm64.iso"
 }
 
 variable "checksum" {
@@ -41,7 +46,8 @@ variable "checksum" {
 
 locals {
   name    = "ubuntu"
-  vm_name  = "${local.name}-${local.version}"
+  url     = "https://cdimage.ubuntu.com/releases/${var.version}/release/${var.iso}"
+  vm_name = "${local.name}-${var.version}"
 }
 
 # https://developer.hashicorp.com/packer/plugins/builders/qemu
@@ -54,7 +60,7 @@ source "qemu" "ubuntu" {
   #accelerator          = "kvm"
   #accelerator          = "tcg"
   #accelerator          = "none"
-  iso_url              = var.url
+  iso_url              = local.url
   iso_checksum         = var.checksum
   cpus                 = 3
   memory               = 3072
