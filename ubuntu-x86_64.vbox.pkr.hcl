@@ -49,7 +49,7 @@ variable "url" {
 
 variable "checksum" {
   type    = string
-  default = "5e38b55d57d94ff029719342357325ed3bda38fa80054f9330dc789cd2"
+  default = "5e38b55d57d94ff029719342357325ed3bda38fa80054f9330dc789cd2d43931"
 }
 
 locals {
