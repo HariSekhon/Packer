@@ -26,6 +26,10 @@ distro="$(awk -F= '/^ID=/{print $2}' /etc/os-release)"
 version="$(awk -F= '/^VERSION_ID=/{print $2}' /etc/os-release | sed 's/"//g')"
 
 echo "Distro was detemined to be '$distro-$version'"
+echo
 
+echo "Dumping debconf-get-selections --installer to preseed.cfg-$distro-$version"
 $sudo debconf-get-selections --installer > "/mnt/host/preseed.cfg-$distro-$version"
+
+echo "Dumping debconf-get-selections to debconf-selections.cfg-$distro-$version"
 $sudo debconf-get-selections > "/mnt/host/debconf-selections.cfg-$distro-$version"
