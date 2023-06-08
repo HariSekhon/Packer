@@ -23,6 +23,7 @@ distro="$(awk -F= '/^ID=/{printf $2}' /etc/os-release | sed 's/"//g')"
 version="$(awk -F= '/^VERSION_ID=/{print $2}' /etc/os-release | sed 's/"//g')"
 
 echo "Distro was detemined to be '$distro-$version'"
+echo
 
 for x in anaconda-ks.cfg ks-pre.log ks-post.log; do
     if [ -f /root/$x ]; then
