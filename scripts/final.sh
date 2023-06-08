@@ -23,7 +23,14 @@ set -euo pipefail
 [ -n "${DEBUG:-}" ] && set -x
 #srcdir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
+echo "Cleaning APT caches"
 apt-get clean
+echo
 
+echo "Removing /etc/sudoers.d/packer if present"
+rm -fv /etc/sudoers.d/packer
+echo
+
+echo "Disabling SSH password authentication"
 # SSH password auth is needed for Packer, but after build disable this
 sed -i '/PasswordAuthentication[[:space:]]*yes/PasswordAuthentication no/' /etc/ssh/sshd_config
