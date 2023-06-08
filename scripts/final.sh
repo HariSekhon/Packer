@@ -26,4 +26,4 @@ set -euo pipefail
 apt-get clean
 
 # SSH password auth is needed for Packer, but after build disable this
-sed -i '/PasswordAuthentication.*yes/PasswordAuthentication no/' /etc/ssh/sshd_config
+sed -i '/PasswordAuthentication[[:space:]]*yes/PasswordAuthentication no/' /etc/ssh/sshd_config
