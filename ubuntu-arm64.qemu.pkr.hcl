@@ -95,9 +95,7 @@ build {
   name = local.name
 
   # specify multiple sources defined above to build near identical images for different platforms
-  sources = [
-    "source.qemu.ubuntu",
-  ]
+  sources = ["source.qemu.ubuntu"]
 
   provisioner "file" {
     source      = "/var/log/installer/autoinstall-user-data"
