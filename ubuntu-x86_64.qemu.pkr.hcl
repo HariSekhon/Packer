@@ -40,8 +40,8 @@ variable "checksum" {
 }
 
 locals {
-  name     = "ubuntu"
-  vm_name  = "${local.name}-${var.version}"
+  name    = "ubuntu"
+  vm_name = "${local.name}-${var.version}"
 }
 
 source "qemu" "ubuntu" {
@@ -50,7 +50,7 @@ source "qemu" "ubuntu" {
   #iso_checksum_url    = "http://cloud-images.ubuntu.com/releases/bionic/release/SHA256SUMS"
   #iso_checksum_type   = "sha256"
   iso_url        = var.url
-  iso_checksum   = var.checksum
+  iso_checksum   = "sha256:${var.checksum}"
   cpus           = 3
   memory         = 3072
   disk_discard   = "unmap"
