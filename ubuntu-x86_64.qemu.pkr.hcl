@@ -31,12 +31,12 @@ variable "version" {
 
 variable "url" {
   type    = string
-  default = "http://releases.ubuntu.com/jammy/ubuntu-22.04.2-live-server-arm64.iso"
+  default = "http://releases.ubuntu.com/jammy/ubuntu-22.04.2-live-server-amd64.iso"
 }
 
 variable "checksum" {
   type    = string
-  default = "5e38b55d57d94ff029719342357325ed3bda38fa80054f9330dc789cd2"
+  default = "5e38b55d57d94ff029719342357325ed3bda38fa80054f9330dc789cd2d43931"
 }
 
 locals {
@@ -50,7 +50,7 @@ source "qemu" "ubuntu" {
   #iso_checksum_url    = "http://cloud-images.ubuntu.com/releases/bionic/release/SHA256SUMS"
   #iso_checksum_type   = "sha256"
   iso_url        = var.url
-  iso_checksum   = "sha256:${var.checksum}"
+  iso_checksum   = var.checksum
   cpus           = 3
   memory         = 3072
   disk_discard   = "unmap"
