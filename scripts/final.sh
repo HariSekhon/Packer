@@ -23,8 +23,8 @@ set -euo pipefail
 [ -n "${DEBUG:-}" ] && set -x
 #srcdir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
-echo "Cleaning APT caches"
-apt-get clean
+echo "Cleaning Caches"
+curl -sSf https://raw.githubusercontent.com/HariSekhon/DevOps-Bash-tools/master/bin/clean_caches.sh | sh
 echo
 
 echo "Removing /etc/sudoers.d/packer if present"
