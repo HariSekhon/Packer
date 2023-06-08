@@ -33,4 +33,4 @@ echo
 
 echo "Disabling SSH password authentication"
 # SSH password auth is needed for Packer, but after build disable this
-sed -i '/PasswordAuthentication[[:space:]]*yes/PasswordAuthentication no/' /etc/ssh/sshd_config
+sed -i 's/PasswordAuthentication[[:space:]]*yes/PasswordAuthentication no/' /etc/ssh/sshd_config
