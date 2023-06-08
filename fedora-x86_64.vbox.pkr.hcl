@@ -110,6 +110,7 @@ build {
       "./scripts/version.sh",
       "./scripts/mount_vboxsf.sh",
       "./scripts/collect_anaconda.sh",
+      "./scripts/final.sh",
     ]
     execute_command = "echo 'packer' | sudo -S -E bash '{{ .Path }}' '${packer.version}'"
   }
