@@ -41,11 +41,6 @@ variable "checksum" {
 
 locals {
   name    = "ubuntu"
-  vm_name = "${local.name}-${var.version}"
-}
-
-locals {
-  name    = "ubuntu"
   vm_name  = "${local.name}-${local.version}"
 }
 
