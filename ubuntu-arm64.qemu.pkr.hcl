@@ -28,18 +28,24 @@ packer {
   required_version = ">= 1.7.0, < 2.0.0"
 }
 
+# http://releases.ubuntu.com/
+variable "url" {
+  type    = string
+  default = "https://cdimage.ubuntu.com/releases/22.04/release/ubuntu-22.04.2-live-server-amd64.iso"
+}
+
+variable "checksum" {
+  type    = string
+  default = "12eed04214d8492d22686b72610711882ddf6222b4dc029c24515a85c4874e95"
+}
+
 locals {
-  # http://releases.ubuntu.com/
   name    = "ubuntu"
-  version = "22.04"
-  patch   = "2"
-  iso     = "ubuntu-${local.version}.${local.patch}-live-server-amd64.iso"
-  #iso     = "ubuntu-${local.version}.${local.patch}-live-server-arm64.iso"
-  #url      = "http://releases.ubuntu.com/jammy/${local.iso}"
-  #checksum = "5e38b55d57d94ff029719342357325ed3bda38fa80054f9330dc789cd2d43931"
-  # ARM
-  url      = "https://cdimage.ubuntu.com/releases/${local.version}/release/${local.iso}"
-  checksum = "12eed04214d8492d22686b72610711882ddf6222b4dc029c24515a85c4874e95"
+  vm_name = "${local.name}-${var.version}"
+}
+
+locals {
+  name    = "ubuntu"
   vm_name  = "${local.name}-${local.version}"
 }
 
@@ -53,8 +59,8 @@ source "qemu" "ubuntu" {
   #accelerator          = "kvm"
   #accelerator          = "tcg"
   #accelerator          = "none"
-  iso_url              = local.iso
-  iso_checksum         = local.checksum
+  iso_url              = var.url
+  iso_checksum         = var.checksum
   cpus                 = 3
   memory               = 3072
   disk_size            = 40960
