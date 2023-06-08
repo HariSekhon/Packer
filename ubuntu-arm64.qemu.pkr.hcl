@@ -52,7 +52,7 @@ locals {
 
 # https://developer.hashicorp.com/packer/plugins/builders/qemu
 source "qemu" "ubuntu" {
-  vm_name     = "${local.vm_name}"
+  vm_name     = local.vm_name
   qemu_binary = "qemu-system-aarch64"
   #qemu_binary = "qemu-system-x86_64"
   use_default_display = true # might be needed on Mac to avoid errors about sdl not being available
