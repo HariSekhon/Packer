@@ -27,9 +27,10 @@ echo "Cleaning Caches"
 curl -sSf https://raw.githubusercontent.com/HariSekhon/DevOps-Bash-tools/master/bin/clean_caches.sh | sh
 echo
 
-echo "Removing /etc/sudoers.d/packer if present"
-rm -fv /etc/sudoers.d/packer
-echo
+# remove this along with packer user after handover to new user accounts / centralized auth system
+#echo "Removing /etc/sudoers.d/packer if present"
+#rm -fv /etc/sudoers.d/packer
+#echo
 
 echo "Disabling SSH password authentication"
 # SSH password auth is needed for Packer, but after build disable this
