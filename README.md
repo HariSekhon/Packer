@@ -73,7 +73,7 @@ The following builds are provided for these combinations of Linux distros, arche
   - [fedora-x86_64.vbox.pkr.hcl](https://github.com/HariSekhon/Packer-templates/blob/main/fedora-x86_64.vbox.pkr.hcl)
   - [rocky-x86_64.vbox.pkr.hcl](https://github.com/HariSekhon/Packer-templates/blob/main/rocky-x86_64.vbox.pkr.hcl)
   - [ubuntu-x86_64.vbox.pkr.hcl](https://github.com/HariSekhon/Packer-templates/blob/main/ubuntu-x86_64.vbox.pkr.hcl)
-- [Tart](https://tart.run/) - Mac Silicon CPU only (eg. M1/M2 ARM chips):
+- [Tart](https://tart.run/) - Mac Arm CPU only (eg. M1/M2):
   - [debian-arm64.tart.http.pkr.hcl](https://github.com/HariSekhon/Packer-templates/blob/main/debian-arm64.tart.http.pkr.hcl)
   - [fedora-arm64.tart.http.pkr.hcl](https://github.com/HariSekhon/Packer-templates/blob/main/fedora-arm64.tart.http.pkr.hcl)
   - [rocky-arm64.tart.http.pkr.hcl](https://github.com/HariSekhon/Packer-templates/blob/main/rocky-arm64.tart.http.pkr.hcl)
