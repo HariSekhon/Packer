@@ -76,7 +76,7 @@ source "tart-cli" "fedora" {
 }
 
 build {
-  name = "${local.name}"
+  name = local.name
 
   sources = ["source.tart-cli.fedora"]
 
