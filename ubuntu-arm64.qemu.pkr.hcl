@@ -52,14 +52,9 @@ locals {
 
 # https://developer.hashicorp.com/packer/plugins/builders/qemu
 source "qemu" "ubuntu" {
-  vm_name     = local.vm_name
-  qemu_binary = "qemu-system-aarch64"
-  #qemu_binary = "qemu-system-x86_64"
-  use_default_display = true # might be needed on Mac to avoid errors about sdl not being available
-  machine_type        = "virt"
-  #accelerator          = "kvm"
-  #accelerator          = "tcg"
-  #accelerator          = "none"
+  vm_name              = local.vm_name
+  qemu_binary          = "qemu-system-aarch64"
+  machine_type         = "virt"
   iso_url              = local.url
   iso_checksum         = var.checksum
   cpus                 = 3
@@ -67,6 +62,14 @@ source "qemu" "ubuntu" {
   disk_size            = 40960
   disk_additional_size = []
   http_directory       = "installers"
+  ssh_timeout          = "30m"
+  ssh_username         = "packer"
+  ssh_password         = "packer"
+  shutdown_command     = "echo 'packer' | sudo -S shutdown -P now"
+  net_device           = "virtio-net"
+  disk_interface       = "virtio" # or virtio-scsi?
+  format               = "qcow2"
+  use_default_display  = true # might be needed on Mac to avoid errors about sdl not being available
   boot_wait            = "5s"
   boot_steps = [
     ["c<wait>"],
@@ -76,19 +79,20 @@ source "qemu" "ubuntu" {
     ["initrd /casper/initrd <enter><wait>"],
     ["boot <enter>"]
   ]
-  ssh_timeout      = "30m"
-  ssh_username     = "packer"
-  ssh_password     = "packer"
-  shutdown_command = "echo 'packer' | sudo -S shutdown -P now"
-  net_device       = "virtio-net"
-  disk_interface   = "virtio"
-  format           = "qcow2"
+  qemuargs = [
+    #["-bios", "/opt/homebrew/Cellar/qemu/8.0.2/share/qemu/edk2-aarch64-code.fd"],
+    # spice-app isn't respected despite doc https://www.qemu.org/docs/master/system/invocation.html#hxtool-3
+    # packer-builder-qemu plugin: Qemu stderr: qemu-system-x86_64: -display spice-app: Parameter 'type' does not accept value 'spice-app'
+    #["-display", "spice-app"],
+    #["-display", "cocoa"],  # Mac only
+    #["-display", "vnc:0"],  # starts VNC by default, but doesn't open it for us
+  ]
   #disk_compression  = true # default: false
   #rtc_time_base    = "UTC"
   #bundle_iso = false # keep the ISO attached
-  qemuargs = [
-    #["-bios", "/opt/homebrew/Cellar/qemu/8.0.2/share/qemu/edk2-aarch64-code.fd"],
-  ]
+  #accelerator = "kvm"
+  #accelerator = "tcg"
+  #accelerator = "none"
 }
 
 build {
