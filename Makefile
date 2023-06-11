@@ -26,6 +26,8 @@ REPO := HariSekhon/Packer-templates
 
 CODE_FILES := $(shell git ls-files | grep -E -e '\.sh$$' -e '\.py$$' | sort)
 
+ARCH := $(shell uname -m)
+
 .PHONY: build
 build: init
 	@echo ================
@@ -78,7 +80,7 @@ all:
 .PHONY: debian
 debian:
 	@if uname -m | grep -q arm64; then \
-		$(MAKE) debian-tart-http; \
+		$(MAKE) debian-qemu; \
 	else \
 		$(MAKE) debian-vbox; \
 	fi
@@ -86,7 +88,7 @@ debian:
 .PHONY: debian-11
 debian-11:
 	@if uname -m | grep -q arm64; then \
-		$(MAKE) debian-11-tart-http; \
+		$(MAKE) debian-11-qemu; \
 	else \
 		$(MAKE) debian-11-vbox; \
 	fi
@@ -94,7 +96,7 @@ debian-11:
 .PHONY: fedora
 fedora:
 	@if uname -m | grep -q arm64; then \
-		$(MAKE) fedora-tart-http; \
+		$(MAKE) fedora-qemu; \
 	else \
 		$(MAKE) fedora-vbox; \
 	fi
@@ -102,7 +104,7 @@ fedora:
 .PHONY: fedora-38
 fedora-38:
 	@if uname -m | grep -q arm64; then \
-		$(MAKE) fedora-38-tart-http; \
+		$(MAKE) fedora-38-qemu; \
 	else \
 		$(MAKE) fedora-38-vbox; \
 	fi
@@ -110,7 +112,7 @@ fedora-38:
 .PHONY: fedora-37
 fedora-37:
 	@if uname -m | grep -q arm64; then \
-		$(MAKE) fedora-37-tart-http; \
+		$(MAKE) fedora-37-qemu; \
 	else \
 		$(MAKE) fedora-37-vbox; \
 	fi
@@ -118,7 +120,7 @@ fedora-37:
 .PHONY: rocky
 rocky:
 	@if uname -m | grep -q arm64; then \
-		$(MAKE) rocky-tart-http; \
+		$(MAKE) rocky-qemu; \
 	else \
 		$(MAKE) rocky-vbox; \
 	fi
@@ -126,7 +128,7 @@ rocky:
 .PHONY: rocky-9.2
 rocky-9.2:
 	@if uname -m | grep -q arm64; then \
-		$(MAKE) rocky-9.2-tart-http; \
+		$(MAKE) rocky-9.2-qemu; \
 	else \
 		$(MAKE) rocky-9.2-vbox; \
 	fi
@@ -134,7 +136,7 @@ rocky-9.2:
 .PHONY: ubuntu
 ubuntu:
 	@if uname -m | grep -q arm64; then \
-		$(MAKE) ubuntu-tart-http; \
+		$(MAKE) ubuntu-qemu; \
 	else \
 		$(MAKE) ubuntu-vbox; \
 	fi
@@ -142,7 +144,7 @@ ubuntu:
 .PHONY: ubuntu-22.04
 ubuntu-22.04:
 	@if uname -m | grep -q arm64; then \
-		$(MAKE) ubuntu-22.04-tart-http; \
+		$(MAKE) ubuntu-22.04-qemu; \
 	else \
 		$(MAKE) ubuntu-22.04-vbox; \
 	fi
@@ -233,54 +235,54 @@ qemu-all:
 
 .PHONY: debian-qemu
 debian-qemu:
-	packer build --force debian-arm64.qemu.pkr.hcl
+	packer build --force debian-$(ARCH).qemu.pkr.hcl
 
 .PHONY: fedora-qemu
 fedora-qemu:
-	packer build --force fedora-arm64.qemu.pkr.hcl
+	packer build --force fedora-$(ARCH).qemu.pkr.hcl; \
 
 .PHONY: fedora-38-qemu
 fedora-37-qemu:
 	packer build --force \
 		-var version=38 \
 		-var iso=Fedora-Server-dvd-x86_64-37-1.6.iso \
-		fedora-arm64.qemu.pkr.hcl
+		fedora-$(ARCH).qemu.pkr.hcl
 
 .PHONY: fedora-38-qemu
 fedora-38-qemu:
 	packer build --force \
 		-var version=38 \
 		-var iso=Fedora-Server-dvd-x86_64-38-1.6.iso \
-		fedora-arm64.qemu.pkr.hcl
+		fedora-$(ARCH).qemu.pkr.hcl
 
 .PHONY: rocky-qemu
 rocky-qemu:
-	packer build --force rocky-arm64.qemu.pkr.hcl
+	packer build --force rocky-$(ARCH).qemu.pkr.hcl
 
 .PHONY: rocky-9.2-qemu
 rocky-9.2-qemu:
 	packer build --force \
 		-var version="9.2" \
 		-var iso="Rocky-9.2-aarch64-dvd.iso" \
-		rocky-arm64.qemu.pkr.hcl
+		rocky-$(ARCH).qemu.pkr.hcl
 
 .PHONY: ubuntu-qemu
 ubuntu-qemu:
-	packer build --force ubuntu-arm64.qemu.pkr.hcl
+	packer build --force ubuntu-$(ARCH).qemu.pkr.hcl
 
 .PHONY: ubuntu-22-qemu
 ubuntu-22-qemu:
 	packer build --force \
 		-var version=22.04 \
 		-var iso=ubuntu-22.04.2-live-server-arm64.iso \
-		ubuntu-arm64.qemu.pkr.hcl
+		ubuntu-$(ARCH).qemu.pkr.hcl
 
 .PHONY: ubuntu-23-qemu
 ubuntu-23-qemu:
 	packer build --force \
 		-var version=23.04 \
 		-var iso=ubuntu-23.04-live-server-arm64.iso \
-		ubuntu-arm64.qemu.pkr.hcl
+		ubuntu-$(ARCH).qemu.pkr.hcl
 
 .PHONY: all
 tart-all:
