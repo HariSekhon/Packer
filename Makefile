@@ -440,10 +440,11 @@ lint:
 		fi; \
 		echo "Lint: $$x"; \
 		packer init "$$x" && \
-		packer validate "$$x" && \
 		packer fmt -diff "$$x" || \
 		exit 1; \
 	done
+		# complains if output dir already exists
+		#packer validate "$$x" && \
 
 # if you really want to check it locally before pushing - otherwise just let the CI/CD workflows run and check the README badge statuses
 .PHONY: lint-installers
