@@ -50,20 +50,25 @@ locals {
 }
 
 source "qemu" "ubuntu" {
-  vm_name = local.vm_name
-  #iso_url             = "http://cloud-images.ubuntu.com/releases/bionic/release/ubuntu-18.04-server-cloudimg-amd64.img"
-  #iso_checksum_url    = "http://cloud-images.ubuntu.com/releases/bionic/release/SHA256SUMS"
-  #iso_checksum_type   = "sha256"
+  vm_name              = local.vm_name
+  qemu_binary          = "qemu-system-x86_64"
   iso_url              = var.url
   iso_checksum         = var.checksum
   cpus                 = 3
   memory               = 3072
   disk_discard         = "unmap"
   disk_image           = true
-  disk_interface       = "virtio-scsi"
+  disk_interface       = "virtio-scsi" # or virtio?
+  net_device           = "virtio-net"
+  format               = "qcow2"
   disk_size            = 40960
   disk_additional_size = []
+  use_default_display  = true # might be needed on Mac to avoid errors about sdl not being available
   http_directory       = "installers"
+  ssh_timeout          = "30m"
+  ssh_password         = "packer"
+  ssh_username         = "packer"
+  shutdown_command     = "echo 'packer' | sudo -S shutdown -P now"
   boot_wait            = "5s"
   boot_steps = [
     ["c<wait>"],
@@ -73,14 +78,26 @@ source "qemu" "ubuntu" {
     ["initrd /casper/initrd <enter><wait>"],
     ["boot <enter>"]
   ]
-  ssh_timeout         = "30m"
-  ssh_password        = "packer"
-  ssh_username        = "packer"
-  shutdown_command    = "echo 'packer' | sudo -S shutdown -P now"
-  use_default_display = true
   qemuargs = [
     ["-smbios", "type=1,serial=ds=nocloud-net;instance-id=packer;seedfrom=http://{{ .HTTPIP }}:{{ .HTTPPort }}/"],
+    # spice-app isn't respected despite doc https://www.qemu.org/docs/master/system/invocation.html#hxtool-3
+    # packer-builder-qemu plugin: Qemu stderr: qemu-system-x86_64: -display spice-app: Parameter 'type' does not accept value 'spice-app'
+    #["-display", "spice-app"],
+    #["-display", "cocoa"],  # Mac only
+    #["-display", "vnc:0"],  # starts VNC by default, but doesn't open it for us
   ]
+  # Only on ARM Macs
+  #machine_type = "virt"  # packer-builder-qemu plugin: Qemu stderr: qemu-system-x86_64: unsupported machine type
+  #machine_type = "pc"  # qemu-system-x86_64 -machine help
+  #accelerator          = "kvm"
+  #accelerator          = "tcg"
+  #accelerator          = "none"
+  #iso_url             = "http://cloud-images.ubuntu.com/releases/bionic/release/ubuntu-18.04-server-cloudimg-amd64.img"
+  #iso_checksum_url    = "http://cloud-images.ubuntu.com/releases/bionic/release/SHA256SUMS"
+  #iso_checksum_type   = "sha256"
+  #disk_compression  = true # default: false
+  #rtc_time_base    = "UTC"
+  #bundle_iso = false # keep the ISO attached
 }
 
 build {
