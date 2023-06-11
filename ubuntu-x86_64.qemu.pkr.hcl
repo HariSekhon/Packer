@@ -48,22 +48,26 @@ locals {
   name    = "ubuntu"
   url     = "http://releases.ubuntu.com/${var.version}/${var.iso}"
   vm_name = "${local.name}-${var.version}"
+  arch    = "x86_64"
 }
 
+# https://developer.hashicorp.com/packer/plugins/builders/qemu
 source "qemu" "ubuntu" {
   vm_name              = local.vm_name
   qemu_binary          = "qemu-system-x86_64"
+  machine_type         = "pc"
   iso_url              = local.url
   iso_checksum         = var.checksum
   cpus                 = 3
   memory               = 3072
+  net_device           = "virtio-net"
+  disk_interface       = "virtio-scsi" # or virtio?
+  format               = "qcow2"
   disk_discard         = "unmap"
   disk_image           = true
-  disk_interface       = "virtio-scsi" # or virtio?
-  net_device           = "virtio-net"
-  format               = "qcow2"
   disk_size            = 40960
   disk_additional_size = []
+  output_directory     = "${local.vm_name}-${local.arch}"
   use_default_display  = true # might be needed on Mac to avoid errors about sdl not being available
   http_directory       = "installers"
   ssh_timeout          = "30m"
@@ -140,7 +144,7 @@ build {
   post-processor "checksum" {
     checksum_types      = ["md5", "sha512"]
     keep_input_artifact = true
-    output              = "output-{{.BuildName}}/{{.BuildName}}.{{.ChecksumType}}"
+    output              = "output-{{.BuildName}}-${local.arch}/{{.BuildName}}.{{.ChecksumType}}"
   }
 
 }
