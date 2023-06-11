@@ -92,7 +92,7 @@ source "virtualbox-iso" "ubuntu" {
 }
 
 build {
-  name = "${local.name}"
+  name = local.name
   sources = [
     # 22.04 gets split at the dot and results in this error:
     # Error: Unknown source virtualbox-iso.ubuntu-22
