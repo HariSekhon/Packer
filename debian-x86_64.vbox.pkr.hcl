@@ -91,7 +91,7 @@ source "virtualbox-iso" "debian" {
 }
 
 build {
-  name = "${local.name}"
+  name = local.name
 
   sources = ["source.virtualbox-iso.debian"]
 
