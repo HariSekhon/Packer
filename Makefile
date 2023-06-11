@@ -222,6 +222,67 @@ ubuntu-22.04-vbox:
 		ubuntu-x86_64.vbox.pkr.hcl
 
 .PHONY: all
+qemu-all:
+	$(MAKE) debian-qemu
+	@echo
+	$(MAKE) ubuntu-qemu
+	@echo
+	$(MAKE) fedora-qemu
+	@echo
+	$(MAKE) rocky-qemu
+
+.PHONY: debian-qemu
+debian-qemu:
+	packer build --force debian-arm64.qemu.pkr.hcl
+
+.PHONY: fedora-qemu
+fedora-qemu:
+	packer build --force fedora-arm64.qemu.pkr.hcl
+
+.PHONY: fedora-38-qemu
+fedora-37-qemu:
+	packer build --force \
+		-var version=38 \
+		-var iso=Fedora-Server-dvd-x86_64-37-1.6.iso \
+		fedora-arm64.qemu.pkr.hcl
+
+.PHONY: fedora-38-qemu
+fedora-38-qemu:
+	packer build --force \
+		-var version=38 \
+		-var iso=Fedora-Server-dvd-x86_64-38-1.6.iso \
+		fedora-arm64.qemu.pkr.hcl
+
+.PHONY: rocky-qemu
+rocky-qemu:
+	packer build --force rocky-arm64.qemu.pkr.hcl
+
+.PHONY: rocky-9.2-qemu
+rocky-9.2-qemu:
+	packer build --force \
+		-var version="9.2" \
+		-var iso="Rocky-9.2-aarch64-dvd.iso" \
+		rocky-arm64.qemu.pkr.hcl
+
+.PHONY: ubuntu-qemu
+ubuntu-qemu:
+	packer build --force ubuntu-arm64.qemu.pkr.hcl
+
+.PHONY: ubuntu-22-qemu
+ubuntu-22-qemu:
+	packer build --force \
+		-var version=22.04 \
+		-var iso=ubuntu-22.04.2-live-server-arm64.iso \
+		ubuntu-arm64.qemu.pkr.hcl
+
+.PHONY: ubuntu-23-qemu
+ubuntu-23-qemu:
+	packer build --force \
+		-var version=23.04 \
+		-var iso=ubuntu-23.04-live-server-arm64.iso \
+		ubuntu-arm64.qemu.pkr.hcl
+
+.PHONY: all
 tart-all:
 	$(MAKE) debian-tart
 	@echo
