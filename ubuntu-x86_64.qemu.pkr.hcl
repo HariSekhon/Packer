@@ -67,7 +67,7 @@ source "qemu" "ubuntu" {
   disk_image           = true
   disk_size            = 40960
   disk_additional_size = []
-  output_directory     = "${local.vm_name}-${local.arch}"
+  output_directory     = "output-${local.vm_name}-${local.arch}"
   use_default_display  = true # might be needed on Mac to avoid errors about sdl not being available
   http_directory       = "installers"
   ssh_timeout          = "30m"
