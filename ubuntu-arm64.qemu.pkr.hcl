@@ -48,6 +48,7 @@ locals {
   name    = "ubuntu"
   url     = "https://cdimage.ubuntu.com/releases/${var.version}/release/${var.iso}"
   vm_name = "${local.name}-${var.version}"
+  arch    = "arm64"
 }
 
 # https://developer.hashicorp.com/packer/plugins/builders/qemu
@@ -59,17 +60,20 @@ source "qemu" "ubuntu" {
   iso_checksum         = var.checksum
   cpus                 = 3
   memory               = 3072
+  net_device           = "virtio-net"
+  disk_interface       = "virtio" # or virtio-scsi?
+  format               = "qcow2"
+  disk_discard         = "unmap"
+  disk_image           = true
   disk_size            = 40960
   disk_additional_size = []
+  output_directory     = "${local.vm_name}-${local.arch}"
+  use_default_display  = true # might be needed on Mac to avoid errors about sdl not being available
   http_directory       = "installers"
   ssh_timeout          = "30m"
   ssh_username         = "packer"
   ssh_password         = "packer"
   shutdown_command     = "echo 'packer' | sudo -S shutdown -P now"
-  net_device           = "virtio-net"
-  disk_interface       = "virtio" # or virtio-scsi?
-  format               = "qcow2"
-  use_default_display  = true # might be needed on Mac to avoid errors about sdl not being available
   boot_wait            = "5s"
   boot_steps = [
     ["c<wait>"],
@@ -80,6 +84,7 @@ source "qemu" "ubuntu" {
     ["boot <enter>"]
   ]
   qemuargs = [
+    ["-smbios", "type=1,serial=ds=nocloud-net;instance-id=packer;seedfrom=http://{{ .HTTPIP }}:{{ .HTTPPort }}/"],
     #["-bios", "/opt/homebrew/Cellar/qemu/8.0.2/share/qemu/edk2-aarch64-code.fd"],
     # spice-app isn't respected despite doc https://www.qemu.org/docs/master/system/invocation.html#hxtool-3
     # packer-builder-qemu plugin: Qemu stderr: qemu-system-x86_64: -display spice-app: Parameter 'type' does not accept value 'spice-app'
@@ -131,7 +136,7 @@ build {
   post-processor "checksum" {
     checksum_types      = ["md5", "sha512"]
     keep_input_artifact = true
-    output              = "output-{{.BuildName}}/{{.BuildName}}.{{.ChecksumType}}"
+    output              = "output-{{.BuildName}}-${local.arch}/{{.BuildName}}.{{.ChecksumType}}"
   }
 
 }
