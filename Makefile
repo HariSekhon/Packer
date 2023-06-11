@@ -28,6 +28,8 @@ CODE_FILES := $(shell git ls-files | grep -E -e '\.sh$$' -e '\.py$$' | sort)
 
 ARCH := $(shell uname -m)
 
+VIRTUALBOX := $(shell type -P VirtualBox)
+
 .PHONY: build
 build: init
 	@echo ================
@@ -421,9 +423,19 @@ ubuntu-23-tart-http:
 		ubuntu-arm64.tart.http.pkr.hcl
 	$(MAKE) kill-webserver
 
-.PHONY: validate
-validate:
+.PHONY: lint
+lint:
 	for x in *.hcl; do \
+		if [ "$(ARCH)" = x86_64 ]; then \
+			if [[ "$$x" =~ arm64 ]]; then \
+				continue; \
+			fi; \
+		elif [ "$(ARCH)" = arm64 ]; then \
+			if [[ "$$x" =~ x86_64 ]]; then \
+				continue; \
+			fi; \
+		fi; \
+		echo "Lint: $$x"; \
 		packer init "$$x" && \
 		packer validate "$$x" && \
 		packer fmt -diff "$$x" || \
@@ -431,8 +443,8 @@ validate:
 	done
 
 # if you really want to check it locally before pushing - otherwise just let the CI/CD workflows run and check the README badge statuses
-.PHONY: lint
-lint:
+.PHONY: lint-installers
+lint-installers:
 	$(MAKE) autoinstall-lint
 	@echo
 	$(MAKE) kickstart-lint
