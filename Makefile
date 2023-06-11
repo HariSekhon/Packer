@@ -28,7 +28,9 @@ CODE_FILES := $(shell git ls-files | grep -E -e '\.sh$$' -e '\.py$$' | sort)
 
 ARCH := $(shell uname -m)
 
-VIRTUALBOX := $(shell type -P VirtualBox)
+#VIRTUALBOX := $(shell type -P VirtualBox)
+
+USE_VBOX := $(shell if [ "$(ARCH)" = x86_64 ] && type -P VirtualBox >/dev/null 2>&1; then echo 1; else echo 0; fi)
 
 .PHONY: build
 build: init
@@ -81,74 +83,74 @@ all:
 
 .PHONY: debian
 debian:
-	@if uname -m | grep -q arm64; then \
-		$(MAKE) debian-qemu; \
-	else \
+	@if [ "$(USE_VBOX)" = 1 ]; then \
 		$(MAKE) debian-vbox; \
+	else \
+		$(MAKE) debian-qemu; \
 	fi
 
 .PHONY: debian-11
 debian-11:
-	@if uname -m | grep -q arm64; then \
-		$(MAKE) debian-11-qemu; \
-	else \
+	@if [ "$(USE_VBOX)" = 1 ]; then \
 		$(MAKE) debian-11-vbox; \
+	else \
+		$(MAKE) debian-11-qemu; \
 	fi
 
 .PHONY: fedora
 fedora:
-	@if uname -m | grep -q arm64; then \
-		$(MAKE) fedora-qemu; \
-	else \
+	@if [ "$(USE_VBOX)" = 1 ]; then \
 		$(MAKE) fedora-vbox; \
+	else \
+		$(MAKE) fedora-qemu; \
 	fi
 
 .PHONY: fedora-38
 fedora-38:
-	@if uname -m | grep -q arm64; then \
-		$(MAKE) fedora-38-qemu; \
-	else \
+	@if [ "$(USE_VBOX)" = 1 ]; then \
 		$(MAKE) fedora-38-vbox; \
+	else \
+		$(MAKE) fedora-38-qemu; \
 	fi
 
 .PHONY: fedora-37
 fedora-37:
-	@if uname -m | grep -q arm64; then \
-		$(MAKE) fedora-37-qemu; \
-	else \
+	@if [ "$(USE_VBOX)" = 1 ]; then \
 		$(MAKE) fedora-37-vbox; \
+	else \
+		$(MAKE) fedora-37-qemu; \
 	fi
 
 .PHONY: rocky
 rocky:
-	@if uname -m | grep -q arm64; then \
-		$(MAKE) rocky-qemu; \
-	else \
+	@if [ "$(USE_VBOX)" = 1 ]; then \
 		$(MAKE) rocky-vbox; \
+	else \
+		$(MAKE) rocky-qemu; \
 	fi
 
 .PHONY: rocky-9.2
 rocky-9.2:
-	@if uname -m | grep -q arm64; then \
-		$(MAKE) rocky-9.2-qemu; \
-	else \
+	@if [ "$(USE_VBOX)" = 1 ]; then \
 		$(MAKE) rocky-9.2-vbox; \
+	else \
+		$(MAKE) rocky-9.2-qemu; \
 	fi
 
 .PHONY: ubuntu
 ubuntu:
-	@if uname -m | grep -q arm64; then \
-		$(MAKE) ubuntu-qemu; \
-	else \
+	@if [ "$(USE_VBOX)" = 1 ]; then \
 		$(MAKE) ubuntu-vbox; \
+	else \
+		$(MAKE) ubuntu-qemu; \
 	fi
 
 .PHONY: ubuntu-22.04
 ubuntu-22.04:
-	@if uname -m | grep -q arm64; then \
-		$(MAKE) ubuntu-22.04-qemu; \
-	else \
+	@if [ "$(USE_VBOX)" = 1 ]; then \
 		$(MAKE) ubuntu-22.04-vbox; \
+	else \
+		$(MAKE) ubuntu-22.04-qemu; \
 	fi
 
 .PHONY: all-vbox
