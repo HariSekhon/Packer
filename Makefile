@@ -27,6 +27,7 @@ REPO := HariSekhon/Packer-templates
 CODE_FILES := $(shell git ls-files | grep -E -e '\.sh$$' -e '\.py$$' | sort)
 
 ARCH := $(shell uname -m)
+UBUNTU_ISO_ARCH := $(shell if [ "$(ARCH)" = x86_64 ]; then echo amd64; else echo "$(ARCH)"; fi)
 
 #VIRTUALBOX := $(shell type -P VirtualBox)
 
@@ -227,7 +228,7 @@ ubuntu-22.04-vbox:
 		-var url="http://releases.ubuntu.com/jammy/ubuntu-22.04.2-live-server-arm64.iso" \
 		ubuntu-x86_64.vbox.pkr.hcl
 
-.PHONY: all
+.PHONY: qemu-all
 qemu-all:
 	$(MAKE) debian-qemu
 	@echo
@@ -278,14 +279,14 @@ ubuntu-qemu:
 ubuntu-22-qemu:
 	packer build --force \
 		-var version=22.04 \
-		-var iso=ubuntu-22.04.2-live-server-arm64.iso \
+		-var iso=ubuntu-22.04.2-live-server-$(UBUNTU_ISO_ARCH).iso \
 		ubuntu-$(ARCH).qemu.pkr.hcl
 
 .PHONY: ubuntu-23-qemu
 ubuntu-23-qemu:
 	packer build --force \
 		-var version=23.04 \
-		-var iso=ubuntu-23.04-live-server-arm64.iso \
+		-var iso=ubuntu-23.04-live-server-$(UBUNTU_ISO_ARCH).iso \
 		ubuntu-$(ARCH).qemu.pkr.hcl
 
 .PHONY: all
