@@ -27,7 +27,7 @@ autoinstall:
   #interactive-sections:
   #   - storage
   refresh-installer:
-    update: yes  # crashes trying to update on Qemu x86_64 - see https://bugs.launchpad.net/ubuntu/+source/subiquity/+bug/2022856
+    update: no  # crashes trying to update on Qemu x86_64 - see https://bugs.launchpad.net/ubuntu/+source/subiquity/+bug/2022856
   apt:
     disable_components: []
     geoip: true
