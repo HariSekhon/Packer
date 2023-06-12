@@ -85,35 +85,21 @@ source "qemu" "ubuntu" {
     ["boot <enter>"]
   ]
   qemuargs = [
-    ["-smbios", "type=1,serial=ds=nocloud-net;instance-id=packer;seedfrom=http://{{ .HTTPIP }}:{{ .HTTPPort }}/"],
+    #["-smbios", "type=1,serial=ds=nocloud-net;instance-id=packer;seedfrom=http://{{ .HTTPIP }}:{{ .HTTPPort }}/"],
     # spice-app isn't respected despite doc https://www.qemu.org/docs/master/system/invocation.html#hxtool-3
     # packer-builder-qemu plugin: Qemu stderr: qemu-system-x86_64: -display spice-app: Parameter 'type' does not accept value 'spice-app'
     #["-display", "spice-app"],
     #["-display", "cocoa"],  # Mac only
-    #["-display", "vnc:0"],  # starts VNC by default, but doesn't open it for us
+    #["-display", "vnc:0"],  # starts VNC by default, but doesn't launch user's vncviewer - ubuntu-x86_64.qemu.pkr.hcl
   ]
   # Only on ARM Macs
   #machine_type = "virt"  # packer-builder-qemu plugin: Qemu stderr: qemu-system-x86_64: unsupported machine type
-  #machine_type = "pc"  # qemu-system-x86_64 -machine help
-  #accelerator          = "kvm"
-  #accelerator          = "tcg"
-  #accelerator          = "none"
-  #iso_url             = "http://cloud-images.ubuntu.com/releases/bionic/release/ubuntu-18.04-server-cloudimg-amd64.img"
-  #iso_checksum_url    = "http://cloud-images.ubuntu.com/releases/bionic/release/SHA256SUMS"
-  #iso_checksum_type   = "sha256"
-  #disk_compression  = true # default: false
-  #rtc_time_base    = "UTC"
-  #bundle_iso = false # keep the ISO attached
 }
 
 build {
   name = local.name
 
   sources = ["source.qemu.ubuntu"]
-
-  provisioner "shell" {
-    inline = ["echo Your steps go here."]
-  }
 
   provisioner "file" {
     source      = "/var/log/installer/autoinstall-user-data"
