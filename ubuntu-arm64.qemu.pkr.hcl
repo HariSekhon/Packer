@@ -1,6 +1,6 @@
 #
 #  Author: Hari Sekhon
-#  Date: [% DATE  # 2023-05-28 15:50:29 +0100 (Sun, 28 May 2023) %]
+#  Date: 2023-06-07 21:04:24 +0100 (Wed, 07 Jun 2023)
 #
 #  vim:ts=2:sts=2:sw=2:et:filetype=conf
 #
@@ -75,7 +75,7 @@ source "qemu" "ubuntu" {
   ssh_username         = "packer"
   ssh_password         = "packer"
   shutdown_command     = "echo 'packer' | sudo -S shutdown -P now"
-  #boot_wait            = "5s"
+  boot_wait            = "5s"
   boot_steps = [
     ["c<wait>"],
     # XXX: must single quotes the ds=... arg to prevent grub from interpreting the semicolon as a terminator
@@ -98,20 +98,13 @@ source "qemu" "ubuntu" {
     # packer-builder-qemu plugin: Qemu stderr: qemu-system-x86_64: -display spice-app: Parameter 'type' does not accept value 'spice-app'
     #["-display", "spice-app"],
     #["-display", "cocoa"],  # Mac only
-    #["-display", "vnc:0"],  # starts VNC by default, but doesn't open vncviewer - /opt/homebrew/share/qemu/edk2-aarch64-code.fd
+    #["-display", "vnc:0"],  # starts VNC by default, but doesn't launch user's vncviewer - ubuntu-x86_64.qemu.pkr.hcl
   ]
-  #disk_compression  = true # default: false
-  #rtc_time_base    = "UTC"
-  #bundle_iso = false # keep the ISO attached
-  #accelerator = "kvm"
-  #accelerator = "tcg"
-  #accelerator = "none"
 }
 
 build {
   name = local.name
 
-  # specify multiple sources defined above to build near identical images for different platforms
   sources = ["source.qemu.ubuntu"]
 
   provisioner "file" {
