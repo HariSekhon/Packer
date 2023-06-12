@@ -76,15 +76,15 @@ source "qemu" "ubuntu" {
   ssh_password         = "packer"
   shutdown_command     = "echo 'packer' | sudo -S shutdown -P now"
   #boot_wait            = "5s"
-  #boot_steps = [
-  #  ["c<wait>"],
-  #  # XXX: must single quotes the ds=... arg to prevent grub from interpreting the semicolon as a terminator
-  #  # https://cloudinit.readthedocs.io/en/latest/reference/datasources/nocloud.html
-  #  ["linux /casper/vmlinuz autoinstall 'ds=nocloud-net;s=http://{{.HTTPIP}}:{{.HTTPPort}}/' <enter><wait>"],
-  #  ["initrd /casper/initrd <enter><wait>"],
-  #  ["boot <enter>"]
-  #]
-  #qemuargs = [
+  boot_steps = [
+    ["c<wait>"],
+    # XXX: must single quotes the ds=... arg to prevent grub from interpreting the semicolon as a terminator
+    # https://cloudinit.readthedocs.io/en/latest/reference/datasources/nocloud.html
+    ["linux /casper/vmlinuz autoinstall 'ds=nocloud-net;s=http://{{.HTTPIP}}:{{.HTTPPort}}/' <enter><wait>"],
+    ["initrd /casper/initrd <enter><wait>"],
+    ["boot <enter>"]
+  ]
+  qemuargs = [
     #["-bios", "/opt/homebrew/share/qemu/bios.bin"],
     #["-bios", "/opt/homebrew/share/qemu/edk2-aarch64-code.fd"],
     #
@@ -99,7 +99,7 @@ source "qemu" "ubuntu" {
     #["-display", "spice-app"],
     #["-display", "cocoa"],  # Mac only
     #["-display", "vnc:0"],  # starts VNC by default, but doesn't open vncviewer - /opt/homebrew/share/qemu/edk2-aarch64-code.fd
-  #]
+  ]
   #disk_compression  = true # default: false
   #rtc_time_base    = "UTC"
   #bundle_iso = false # keep the ISO attached
