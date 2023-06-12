@@ -75,24 +75,31 @@ source "qemu" "ubuntu" {
   ssh_username         = "packer"
   ssh_password         = "packer"
   shutdown_command     = "echo 'packer' | sudo -S shutdown -P now"
-  boot_wait            = "5s"
-  boot_steps = [
-    ["c<wait>"],
-    # XXX: must single quotes the ds=... arg to prevent grub from interpreting the semicolon as a terminator
-    # https://cloudinit.readthedocs.io/en/latest/reference/datasources/nocloud.html
-    ["linux /casper/vmlinuz autoinstall 'ds=nocloud-net;s=http://{{.HTTPIP}}:{{.HTTPPort}}/' <enter><wait>"],
-    ["initrd /casper/initrd <enter><wait>"],
-    ["boot <enter>"]
-  ]
-  qemuargs = [
-    ["-smbios", "type=1,serial=ds=nocloud-net;instance-id=packer;seedfrom=http://{{ .HTTPIP }}:{{ .HTTPPort }}/"],
-    #["-bios", "/opt/homebrew/Cellar/qemu/8.0.2/share/qemu/edk2-aarch64-code.fd"],
+  #boot_wait            = "5s"
+  #boot_steps = [
+  #  ["c<wait>"],
+  #  # XXX: must single quotes the ds=... arg to prevent grub from interpreting the semicolon as a terminator
+  #  # https://cloudinit.readthedocs.io/en/latest/reference/datasources/nocloud.html
+  #  ["linux /casper/vmlinuz autoinstall 'ds=nocloud-net;s=http://{{.HTTPIP}}:{{.HTTPPort}}/' <enter><wait>"],
+  #  ["initrd /casper/initrd <enter><wait>"],
+  #  ["boot <enter>"]
+  #]
+  #qemuargs = [
+    #["-bios", "/opt/homebrew/share/qemu/bios.bin"],
+    #["-bios", "/opt/homebrew/share/qemu/edk2-aarch64-code.fd"],
+    #
+    #["-kernel", "/casper/vmlinuz"],  # Qemu stderr: qemu-system-aarch64: could not load kernel '/casper/vmlinuz'
+    #["-append", "autoinstall 'ds=nocloud-net;s=http://{{.HTTPIP}}:{{.HTTPPort}}/'"],
+    #["-initrd", "/casper/initrd"],
+    #
+    #["-smbios", "type=1,serial=ds=nocloud-net;instance-id=packer;seedfrom=http://{{ .HTTPIP }}:{{ .HTTPPort }}/"],
+    #
     # spice-app isn't respected despite doc https://www.qemu.org/docs/master/system/invocation.html#hxtool-3
     # packer-builder-qemu plugin: Qemu stderr: qemu-system-x86_64: -display spice-app: Parameter 'type' does not accept value 'spice-app'
     #["-display", "spice-app"],
     #["-display", "cocoa"],  # Mac only
-    #["-display", "vnc:0"],  # starts VNC by default, but doesn't open it for us
-  ]
+    #["-display", "vnc:0"],  # starts VNC by default, but doesn't open vncviewer - /opt/homebrew/share/qemu/edk2-aarch64-code.fd
+  #]
   #disk_compression  = true # default: false
   #rtc_time_base    = "UTC"
   #bundle_iso = false # keep the ISO attached
