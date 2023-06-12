@@ -76,14 +76,15 @@ source "qemu" "ubuntu" {
   ssh_password         = "packer"
   shutdown_command     = "echo 'packer' | sudo -S shutdown -P now"
   boot_wait            = "5s"
-  boot_steps = [
-    ["c<wait>"],
-    # XXX: must single quotes the ds=... arg to prevent grub from interpreting the semicolon as a terminator
-    # https://cloudinit.readthedocs.io/en/latest/reference/datasources/nocloud.html
-    ["linux /casper/vmlinuz autoinstall 'ds=nocloud-net;s=http://{{.HTTPIP}}:{{.HTTPPort}}/' <enter><wait>"],
-    ["initrd /casper/initrd <enter><wait>"],
-    ["boot <enter>"]
-  ]
+  # being sent to the qemu shell right now, uncomment after resolved - https://github.com/hashicorp/packer-plugin-qemu/issues/145
+  #boot_steps = [
+  #  ["c<wait>"],
+  #  # XXX: must single quotes the ds=... arg to prevent grub from interpreting the semicolon as a terminator
+  #  # https://cloudinit.readthedocs.io/en/latest/reference/datasources/nocloud.html
+  #  ["linux /casper/vmlinuz autoinstall 'ds=nocloud-net;s=http://{{.HTTPIP}}:{{.HTTPPort}}/' <enter><wait>"],
+  #  ["initrd /casper/initrd <enter><wait>"],
+  #  ["boot <enter>"]
+  #]
   qemuargs = [
     #["-bios", "/opt/homebrew/share/qemu/bios.bin"],
     #["-bios", "/opt/homebrew/share/qemu/edk2-aarch64-code.fd"],
