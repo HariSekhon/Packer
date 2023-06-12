@@ -225,7 +225,7 @@ ubuntu-22.04-vbox:
 	VBoxManage unregistervm ubuntu-22.04 --delete 2>/dev/null || :
 	packer build --force \
 		-var version="22.04" \
-		-var url="http://releases.ubuntu.com/jammy/ubuntu-22.04.2-live-server-arm64.iso" \
+		-var iso="ubuntu-22.04.2-live-server-arm64.iso" \
 		ubuntu-x86_64.vbox.pkr.hcl
 
 .PHONY: qemu-all
