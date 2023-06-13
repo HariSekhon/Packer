@@ -68,16 +68,28 @@ You must install your virtualization system before running Packer.
 The following builds are provided for these combinations of Linux distros, arches and virtualization systems:
 
 - [Qemu](https://www.qemu.org/):
-- [VirtualBox](https://www.virtualbox.org/) - Intel CPU only:
-  - [debian-x86_64.vbox.pkr.hcl](https://github.com/HariSekhon/Packer-templates/blob/main/debian-x86_64.vbox.pkr.hcl)
-  - [fedora-x86_64.vbox.pkr.hcl](https://github.com/HariSekhon/Packer-templates/blob/main/fedora-x86_64.vbox.pkr.hcl)
-  - [rocky-x86_64.vbox.pkr.hcl](https://github.com/HariSekhon/Packer-templates/blob/main/rocky-x86_64.vbox.pkr.hcl)
-  - [ubuntu-x86_64.vbox.pkr.hcl](https://github.com/HariSekhon/Packer-templates/blob/main/ubuntu-x86_64.vbox.pkr.hcl)
-- [Tart](https://tart.run/) - Mac Arm CPU only (eg. M1/M2):
-  - [debian-arm64.tart.http.pkr.hcl](https://github.com/HariSekhon/Packer-templates/blob/main/debian-arm64.tart.http.pkr.hcl)
-  - [fedora-arm64.tart.http.pkr.hcl](https://github.com/HariSekhon/Packer-templates/blob/main/fedora-arm64.tart.http.pkr.hcl)
-  - [rocky-arm64.tart.http.pkr.hcl](https://github.com/HariSekhon/Packer-templates/blob/main/rocky-arm64.tart.http.pkr.hcl)
-  - [ubuntu-arm64.tart.http.pkr.hcl](https://github.com/HariSekhon/Packer-templates/blob/main/ubuntu-arm64.tart.http.pkr.hcl)
+  - x86_64:
+    - [debian-x86_64.qemu.pkr.hcl](https://github.com/HariSekhon/Packer-templates/blob/main/debian-x86_64.qemu.pkr.hcl)
+    - [fedora-x86_64.qemu.pkr.hcl](https://github.com/HariSekhon/Packer-templates/blob/main/fedora-x86_64.qemu.pkr.hcl)
+    - [rocky-x86_64.qemu.pkr.hcl](https://github.com/HariSekhon/Packer-templates/blob/main/rocky-x86_64.qemu.pkr.hcl)
+    - [ubuntu-x86_64.qemu.pkr.hcl](https://github.com/HariSekhon/Packer-templates/blob/main/ubuntu-x86_64.qemu.pkr.hcl)
+  - arm64:
+    - [debian-arm64.qemu.pkr.hcl](://github.com/HariSekhon/Packer-templates/blob/main/debian-arm64.qemu.pkr.hcl)
+    - [fedora-arm64.qemu.pkr.hcl](://github.com/HariSekhon/Packer-templates/blob/main/fedora-arm64.qemu.pkr.hcl)
+    - [rocky-arm64.qemu.pkr.hcl](://github.com/HariSekhon/Packer-templates/blob/main/rocky-arm64.qemu.pkr.hcl)
+    - [ubuntu-arm64.qemu.pkr.hcl](://github.com/HariSekhon/Packer-templates/blob/main/ubuntu-arm64.qemu.pkr.hcl)
+- [VirtualBox](https://www.virtualbox.org/)
+  - x86_64:
+    - [debian-x86_64.vbox.pkr.hcl](https://github.com/HariSekhon/Packer-templates/blob/main/debian-x86_64.vbox.pkr.hcl)
+    - [fedora-x86_64.vbox.pkr.hcl](https://github.com/HariSekhon/Packer-templates/blob/main/fedora-x86_64.vbox.pkr.hcl)
+    - [rocky-x86_64.vbox.pkr.hcl](https://github.com/HariSekhon/Packer-templates/blob/main/rocky-x86_64.vbox.pkr.hcl)
+    - [ubuntu-x86_64.vbox.pkr.hcl](https://github.com/HariSekhon/Packer-templates/blob/main/ubuntu-x86_64.vbox.pkr.hcl)
+- [Tart](https://tart.run/)
+  - arm64:
+    - [debian-arm64.tart.http.pkr.hcl](https://github.com/HariSekhon/Packer-templates/blob/main/debian-arm64.tart.http.pkr.hcl)
+    - [fedora-arm64.tart.http.pkr.hcl](https://github.com/HariSekhon/Packer-templates/blob/main/fedora-arm64.tart.http.pkr.hcl)
+    - [rocky-arm64.tart.http.pkr.hcl](https://github.com/HariSekhon/Packer-templates/blob/main/rocky-arm64.tart.http.pkr.hcl)
+    - [ubuntu-arm64.tart.http.pkr.hcl](https://github.com/HariSekhon/Packer-templates/blob/main/ubuntu-arm64.tart.http.pkr.hcl)
 
 ## Quick Start
 
