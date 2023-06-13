@@ -44,7 +44,7 @@ variable "checksum" {
 
 locals {
   name    = "fedora"
-  url     = "https://download.fedoraproject.org/pub/fedora/linux/releases/${var.version}/Server/arm64/iso/${var.iso}"
+  url     = "https://download.fedoraproject.org/pub/fedora/linux/releases/${var.version}/Server/aarch64/iso/${var.iso}"
   vm_name = "${local.name}-${var.version}"
   arch    = "arm64"
 }
