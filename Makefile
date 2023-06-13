@@ -175,6 +175,16 @@ debian-11-vbox:
 	packer build --force \
 		-var version=11 \
 		-var iso=debian-11.7.0-amd64-DVD-1.iso \
+		-var checksum=cfbb1387d92c83f49420eca06e2d11a23e5a817a21a5d614339749634709a32f \
+		debian-x86_64.vbox.pkr.hcl
+
+.PHONY: debian-12-vbox
+debian-12-vbox:
+	VBoxManage unregistervm debian-11 --delete 2>/dev/null || :
+	packer build --force \
+		-var version=11 \
+		-var iso=debian-12.0.0-amd64-DVD-1.iso \
+		-var checksum=85042209e89908d5b59a968ff1be3c54415fa23015bf015562bad8d22452fa80 \
 		debian-x86_64.vbox.pkr.hcl
 
 .PHONY: fedora-vbox
