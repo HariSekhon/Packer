@@ -64,6 +64,13 @@ source "tart-cli" "ubuntu" {
   cpu_count    = 4
   memory_gb    = 4
   disk_size_gb = 40
+  # causes long delay for boot_command missing bootloader:
+  #
+  #   https://github.com/cirruslabs/packer-plugin-tart/issues/76
+  #
+  #http_directory = "installers"
+  # causes build to hang
+  #http_bind_address = "192.168.64.1"
   #boot_command = [
   #  # boot grub without waiting for 30 sec countdown on default option
   #  "<wait3s><enter>",
@@ -71,13 +78,22 @@ source "tart-cli" "ubuntu" {
   #  # Continue with autoinstall? (yes|no)
   #  "<wait30s>yes<enter>"
   #]
+  boot_wait = "5s"
   boot_command = [
     "<wait3s>",
     "e<down><down><down><down><left>",
     # must run a web server such as 'python3 -m http.server' from installers/ directory before running 'packer build'
     # this is done automatically by 'make ubuntu-tart-http'
-    " autoinstall 'ds=nocloud-net;s=http://192.168.64.1:8000/' <f10>",
+    " autoinstall 'ds=nocloud-net;s=http://{{.HTTPIP}}:{{.HTTPPort}}/' <f10>",
   ]
+  #boot_command = [
+  #  "c<wait>",
+  #  # XXX: must single quotes the ds=... arg to prevent grub from interpreting the semicolon as a terminator
+  #  # https://cloudinit.readthedocs.io/en/latest/reference/datasources/nocloud.html
+  #  "linux /casper/vmlinuz autoinstall 'ds=nocloud-net;s=http://{{.HTTPIP}}:{{.HTTPPort}}/' <enter><wait>",
+  #  "initrd /casper/initrd <enter><wait>",
+  #  "boot <enter>",
+  #]
   ssh_timeout  = "30m"
   ssh_username = "packer"
   ssh_password = "packer"
