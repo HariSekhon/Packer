@@ -39,7 +39,7 @@ variable "iso" {
 
 variable "checksum" {
   type    = string
-  default = ""
+  default = "ca3df1d40c4488825b489d2bf32deb58c27e28020cc070699159cf010febf0bd"
 }
 
 locals {
