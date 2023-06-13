@@ -29,7 +29,7 @@ packer {
 # https://alt.rockyproject.org/alt/
 variable "version" {
   type    = string
-  default = "38"
+  default = "9.2"
 }
 
 variable "iso" {
