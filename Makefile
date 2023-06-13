@@ -184,7 +184,7 @@ debian-12-vbox:
 	packer build --force \
 		-var version=11 \
 		-var iso=debian-12.0.0-amd64-DVD-1.iso \
-		-var checksum=85042209e89908d5b59a968ff1be3c54415fa23015bf015562bad8d22452fa80 \
+		-var checksum=ca3df1d40c4488825b489d2bf32deb58c27e28020cc070699159cf010febf0bd \
 		debian-x86_64.vbox.pkr.hcl
 
 .PHONY: fedora-vbox
