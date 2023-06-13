@@ -32,7 +32,7 @@ packer {
   }
 }
 
-# https://deb.debian.org/debian/dists/
+# https://cdimage.debian.org/debian-cd/current/amd64/iso-dvd/
 variable "version" {
   type    = string
   default = "11"
@@ -40,12 +40,12 @@ variable "version" {
 
 variable "iso" {
   type    = string
-  default = "debian-11.7.0-amd64-DVD-1.iso" # 4.7GB
+  default = "debian-12.0.0-amd64-DVD-1.iso" # 4.7GB
 }
 
 variable "checksum" {
   type    = string
-  default = "cfbb1387d92c83f49420eca06e2d11a23e5a817a21a5d614339749634709a32f"
+  default = "85042209e89908d5b59a968ff1be3c54415fa23015bf015562bad8d22452fa80"
 }
 locals {
   name    = "debian"
