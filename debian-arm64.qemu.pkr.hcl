@@ -39,7 +39,7 @@ variable "iso" {
 
 variable "checksum" {
   type    = string
-  default = "85042209e89908d5b59a968ff1be3c54415fa23015bf015562bad8d22452fa80"
+  default = "ca3df1d40c4488825b489d2bf32deb58c27e28020cc070699159cf010febf0bd"
 }
 locals {
   name    = "debian"
