@@ -254,7 +254,7 @@ debian-qemu:
 
 .PHONY: fedora-qemu
 fedora-qemu:
-	packer build --force fedora-$(ARCH).qemu.pkr.hcl; \
+	packer build --force fedora-$(ARCH).qemu.pkr.hcl
 
 .PHONY: fedora-38-qemu
 fedora-37-qemu:
