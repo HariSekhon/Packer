@@ -102,9 +102,9 @@ make debian
 results in:
 
 ```
-output-debian/debian.ova
-output-debian/debian.md5
-output-debian/debian.sha512
+output-debian/debian-12.ova
+output-debian/debian-12.md5
+output-debian/debian-12.sha512
 ```
 
 You can then just import the `debian.ova` file on any virtualization platform such as VMware vSphere or your local VirtualBox.
