@@ -34,16 +34,16 @@ variable "version" {
 
 variable "iso" {
   type    = string
-  default = "Rocky-9.2-aarch64-dvd.iso"
+  default = "Rocky-9.2-x86_64-dvd.iso"
 }
 
 variable "checksum" {
   type    = string
-  default = "f46c62d6780783ad1a656fa9e81d463d05203e537730d55b4df9d0d2196a2248"
+  default = "cd43bb2671472471b1fc0a7a30113dfc9a56831516c46f4dbd12fb43bb4286d2"
 }
 locals {
   name    = "rocky"
-  url     = "https://download.rockylinux.org/pub/rocky/${split(".", var.version)[0]}/isos/aarch64/${var.iso}"
+  url     = "https://download.rockylinux.org/pub/rocky/${split(".", var.version)[0]}/isos/x86_64/${var.iso}"
   vm_name = "${local.name}-${var.version}"
   arch    = "x86_64"
 }
