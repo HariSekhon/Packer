@@ -1,3 +1,4 @@
+#!/usr/bin/env packer build --force
 #
 #  Author: Hari Sekhon
 #  Date: 2023-06-07 21:04:24 +0100 (Wed, 07 Jun 2023)
