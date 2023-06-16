@@ -1,3 +1,4 @@
+#!/usr/bin/env packer build --force
 #
 #  Author: Hari Sekhon
 #  Date: 2023-06-03 01:54:07 +0100 (Sat, 03 Jun 2023)
@@ -69,7 +70,7 @@ source "tart-cli" "ubuntu" {
   #   https://github.com/cirruslabs/packer-plugin-tart/issues/76
   #
   #http_directory = "installers"
-  # causes build to hang
+  # causes build to hang - if setting this to the LAN IP of the host then this solves it as a workaround but not very portable
   #http_bind_address = "192.168.64.1"
   #boot_command = [
   #  # boot grub without waiting for 30 sec countdown on default option
