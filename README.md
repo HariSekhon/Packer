@@ -4,6 +4,7 @@
 [![GitHub forks](https://img.shields.io/github/forks/HariSekhon/Packer-templates?logo=github)](https://github.com/HariSekhon/Packer-templates/network)
 [![Lines of Code](https://img.shields.io/badge/lines%20of%20code-1k-lightgrey?logo=codecademy)](https://github.com/HariSekhon/Packer-templates#Hari-Sekhon---Packer-templates)
 [![License](https://img.shields.io/badge/license-MIT-green)](https://github.com/HariSekhon/Packer-templates/blob/master/LICENSE)
+[![My LinkedIn](https://img.shields.io/badge/LinkedIn%20Profile-HariSekhon-blue?logo=linkedin)](https://www.linkedin.com/in/HariSekhon/)
 [![GitHub Last Commit](https://img.shields.io/github/last-commit/HariSekhon/Packer-templates?logo=github)](https://github.com/HariSekhon/Packer-templates/commits/master)
 
 [![Codacy](https://app.codacy.com/project/badge/Grade/19fb3e1bf45f494fb7332d4829cb3cd6)](https://www.codacy.com/gh/HariSekhon/Packer-templates/dashboard)
