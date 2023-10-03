@@ -48,7 +48,7 @@ variable "version" {
 
 variable "iso" {
   type    = string
-  default = "isos/ubuntu-22.04.2-live-server-arm64.iso"
+  default = "isos/ubuntu-22.04.3-live-server-arm64.iso"
 }
 
 locals {
