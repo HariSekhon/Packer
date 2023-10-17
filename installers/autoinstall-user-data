@@ -63,6 +63,15 @@ autoinstall:
     #- curtin in-target --target=/target -- ssh-import-id gh:harisekhon
     - 'printf "%-30s %s\n" "Build Date:" "`date`" >> /target/etc/build_release'
     #- sed -i 's/^ca:/#ca:/' /target/etc/inittab
+    #
+    #- "echo 'ubuntu ALL=(ALL) NOPASSWD: ALL' > /target/etc/sudoers.d/99_ubuntu_user"
+    #- "curtin in-target --target=/target -- chmod 440 /etc/sudoers.d/99_ubuntu_user"
+    #- "sed -ie 's/GRUB_TIMEOUT=.*/GRUB_TIMEOUT=5/' /target/etc/default/grub"
+    #- "curtin in-target --target=/target -- apt-get -y dist-upgrade"
+    #- "curtin in-target --target=/target -- apt-get -y autoremove"
+    #- "curtin in-target --target=/target -- apt-get autoclean"
+    #- "curtin in-target --target=/target -- apt-get clean"
+    #- "curtin in-target --target=/target -- rm -rf /var/lib/apt/lists/*"
   locale: en_GB.UTF-8
   network:
     ethernets:
@@ -70,8 +79,14 @@ autoinstall:
         dhcp4: true
     version: 2
   packages:
+    - apt-transport-https
     #- build-essential
+    - bash-completion
+    - bind9-utils
+    - ca-certificates
+    #- cloud-init
     - curl
+    #- gnupg
     - iptables
     - iputils-ping
     - less
@@ -82,7 +97,8 @@ autoinstall:
     - openssh-server
     - procps
     - psmisc
-    - tcpdump
+    #- socat
+    #- tcpdump
     #- time
     #- traceroute  # breaks installer
     - tmux
@@ -91,6 +107,7 @@ autoinstall:
     #- zip
     #- unzip
   #proxy: http://proxy_host:proxy_port/
+  #shutdown: "poweroff"
   snaps:
     - channel: stable
       classic: true
@@ -138,10 +155,28 @@ autoinstall:
       - 'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDQe6MuFOGBezYp/PoAr0x4ptWVFlkYyE6VVooEQ1DpQ5tcOcrsFIX/qW7nnZkOUsjxpXSN90sNrP7uOUa0IaU5MxDE0mMr+13HXUUmloA5HbIdbRi2wGTGaXE/uVXBEZKeD6+LD1AHM8dgEOgWF/j+XUQ0zcarg6Q45bE54my+9pWwQzciVa8LVdRYK+Rct5YR6Vo2cbjYAZ44G4d0Fq/k6nYwd0UhQfYcXP7R+bPBiiXDrECK/xn/OauYVY2QunfcfKyVBAWgpTkCDi+Nw6GFvgHwTd7WJ/IqZy9Lqyz2ymqn2yRyiHiKlH65+5RuP+9otpx9YshuBUyRrF4NGhNfm9LQ9vbckpk67h7I8w4nkh6w77N6wg+dlDDv42H6dPpX0IrSLmEsxeCWp5W+C4rHSlw62Yhsw2nO2bw251Qyb/UwGTk87pxg9jLjlp5YL0bcwONYX0ZSUPNoId4z1FNKcOmo1B5oRmwyQq2ua9hvieMhivQpqHa7IxB8MPOOtY8= harisekhon@github/76141680 # ssh-import-id gh:harisekhon'
     install-server: true
   storage:
+    #swap:
+    #  size: 0
     layout:
       name: lvm
       match:
         size: largest
   timezone: UTC
   updates: security
+  #user-data:
+  #  disable_root: true
+  #  timezone: UTC
+  #  package_upgrade: true
+  #users:
+  #  - default
+  #  - name: devops
+  #    passwd: '...' # put hash here
+  #    shell: /bin/bash
+  #    lock-passwd: false
+  #    ssh_pwauth: True
+  #    chpasswd: { expire: False }
+  #    sudo: ALL=(ALL) NOPASSWD:ALL
+  #    groups: users, dialout, sudo, wheel
+  #    ssh_authorized_keys:
+  #      - ssh-rsa ...
   version: 1
