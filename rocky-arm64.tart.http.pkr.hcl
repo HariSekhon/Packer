@@ -5,7 +5,7 @@
 #
 #  vim:ts=2:sts=2:sw=2:et:filetype=conf
 #
-#  https://github.com/HariSekhon/Packer-templates
+#  https://github.com/HariSekhon/Packer
 #
 #  License: see accompanying Hari Sekhon LICENSE file
 #
