@@ -130,6 +130,10 @@ or for a specific build
 make <distro>-<major_version>
 ```
 
+### Stargazers over time
+
+[![Stargazers over time](https://starchart.cc/HariSekhon/Packer.svg)](https://starchart.cc/HariSekhon/Packer)
+
 ## More Core Repos
 
 <!-- OTHER_REPOS_START -->
