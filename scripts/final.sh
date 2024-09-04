@@ -4,7 +4,7 @@
 #  Author: Hari Sekhon
 #  Date: 2023-06-08 02:28:00 +0100 (Thu, 08 Jun 2023)
 #
-#  https://github.com/HariSekhon/Packer-templates
+#  https://github.com/HariSekhon/Packer
 #
 #  License: see accompanying Hari Sekhon LICENSE file
 #
