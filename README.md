@@ -102,7 +102,7 @@ make debian
 
 results in:
 
-```
+```none
 output-debian/debian-12.ova
 output-debian/debian-12.md5
 output-debian/debian-12.sha512
@@ -110,22 +110,24 @@ output-debian/debian-12.sha512
 
 You can then just import the `debian.ova` file on any virtualization platform such as VMware vSphere or your local VirtualBox.
 
-
 ## Easy Customization
 
 Tweak the corresponding text files for that distro eg.
 
-```
+```none
 *.pkr.hcl
 installers/*
 scripts/*
 ```
+
 and then re-run
 
 ```shell
 make <distro>
 ```
-or for a specific build
+
+or for a specific build:
+
 ```shell
 make <distro>-<major_version>
 ```
