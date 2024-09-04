@@ -1,18 +1,18 @@
 # Hari Sekhon - HashiCorp Packer templates
 
-[![GitHub stars](https://img.shields.io/github/stars/HariSekhon/Packer-templates?logo=github)](https://github.com/HariSekhon/Packer-templates/stargazers)
-[![GitHub forks](https://img.shields.io/github/forks/HariSekhon/Packer-templates?logo=github)](https://github.com/HariSekhon/Packer-templates/network)
-[![Lines of Code](https://img.shields.io/badge/lines%20of%20code-1k-lightgrey?logo=codecademy)](https://github.com/HariSekhon/Packer-templates#Hari-Sekhon---Packer-templates)
-[![License](https://img.shields.io/badge/license-MIT-green)](https://github.com/HariSekhon/Packer-templates/blob/master/LICENSE)
+[![GitHub stars](https://img.shields.io/github/stars/HariSekhon/Packer?logo=github)](https://github.com/HariSekhon/Packer/stargazers)
+[![GitHub forks](https://img.shields.io/github/forks/HariSekhon/Packer?logo=github)](https://github.com/HariSekhon/Packer/network)
+[![Lines of Code](https://img.shields.io/badge/lines%20of%20code-1k-lightgrey?logo=codecademy)](https://github.com/HariSekhon/Packer#Hari-Sekhon---Packer)
+[![License](https://img.shields.io/badge/license-MIT-green)](https://github.com/HariSekhon/Packer/blob/master/LICENSE)
 [![My LinkedIn](https://img.shields.io/badge/LinkedIn%20Profile-HariSekhon-blue?logo=data:image/svg%2bxml;base64,PHN2ZyByb2xlPSJpbWciIGZpbGw9IiNmZmZmZmYiIHZpZXdCb3g9IjAgMCAyNCAyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48dGl0bGU+TGlua2VkSW48L3RpdGxlPjxwYXRoIGQ9Ik0yMC40NDcgMjAuNDUyaC0zLjU1NHYtNS41NjljMC0xLjMyOC0uMDI3LTMuMDM3LTEuODUyLTMuMDM3LTEuODUzIDAtMi4xMzYgMS40NDUtMi4xMzYgMi45Mzl2NS42NjdIOS4zNTFWOWgzLjQxNHYxLjU2MWguMDQ2Yy40NzctLjkgMS42MzctMS44NSAzLjM3LTEuODUgMy42MDEgMCA0LjI2NyAyLjM3IDQuMjY3IDUuNDU1djYuMjg2ek01LjMzNyA3LjQzM2MtMS4xNDQgMC0yLjA2My0uOTI2LTIuMDYzLTIuMDY1IDAtMS4xMzguOTItMi4wNjMgMi4wNjMtMi4wNjMgMS4xNCAwIDIuMDY0LjkyNSAyLjA2NCAyLjA2MyAwIDEuMTM5LS45MjUgMi4wNjUtMi4wNjQgMi4wNjV6bTEuNzgyIDEzLjAxOUgzLjU1NVY5aDMuNTY0djExLjQ1MnpNMjIuMjI1IDBIMS43NzFDLjc5MiAwIDAgLjc3NCAwIDEuNzI5djIwLjU0MkMwIDIzLjIyNy43OTIgMjQgMS43NzEgMjRoMjAuNDUxQzIzLjIgMjQgMjQgMjMuMjI3IDI0IDIyLjI3MVYxLjcyOUMyNCAuNzc0IDIzLjIgMCAyMi4yMjIgMGguMDAzeiIvPjwvc3ZnPgo=)](https://www.linkedin.com/in/HariSekhon/)
-[![GitHub Last Commit](https://img.shields.io/github/last-commit/HariSekhon/Packer-templates?logo=github)](https://github.com/HariSekhon/Packer-templates/commits/master)
+[![GitHub Last Commit](https://img.shields.io/github/last-commit/HariSekhon/Packer?logo=github)](https://github.com/HariSekhon/Packer/commits/master)
 
-[![Codacy](https://app.codacy.com/project/badge/Grade/19fb3e1bf45f494fb7332d4829cb3cd6)](https://www.codacy.com/gh/HariSekhon/Packer-templates/dashboard)
-[![CodeFactor](https://www.codefactor.io/repository/github/harisekhon/Packer-templates/badge)](https://www.codefactor.io/repository/github/harisekhon/Packer-templates)
-[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=HariSekhon_Packer-templates&metric=alert_status)](https://sonarcloud.io/dashboard?id=HariSekhon_Packer-templates)
-[![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=HariSekhon_Packer-templates&metric=sqale_rating)](https://sonarcloud.io/dashboard?id=HariSekhon_Packer-templates)
-[![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=HariSekhon_Packer-templates&metric=reliability_rating)](https://sonarcloud.io/dashboard?id=HariSekhon_Packer-templates)
-[![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=HariSekhon_Packer-templates&metric=security_rating)](https://sonarcloud.io/dashboard?id=HariSekhon_Packer-templates)
+[![Codacy](https://app.codacy.com/project/badge/Grade/19fb3e1bf45f494fb7332d4829cb3cd6)](https://www.codacy.com/gh/HariSekhon/Packer/dashboard)
+[![CodeFactor](https://www.codefactor.io/repository/github/harisekhon/Packer/badge)](https://www.codefactor.io/repository/github/harisekhon/Packer)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=HariSekhon_Packer&metric=alert_status)](https://sonarcloud.io/dashboard?id=HariSekhon_Packer)
+[![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=HariSekhon_Packer&metric=sqale_rating)](https://sonarcloud.io/dashboard?id=HariSekhon_Packer)
+[![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=HariSekhon_Packer&metric=reliability_rating)](https://sonarcloud.io/dashboard?id=HariSekhon_Packer)
+[![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=HariSekhon_Packer&metric=security_rating)](https://sonarcloud.io/dashboard?id=HariSekhon_Packer)
 
 ![HCL](https://img.shields.io/badge/Hashicorp%20Packer-HCL-blue)
 [![Linux](https://img.shields.io/badge/OS-Linux-blue?logo=linux)](https://github.com/HariSekhon/DevOps-Bash-tools#hari-sekhon---devops-bash-tools)
@@ -26,37 +26,37 @@
 [![Rocky](https://img.shields.io/badge/Linux-Rocky-10B981?logo=rockylinux&logoColor=white)](https://rockylinux.org/)
 [![Ubuntu](https://img.shields.io/badge/Linux-Ubuntu-E95420?logo=ubuntu&logoColor=white)](https://ubuntu.com/)
 
-[![Repo on GitHub](https://img.shields.io/badge/repo-GitHub-2088FF?logo=github)](https://github.com/HariSekhon/Packer-templates)
-[![Repo on GitLab](https://img.shields.io/badge/repo-GitLab-FCA121?logo=gitlab)](https://gitlab.com/HariSekhon/Packer-templates)
-[![Repo on Azure DevOps](https://img.shields.io/badge/repo-Azure%20DevOps-0078D7?logo=azure%20devops)](https://dev.azure.com/HariSekhon/GitHub/_git/Packer-templates)
-[![Repo on BitBucket](https://img.shields.io/badge/repo-BitBucket-0052CC?logo=bitbucket)](https://bitbucket.org/HariSekhon/Packer-templates)
+[![Repo on GitHub](https://img.shields.io/badge/repo-GitHub-2088FF?logo=github)](https://github.com/HariSekhon/Packer)
+[![Repo on GitLab](https://img.shields.io/badge/repo-GitLab-FCA121?logo=gitlab)](https://gitlab.com/HariSekhon/Packer)
+[![Repo on Azure DevOps](https://img.shields.io/badge/repo-Azure%20DevOps-0078D7?logo=azure%20devops)](https://dev.azure.com/HariSekhon/GitHub/_git/Packer)
+[![Repo on BitBucket](https://img.shields.io/badge/repo-BitBucket-0052CC?logo=bitbucket)](https://bitbucket.org/HariSekhon/Packer)
 
 [![CI Builds Overview](https://img.shields.io/badge/CI%20Builds-Overview%20Page-blue?logo=circleci)](https://harisekhon.github.io/CI-CD/)
-[![Validation](https://github.com/HariSekhon/Packer-templates/actions/workflows/validate.yaml/badge.svg)](https://github.com/HariSekhon/Packer-templates/actions/workflows/validate.yaml)
-[![Kics](https://github.com/HariSekhon/Packer-templates/actions/workflows/kics.yaml/badge.svg)](https://github.com/HariSekhon/Packer-templates/actions/workflows/kics.yaml)
-[![Grype](https://github.com/HariSekhon/Packer-templates/actions/workflows/grype.yaml/badge.svg)](https://github.com/HariSekhon/Packer-templates/actions/workflows/grype.yaml)
-[![Semgrep](https://github.com/HariSekhon/Packer-templates/actions/workflows/semgrep.yaml/badge.svg)](https://github.com/HariSekhon/Packer-templates/actions/workflows/semgrep.yaml)
-[![Semgrep Cloud](https://github.com/HariSekhon/Packer-templates/actions/workflows/semgrep-cloud.yaml/badge.svg)](https://github.com/HariSekhon/Packer-templates/actions/workflows/semgrep-cloud.yaml)
-[![Trivy](https://github.com/HariSekhon/Packer-templates/actions/workflows/trivy.yaml/badge.svg)](https://github.com/HariSekhon/Packer-templates/actions/workflows/trivy.yaml)
+[![Validation](https://github.com/HariSekhon/Packer/actions/workflows/validate.yaml/badge.svg)](https://github.com/HariSekhon/Packer/actions/workflows/validate.yaml)
+[![Kics](https://github.com/HariSekhon/Packer/actions/workflows/kics.yaml/badge.svg)](https://github.com/HariSekhon/Packer/actions/workflows/kics.yaml)
+[![Grype](https://github.com/HariSekhon/Packer/actions/workflows/grype.yaml/badge.svg)](https://github.com/HariSekhon/Packer/actions/workflows/grype.yaml)
+[![Semgrep](https://github.com/HariSekhon/Packer/actions/workflows/semgrep.yaml/badge.svg)](https://github.com/HariSekhon/Packer/actions/workflows/semgrep.yaml)
+[![Semgrep Cloud](https://github.com/HariSekhon/Packer/actions/workflows/semgrep-cloud.yaml/badge.svg)](https://github.com/HariSekhon/Packer/actions/workflows/semgrep-cloud.yaml)
+[![Trivy](https://github.com/HariSekhon/Packer/actions/workflows/trivy.yaml/badge.svg)](https://github.com/HariSekhon/Packer/actions/workflows/trivy.yaml)
 
-[![HashiCorp Packer HCL](https://github.com/HariSekhon/Packer-templates/actions/workflows/packer.yaml/badge.svg)](https://github.com/HariSekhon/Packer-templates/actions/workflows/packer.yaml)
-[![Redhat Kickstart](https://github.com/HariSekhon/Packer-templates/actions/workflows/kickstart.yaml/badge.svg)](https://github.com/HariSekhon/Packer-templates/actions/workflows/kickstart.yaml)
-[![Debian Preseed](https://github.com/HariSekhon/Packer-templates/actions/workflows/preseed.yaml/badge.svg)](https://github.com/HariSekhon/Packer-templates/actions/workflows/preseed.yaml)
-[![Ubuntu AutoInstall Cloud-Init](https://github.com/HariSekhon/Packer-templates/actions/workflows/autoinstall-user-data.yaml/badge.svg)](https://github.com/HariSekhon/Packer-templates/actions/workflows/autoinstall-user-data.yaml)
+[![HashiCorp Packer HCL](https://github.com/HariSekhon/Packer/actions/workflows/packer.yaml/badge.svg)](https://github.com/HariSekhon/Packer/actions/workflows/packer.yaml)
+[![Redhat Kickstart](https://github.com/HariSekhon/Packer/actions/workflows/kickstart.yaml/badge.svg)](https://github.com/HariSekhon/Packer/actions/workflows/kickstart.yaml)
+[![Debian Preseed](https://github.com/HariSekhon/Packer/actions/workflows/preseed.yaml/badge.svg)](https://github.com/HariSekhon/Packer/actions/workflows/preseed.yaml)
+[![Ubuntu AutoInstall Cloud-Init](https://github.com/HariSekhon/Packer/actions/workflows/autoinstall-user-data.yaml/badge.svg)](https://github.com/HariSekhon/Packer/actions/workflows/autoinstall-user-data.yaml)
 
 Packer templates for building portable OVA virtual machines images.
 
 Useful for IoT edge sites, [Kubernetes](https://github.com/HariSekhon/Kubernetes-configs) base servers etc.
 
-Bare metal servers can be installed using each Linux distro's native [automated installers](https://github.com/HariSekhon/Packer-templates/tree/main/installers).
+Bare metal servers can be installed using each Linux distro's native [automated installers](https://github.com/HariSekhon/Packer/tree/main/installers).
 
 Virtual Machines as appliances in portable OVA format are 100% automated using the installers above.
 
 The primary templates are for the main Linux distributions:
 
-- Ubuntu - using Ubuntu [AutoInstaller](https://github.com/HariSekhon/Packer-templates/blob/main/installers/autoinstall-user-data)
-- Debian - using Debian [Preseeding](https://github.com/HariSekhon/Packer-templates/blob/main/installers/preseed.cfg)
-- Redhat - using Redhat [Kickstart](https://github.com/HariSekhon/Packer-templates/blob/main/installers/anaconda-ks.cfg)
+- Ubuntu - using Ubuntu [AutoInstaller](https://github.com/HariSekhon/Packer/blob/main/installers/autoinstall-user-data)
+- Debian - using Debian [Preseeding](https://github.com/HariSekhon/Packer/blob/main/installers/preseed.cfg)
+- Redhat - using Redhat [Kickstart](https://github.com/HariSekhon/Packer/blob/main/installers/anaconda-ks.cfg)
   - Redhat Enterprise Linux (RHEL)
   - CentOS (end-of-life)
   - Rocky Linux (CentOS replacement)
@@ -70,27 +70,27 @@ The following builds are provided for these combinations of Linux distros, arche
 
 - [VirtualBox](https://www.virtualbox.org/)
   - x86_64:
-    - [debian-x86_64.vbox.pkr.hcl](https://github.com/HariSekhon/Packer-templates/blob/main/debian-x86_64.vbox.pkr.hcl)
-    - [fedora-x86_64.vbox.pkr.hcl](https://github.com/HariSekhon/Packer-templates/blob/main/fedora-x86_64.vbox.pkr.hcl)
-    - [rocky-x86_64.vbox.pkr.hcl](https://github.com/HariSekhon/Packer-templates/blob/main/rocky-x86_64.vbox.pkr.hcl)
-    - [ubuntu-x86_64.vbox.pkr.hcl](https://github.com/HariSekhon/Packer-templates/blob/main/ubuntu-x86_64.vbox.pkr.hcl)
+    - [debian-x86_64.vbox.pkr.hcl](https://github.com/HariSekhon/Packer/blob/main/debian-x86_64.vbox.pkr.hcl)
+    - [fedora-x86_64.vbox.pkr.hcl](https://github.com/HariSekhon/Packer/blob/main/fedora-x86_64.vbox.pkr.hcl)
+    - [rocky-x86_64.vbox.pkr.hcl](https://github.com/HariSekhon/Packer/blob/main/rocky-x86_64.vbox.pkr.hcl)
+    - [ubuntu-x86_64.vbox.pkr.hcl](https://github.com/HariSekhon/Packer/blob/main/ubuntu-x86_64.vbox.pkr.hcl)
 - [Qemu](https://www.qemu.org/)
   - x86_64:
-    - [debian-x86_64.qemu.pkr.hcl](https://github.com/HariSekhon/Packer-templates/blob/main/debian-x86_64.qemu.pkr.hcl)
-    - [fedora-x86_64.qemu.pkr.hcl](https://github.com/HariSekhon/Packer-templates/blob/main/fedora-x86_64.qemu.pkr.hcl)
-    - [rocky-x86_64.qemu.pkr.hcl](https://github.com/HariSekhon/Packer-templates/blob/main/rocky-x86_64.qemu.pkr.hcl)
-    - [ubuntu-x86_64.qemu.pkr.hcl](https://github.com/HariSekhon/Packer-templates/blob/main/ubuntu-x86_64.qemu.pkr.hcl)
+    - [debian-x86_64.qemu.pkr.hcl](https://github.com/HariSekhon/Packer/blob/main/debian-x86_64.qemu.pkr.hcl)
+    - [fedora-x86_64.qemu.pkr.hcl](https://github.com/HariSekhon/Packer/blob/main/fedora-x86_64.qemu.pkr.hcl)
+    - [rocky-x86_64.qemu.pkr.hcl](https://github.com/HariSekhon/Packer/blob/main/rocky-x86_64.qemu.pkr.hcl)
+    - [ubuntu-x86_64.qemu.pkr.hcl](https://github.com/HariSekhon/Packer/blob/main/ubuntu-x86_64.qemu.pkr.hcl)
   - arm64:
-    - [debian-arm64.qemu.pkr.hcl](https://github.com/HariSekhon/Packer-templates/blob/main/debian-arm64.qemu.pkr.hcl)
-    - [fedora-arm64.qemu.pkr.hcl](https://github.com/HariSekhon/Packer-templates/blob/main/fedora-arm64.qemu.pkr.hcl)
-    - [rocky-arm64.qemu.pkr.hcl](https://github.com/HariSekhon/Packer-templates/blob/main/rocky-arm64.qemu.pkr.hcl)
-    - [ubuntu-arm64.qemu.pkr.hcl](https://github.com/HariSekhon/Packer-templates/blob/main/ubuntu-arm64.qemu.pkr.hcl)
+    - [debian-arm64.qemu.pkr.hcl](https://github.com/HariSekhon/Packer/blob/main/debian-arm64.qemu.pkr.hcl)
+    - [fedora-arm64.qemu.pkr.hcl](https://github.com/HariSekhon/Packer/blob/main/fedora-arm64.qemu.pkr.hcl)
+    - [rocky-arm64.qemu.pkr.hcl](https://github.com/HariSekhon/Packer/blob/main/rocky-arm64.qemu.pkr.hcl)
+    - [ubuntu-arm64.qemu.pkr.hcl](https://github.com/HariSekhon/Packer/blob/main/ubuntu-arm64.qemu.pkr.hcl)
 - [Tart](https://tart.run/)
   - arm64:
-    - [debian-arm64.tart.http.pkr.hcl](https://github.com/HariSekhon/Packer-templates/blob/main/debian-arm64.tart.http.pkr.hcl)
-    - [fedora-arm64.tart.http.pkr.hcl](https://github.com/HariSekhon/Packer-templates/blob/main/fedora-arm64.tart.http.pkr.hcl)
-    - [rocky-arm64.tart.http.pkr.hcl](https://github.com/HariSekhon/Packer-templates/blob/main/rocky-arm64.tart.http.pkr.hcl)
-    - [ubuntu-arm64.tart.http.pkr.hcl](https://github.com/HariSekhon/Packer-templates/blob/main/ubuntu-arm64.tart.http.pkr.hcl)
+    - [debian-arm64.tart.http.pkr.hcl](https://github.com/HariSekhon/Packer/blob/main/debian-arm64.tart.http.pkr.hcl)
+    - [fedora-arm64.tart.http.pkr.hcl](https://github.com/HariSekhon/Packer/blob/main/fedora-arm64.tart.http.pkr.hcl)
+    - [rocky-arm64.tart.http.pkr.hcl](https://github.com/HariSekhon/Packer/blob/main/rocky-arm64.tart.http.pkr.hcl)
+    - [ubuntu-arm64.tart.http.pkr.hcl](https://github.com/HariSekhon/Packer/blob/main/ubuntu-arm64.tart.http.pkr.hcl)
 
 ## Quick Start
 
