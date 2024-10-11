@@ -32,6 +32,7 @@
 [![Repo on BitBucket](https://img.shields.io/badge/repo-BitBucket-0052CC?logo=bitbucket)](https://bitbucket.org/HariSekhon/Packer)
 
 [![CI Builds Overview](https://img.shields.io/badge/CI%20Builds-Overview%20Page-blue?logo=circleci)](https://harisekhon.github.io/CI-CD/)
+[![Markdown](https://github.com/HariSekhon/Packer/actions/workflows/markdown.yaml/badge.svg)](https://github.com/HariSekhon/Packer/actions/workflows/markdown.yaml)
 [![Validation](https://github.com/HariSekhon/Packer/actions/workflows/validate.yaml/badge.svg)](https://github.com/HariSekhon/Packer/actions/workflows/validate.yaml)
 [![Kics](https://github.com/HariSekhon/Packer/actions/workflows/kics.yaml/badge.svg)](https://github.com/HariSekhon/Packer/actions/workflows/kics.yaml)
 [![Grype](https://github.com/HariSekhon/Packer/actions/workflows/grype.yaml/badge.svg)](https://github.com/HariSekhon/Packer/actions/workflows/grype.yaml)
