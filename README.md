@@ -133,9 +133,9 @@ or for a specific build:
 make <distro>-<major_version>
 ```
 
-### Stargazers over time
+## Star History
 
-[![Stargazers over time](https://starchart.cc/HariSekhon/Packer.svg)](https://starchart.cc/HariSekhon/Packer)
+[![Star History Chart](https://api.star-history.com/svg?repos=HariSekhon/Packer&type=Date)](https://star-history.com/#HariSekhon/Packer&Date)
 
 ## More Core Repos
 
